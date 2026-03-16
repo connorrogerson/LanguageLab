@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LanguageLab — Language Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --ink: #1a1a2e;
+  --cream: #faf8f4;
+  --warm: #f5f0e8;
+  --red: #c0392b;
+  --gold: #d4a017;
+  --green: #27ae60;
+  --blue: #2471a3;
+  --accent: #e74c3c;
+  --muted: #7f8c8d;
+  --border: #ddd5c8;
+  --card: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.app-header {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.app-header::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink);
+}
+
+.app-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.8rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.app-title span { color: var(--red); }
+
+.app-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 0;
+  margin-bottom: 32px;
+  border: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+.nav-btn {
+  flex: 1;
+  padding: 14px 12px;
+  border: none;
+  background: var(--card);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  border-right: 1px solid var(--border);
+}
+
+.nav-btn:last-child { border-right: none; }
+.nav-btn:hover { background: var(--warm); }
+.nav-btn.active { background: var(--ink); color: var(--cream); }
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.drill-verb-display {
+  text-align: center;
+  padding: 24px;
+  margin-bottom: 24px;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.drill-verb {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.2rem;
+}
+
+.drill-meaning {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.drill-tense {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 16px;
+  background: var(--red);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.drill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.drill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: var(--warm);
+}
+
+.drill-pronoun {
+  font-weight: 600;
+  min-width: 80px;
+  font-size: 0.95rem;
+  color: var(--blue);
+}
+
+.drill-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.drill-input:focus { outline: none; border-color: var(--blue); }
+.drill-input.correct { border-color: var(--green); background: #e8f8f0; }
+.drill-input.incorrect { border-color: var(--red); background: #fde8e6; }
+
+.drill-answer { font-size: 0.85rem; margin-top: 4px; font-weight: 500; }
+.drill-answer.show { color: var(--red); }
+
+.btn {
+  padding: 12px 28px;
+  border: 2px solid var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.btn-primary { background: var(--ink); color: var(--cream); }
+.btn-primary:hover { background: var(--red); border-color: var(--red); }
+.btn-secondary { background: var(--card); color: var(--ink); }
+.btn-secondary:hover { background: var(--warm); }
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.score-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.score-num { font-weight: 700; font-size: 1.1rem; }
+.score-num.good { color: var(--green); }
+.score-num.ok { color: var(--gold); }
+.score-num.poor { color: var(--red); }
+
+.flashcard-container { perspective: 1000px; margin: 20px 0; }
+
+.flashcard {
+  width: 100%;
+  min-height: 220px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.flashcard.flipped { transform: rotateY(180deg); }
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  border: 2px solid var(--ink);
+}
+
+.flashcard-front { background: var(--ink); color: var(--cream); }
+.flashcard-back { background: var(--card); transform: rotateY(180deg); }
+
+.flashcard-word {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.flashcard-detail { font-size: 0.95rem; margin-top: 8px; opacity: 0.7; }
+
+.flashcard-gender {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.gender-m { background: var(--blue); color: white; }
+.gender-f { background: var(--red); color: white; }
+.gender-n { background: var(--green); color: white; }
+
+.flashcard-hint { font-size: 0.8rem; color: var(--muted); margin-top: 16px; }
+
+.flashcard-progress {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.flashcard-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-chip {
+  padding: 6px 16px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-chip:hover { border-color: var(--ink); }
+.filter-chip.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+.tense-selector {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  border: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+.tense-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: var(--card);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-right: 1px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tense-btn:last-child { border-right: none; }
+.tense-btn:hover { background: var(--warm); }
+.tense-btn.active { background: var(--red); color: white; }
+
+.worksheet-preview {
+  border: 2px solid var(--ink);
+  padding: 32px;
+  background: white;
+  font-size: 0.95rem;
+}
+
+.ws-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.ws-subtitle {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ws-section { margin-bottom: 24px; }
+
+.ws-section-title {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+}
+
+.ws-question {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.ws-q-num { font-weight: 700; min-width: 24px; color: var(--muted); }
+
+.ws-blank {
+  display: inline-block;
+  min-width: 140px;
+  border-bottom: 1.5px solid var(--ink);
+  margin: 0 4px;
+}
+
+.ws-name-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.ws-name-field { font-size: 0.85rem; color: var(--muted); }
+
+.ws-answer-key {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 2px dashed var(--border);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.ws-answer-key strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.info-box {
+  padding: 14px 18px;
+  background: var(--warm);
+  border-left: 4px solid var(--blue);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .app-title { font-size: 2rem; }
+  .card { padding: 18px; }
+  .nav-btn { font-size: 0.75rem; padding: 10px 6px; }
+  .drill-verb { font-size: 1.6rem; }
+  .drill-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .worksheet-preview { border: none; padding: 20px 0; }
+  .app-header, .nav-bar, .btn-group, .card { break-inside: avoid; }
+  body { background: white; }
+}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+
+  <script type="text/babel">
+const { useState, useEffect, useCallback, useRef } = React;
+
+// ─── DATA ────────────────────────────────────────────────────────────
+const VERBS = [
+  {
+    infinitive: "sein", meaning: "to be",
+    present: { ich: "bin", du: "bist", "er/sie/es": "ist", wir: "sind", ihr: "seid", "sie/Sie": "sind" },
+    perfekt: { ich: "bin gewesen", du: "bist gewesen", "er/sie/es": "ist gewesen", wir: "sind gewesen", ihr: "seid gewesen", "sie/Sie": "sind gewesen" },
+    präteritum: { ich: "war", du: "warst", "er/sie/es": "war", wir: "waren", ihr: "wart", "sie/Sie": "waren" },
+  },
+  {
+    infinitive: "haben", meaning: "to have",
+    present: { ich: "habe", du: "hast", "er/sie/es": "hat", wir: "haben", ihr: "habt", "sie/Sie": "haben" },
+    perfekt: { ich: "habe gehabt", du: "hast gehabt", "er/sie/es": "hat gehabt", wir: "haben gehabt", ihr: "habt gehabt", "sie/Sie": "haben gehabt" },
+    präteritum: { ich: "hatte", du: "hattest", "er/sie/es": "hatte", wir: "hatten", ihr: "hattet", "sie/Sie": "hatten" },
+  },
+  {
+    infinitive: "werden", meaning: "to become",
+    present: { ich: "werde", du: "wirst", "er/sie/es": "wird", wir: "werden", ihr: "werdet", "sie/Sie": "werden" },
+    perfekt: { ich: "bin geworden", du: "bist geworden", "er/sie/es": "ist geworden", wir: "sind geworden", ihr: "seid geworden", "sie/Sie": "sind geworden" },
+    präteritum: { ich: "wurde", du: "wurdest", "er/sie/es": "wurde", wir: "wurden", ihr: "wurdet", "sie/Sie": "wurden" },
+  },
+  {
+    infinitive: "gehen", meaning: "to go",
+    present: { ich: "gehe", du: "gehst", "er/sie/es": "geht", wir: "gehen", ihr: "geht", "sie/Sie": "gehen" },
+    perfekt: { ich: "bin gegangen", du: "bist gegangen", "er/sie/es": "ist gegangen", wir: "sind gegangen", ihr: "seid gegangen", "sie/Sie": "sind gegangen" },
+    präteritum: { ich: "ging", du: "gingst", "er/sie/es": "ging", wir: "gingen", ihr: "gingt", "sie/Sie": "gingen" },
+  },
+  {
+    infinitive: "machen", meaning: "to do/make",
+    present: { ich: "mache", du: "machst", "er/sie/es": "macht", wir: "machen", ihr: "macht", "sie/Sie": "machen" },
+    perfekt: { ich: "habe gemacht", du: "hast gemacht", "er/sie/es": "hat gemacht", wir: "haben gemacht", ihr: "habt gemacht", "sie/Sie": "haben gemacht" },
+    präteritum: { ich: "machte", du: "machtest", "er/sie/es": "machte", wir: "machten", ihr: "machtet", "sie/Sie": "machten" },
+  },
+  {
+    infinitive: "können", meaning: "to be able to",
+    present: { ich: "kann", du: "kannst", "er/sie/es": "kann", wir: "können", ihr: "könnt", "sie/Sie": "können" },
+    perfekt: { ich: "habe gekonnt", du: "hast gekonnt", "er/sie/es": "hat gekonnt", wir: "haben gekonnt", ihr: "habt gekonnt", "sie/Sie": "haben gekonnt" },
+    präteritum: { ich: "konnte", du: "konntest", "er/sie/es": "konnte", wir: "konnten", ihr: "konntet", "sie/Sie": "konnten" },
+  },
+  {
+    infinitive: "müssen", meaning: "to have to/must",
+    present: { ich: "muss", du: "musst", "er/sie/es": "muss", wir: "müssen", ihr: "müsst", "sie/Sie": "müssen" },
+    perfekt: { ich: "habe gemusst", du: "hast gemusst", "er/sie/es": "hat gemusst", wir: "haben gemusst", ihr: "habt gemusst", "sie/Sie": "haben gemusst" },
+    präteritum: { ich: "musste", du: "musstest", "er/sie/es": "musste", wir: "mussten", ihr: "musstet", "sie/Sie": "mussten" },
+  },
+  {
+    infinitive: "sagen", meaning: "to say",
+    present: { ich: "sage", du: "sagst", "er/sie/es": "sagt", wir: "sagen", ihr: "sagt", "sie/Sie": "sagen" },
+    perfekt: { ich: "habe gesagt", du: "hast gesagt", "er/sie/es": "hat gesagt", wir: "haben gesagt", ihr: "habt gesagt", "sie/Sie": "haben gesagt" },
+    präteritum: { ich: "sagte", du: "sagtest", "er/sie/es": "sagte", wir: "sagten", ihr: "sagtet", "sie/Sie": "sagten" },
+  },
+  {
+    infinitive: "geben", meaning: "to give",
+    present: { ich: "gebe", du: "gibst", "er/sie/es": "gibt", wir: "geben", ihr: "gebt", "sie/Sie": "geben" },
+    perfekt: { ich: "habe gegeben", du: "hast gegeben", "er/sie/es": "hat gegeben", wir: "haben gegeben", ihr: "habt gegeben", "sie/Sie": "haben gegeben" },
+    präteritum: { ich: "gab", du: "gabst", "er/sie/es": "gab", wir: "gaben", ihr: "gabt", "sie/Sie": "gaben" },
+  },
+  {
+    infinitive: "kommen", meaning: "to come",
+    present: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" },
+    perfekt: { ich: "bin gekommen", du: "bist gekommen", "er/sie/es": "ist gekommen", wir: "sind gekommen", ihr: "seid gekommen", "sie/Sie": "sind gekommen" },
+    präteritum: { ich: "kam", du: "kamst", "er/sie/es": "kam", wir: "kamen", ihr: "kamt", "sie/Sie": "kamen" },
+  },
+  {
+    infinitive: "wollen", meaning: "to want",
+    present: { ich: "will", du: "willst", "er/sie/es": "will", wir: "wollen", ihr: "wollt", "sie/Sie": "wollen" },
+    perfekt: { ich: "habe gewollt", du: "hast gewollt", "er/sie/es": "hat gewollt", wir: "haben gewollt", ihr: "habt gewollt", "sie/Sie": "haben gewollt" },
+    präteritum: { ich: "wollte", du: "wolltest", "er/sie/es": "wollte", wir: "wollten", ihr: "wolltet", "sie/Sie": "wollten" },
+  },
+  {
+    infinitive: "wissen", meaning: "to know (a fact)",
+    present: { ich: "weiß", du: "weißt", "er/sie/es": "weiß", wir: "wissen", ihr: "wisst", "sie/Sie": "wissen" },
+    perfekt: { ich: "habe gewusst", du: "hast gewusst", "er/sie/es": "hat gewusst", wir: "haben gewusst", ihr: "habt gewusst", "sie/Sie": "haben gewusst" },
+    präteritum: { ich: "wusste", du: "wusstest", "er/sie/es": "wusste", wir: "wussten", ihr: "wusstet", "sie/Sie": "wussten" },
+  },
+];
+
+const PRONOUNS = ["ich", "du", "er/sie/es", "wir", "ihr", "sie/Sie"];
+const TENSES = ["present", "präteritum", "perfekt"];
+const TENSE_LABELS = { present: "Präsens", präteritum: "Präteritum", perfekt: "Perfekt" };
+
+const VOCAB = [
+  { german: "die Wohnung", english: "flat/apartment", gender: "f", topic: "Home" },
+  { german: "das Schlafzimmer", english: "bedroom", gender: "n", topic: "Home" },
+  { german: "die Küche", english: "kitchen", gender: "f", topic: "Home" },
+  { german: "der Flur", english: "hallway", gender: "m", topic: "Home" },
+  { german: "die Treppe", english: "stairs", gender: "f", topic: "Home" },
+  { german: "der Bahnhof", english: "train station", gender: "m", topic: "Travel" },
+  { german: "die Fahrkarte", english: "ticket", gender: "f", topic: "Travel" },
+  { german: "das Flugzeug", english: "aeroplane", gender: "n", topic: "Travel" },
+  { german: "der Koffer", english: "suitcase", gender: "m", topic: "Travel" },
+  { german: "die Reise", english: "journey/trip", gender: "f", topic: "Travel" },
+  { german: "das Abendessen", english: "dinner/supper", gender: "n", topic: "Food" },
+  { german: "die Rechnung", english: "bill", gender: "f", topic: "Food" },
+  { german: "der Kellner", english: "waiter", gender: "m", topic: "Food" },
+  { german: "das Gericht", english: "dish/course", gender: "n", topic: "Food" },
+  { german: "die Vorspeise", english: "starter", gender: "f", topic: "Food" },
+  { german: "der Beruf", english: "profession/job", gender: "m", topic: "Work" },
+  { german: "die Bewerbung", english: "application", gender: "f", topic: "Work" },
+  { german: "das Gehalt", english: "salary", gender: "n", topic: "Work" },
+  { german: "der Arbeitgeber", english: "employer", gender: "m", topic: "Work" },
+  { german: "die Erfahrung", english: "experience", gender: "f", topic: "Work" },
+  { german: "das Krankenhaus", english: "hospital", gender: "n", topic: "Health" },
+  { german: "der Arzt", english: "doctor", gender: "m", topic: "Health" },
+  { german: "die Erkältung", english: "cold (illness)", gender: "f", topic: "Health" },
+  { german: "das Rezept", english: "prescription/recipe", gender: "n", topic: "Health" },
+  { german: "der Schmerz", english: "pain", gender: "m", topic: "Health" },
+  { german: "die Umwelt", english: "environment", gender: "f", topic: "Environment" },
+  { german: "der Klimawandel", english: "climate change", gender: "m", topic: "Environment" },
+  { german: "die Verschmutzung", english: "pollution", gender: "f", topic: "Environment" },
+  { german: "das Recycling", english: "recycling", gender: "n", topic: "Environment" },
+  { german: "der Verbrauch", english: "consumption", gender: "m", topic: "Environment" },
+];
+
+const TOPICS = [...new Set(VOCAB.map(v => v.topic))];
+
+const shuffle = (arr) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+const pick = (arr, n) => shuffle(arr).slice(0, n);
+
+// ─── CONJUGATION DRILL ──────────────────────────────────────────────
+function ConjugationDrill() {
+  const [tense, setTense] = useState("present");
+  const [currentVerb, setCurrentVerb] = useState(null);
+  const [answers, setAnswers] = useState({});
+  const [checked, setChecked] = useState(false);
+  const [score, setScore] = useState({ correct: 0, total: 0 });
+  const [streak, setStreak] = useState(0);
+  const inputRefs = useRef({});
+
+  const newVerb = useCallback(() => {
+    const verb = VERBS[Math.floor(Math.random() * VERBS.length)];
+    setCurrentVerb(verb);
+    setAnswers({});
+    setChecked(false);
+  }, []);
+
+  useEffect(() => { newVerb(); }, [newVerb]);
+
+  const handleCheck = () => {
+    if (!currentVerb) return;
+    setChecked(true);
+    const conjugations = currentVerb[tense];
+    let allCorrect = true;
+    PRONOUNS.forEach(p => {
+      if ((answers[p] || "").trim().toLowerCase() !== conjugations[p].toLowerCase()) {
+        allCorrect = false;
+      }
+    });
+    const correctCount = PRONOUNS.filter(p =>
+      (answers[p] || "").trim().toLowerCase() === conjugations[p].toLowerCase()
+    ).length;
+    setScore(prev => ({ correct: prev.correct + correctCount, total: prev.total + 6 }));
+    setStreak(allCorrect ? streak + 1 : 0);
+  };
+
+  const handleKeyDown = (e, pronoun) => {
+    if (e.key === "Enter") {
+      const idx = PRONOUNS.indexOf(pronoun);
+      if (idx < PRONOUNS.length - 1) {
+        inputRefs.current[PRONOUNS[idx + 1]]?.focus();
+      } else {
+        handleCheck();
+      }
+    }
+  };
+
+  if (!currentVerb) return null;
+
+  const conjugations = currentVerb[tense];
+  const pct = score.total > 0 ? Math.round((score.correct / score.total) * 100) : null;
+
+  return (
+    <div>
+      <div className="info-box">
+        Conjugate the verb for each pronoun. Press <strong>Enter</strong> to move between fields, or click <strong>Check</strong> when done.
+      </div>
+
+      <div className="tense-selector no-print">
+        {TENSES.map(t => (
+          <button key={t} className={`tense-btn ${tense === t ? "active" : ""}`}
+            onClick={() => { setTense(t); newVerb(); }}>
+            {TENSE_LABELS[t]}
+          </button>
+        ))}
+      </div>
+
+      {(pct !== null || streak > 1) && (
+        <div className="score-bar no-print">
+          {pct !== null && (
+            <span>Accuracy: <span className={`score-num ${pct >= 80 ? "good" : pct >= 50 ? "ok" : "poor"}`}>{pct}%</span></span>
+          )}
+          {streak > 1 && <span className="streak">🔥 {streak} in a row</span>}
+        </div>
+      )}
+
+      <div className="drill-verb-display">
+        <div className="drill-verb">{currentVerb.infinitive}</div>
+        <div className="drill-meaning">{currentVerb.meaning}</div>
+        <div className="drill-tense">{TENSE_LABELS[tense]}</div>
+      </div>
+
+      <div className="drill-grid">
+        {PRONOUNS.map(pronoun => {
+          const correct = checked && (answers[pronoun] || "").trim().toLowerCase() === conjugations[pronoun].toLowerCase();
+          const incorrect = checked && !correct;
+          return (
+            <div key={pronoun} className="drill-item">
+              <span className="drill-pronoun">{pronoun}</span>
+              <div style={{ flex: 1 }}>
+                <input
+                  ref={el => inputRefs.current[pronoun] = el}
+                  className={`drill-input ${checked ? (correct ? "correct" : "incorrect") : ""}`}
+                  value={answers[pronoun] || ""}
+                  onChange={e => setAnswers({ ...answers, [pronoun]: e.target.value })}
+                  onKeyDown={e => handleKeyDown(e, pronoun)}
+                  disabled={checked}
+                  placeholder="..."
+                  autoComplete="off"
+                  spellCheck="false"
+                />
+                {incorrect && (
+                  <div className="drill-answer show">→ {conjugations[pronoun]}</div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="btn-group no-print">
+        {!checked ? (
+          <button className="btn btn-primary" onClick={handleCheck}>Check Answers</button>
+        ) : (
+          <button className="btn btn-primary" onClick={newVerb}>Next Verb →</button>
+        )}
+        {!checked && (
+          <button className="btn btn-secondary" onClick={newVerb}>Skip</button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── VOCAB FLASHCARDS ───────────────────────────────────────────────
+function VocabFlashcards() {
+  const [topic, setTopic] = useState("All");
+  const [cards, setCards] = useState([]);
+  const [idx, setIdx] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+  const [direction, setDirection] = useState("de-en");
+  const [known, setKnown] = useState(0);
+
+  useEffect(() => {
+    const filtered = topic === "All" ? VOCAB : VOCAB.filter(v => v.topic === topic);
+    setCards(shuffle(filtered));
+    setIdx(0);
+    setFlipped(false);
+    setKnown(0);
+  }, [topic]);
+
+  const next = (gotIt) => {
+    if (gotIt) setKnown(k => k + 1);
+    setFlipped(false);
+    setTimeout(() => setIdx(i => i + 1), 150);
+  };
+
+  const restart = () => {
+    const filtered = topic === "All" ? VOCAB : VOCAB.filter(v => v.topic === topic);
+    setCards(shuffle(filtered));
+    setIdx(0);
+    setFlipped(false);
+    setKnown(0);
+  };
+
+  if (cards.length === 0) return <div className="info-box">No cards available.</div>;
+
+  if (idx >= cards.length) {
+    const pct = Math.round((known / cards.length) * 100);
+    return (
+      <div className="card" style={{ textAlign: "center", padding: "48px 28px" }}>
+        <div style={{ fontSize: "3rem", marginBottom: 12 }}>🎉</div>
+        <div className="card-header" style={{ border: "none", textAlign: "center" }}>
+          Round complete!
+        </div>
+        <p style={{ fontSize: "1.1rem", marginBottom: 8 }}>
+          You knew <span className={`score-num ${pct >= 80 ? "good" : pct >= 50 ? "ok" : "poor"}`}>{known}/{cards.length}</span> words ({pct}%)
+        </p>
+        <div className="btn-group" style={{ justifyContent: "center", marginTop: 24 }}>
+          <button className="btn btn-primary" onClick={restart}>Go Again</button>
+        </div>
+      </div>
+    );
+  }
+
+  const card = cards[idx];
+  const genderMap = { m: "der (m)", f: "die (f)", n: "das (n)" };
+  const frontWord = direction === "de-en" ? card.german : card.english;
+  const backWord = direction === "de-en" ? card.english : card.german;
+
+  return (
+    <div>
+      <div className="filter-bar no-print">
+        <button className={`filter-chip ${topic === "All" ? "active" : ""}`}
+          onClick={() => setTopic("All")}>All</button>
+        {TOPICS.map(t => (
+          <button key={t} className={`filter-chip ${topic === t ? "active" : ""}`}
+            onClick={() => setTopic(t)}>{t}</button>
+        ))}
+      </div>
+
+      <div className="filter-bar no-print">
+        <button className={`filter-chip ${direction === "de-en" ? "active" : ""}`}
+          onClick={() => setDirection("de-en")}>German → English</button>
+        <button className={`filter-chip ${direction === "en-de" ? "active" : ""}`}
+          onClick={() => setDirection("en-de")}>English → German</button>
+      </div>
+
+      <div className="flashcard-progress">
+        Card {idx + 1} of {cards.length}
+      </div>
+
+      <div className="flashcard-container">
+        <div className={`flashcard ${flipped ? "flipped" : ""}`} onClick={() => setFlipped(!flipped)}>
+          <div className="flashcard-face flashcard-front">
+            <div className="flashcard-word">{frontWord}</div>
+            {direction === "de-en" && (
+              <span className={`flashcard-gender gender-${card.gender}`}>
+                {genderMap[card.gender]}
+              </span>
+            )}
+            <div className="flashcard-detail">{card.topic}</div>
+            <div className="flashcard-hint">Click to flip</div>
+          </div>
+          <div className="flashcard-face flashcard-back">
+            <div className="flashcard-word">{backWord}</div>
+            {direction === "en-de" && (
+              <span className={`flashcard-gender gender-${card.gender}`}>
+                {genderMap[card.gender]}
+              </span>
+            )}
+            <div className="flashcard-detail">{card.topic}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flashcard-nav no-print">
+        <button className="btn btn-secondary" onClick={() => next(false)}>Still learning</button>
+        <button className="btn btn-primary" onClick={() => next(true)}>Got it ✓</button>
+      </div>
+    </div>
+  );
+}
+
+// ─── WORKSHEET GENERATOR ────────────────────────────────────────────
+function WorksheetGenerator() {
+  const [worksheet, setWorksheet] = useState(null);
+  const [showAnswers, setShowAnswers] = useState(false);
+  const [wsType, setWsType] = useState("mixed");
+
+  const generate = () => {
+    const ws = { sections: [], answers: [] };
+    setShowAnswers(false);
+
+    if (wsType === "conjugation" || wsType === "mixed") {
+      const verbs = pick(VERBS, 3);
+      const section = { title: "Section A — Verb Conjugation", questions: [] };
+      let qNum = 1;
+      verbs.forEach(verb => {
+        const tense = TENSES[Math.floor(Math.random() * TENSES.length)];
+        const pronouns = pick(PRONOUNS, 3);
+        pronouns.forEach(p => {
+          section.questions.push({
+            num: qNum,
+            text: `Conjugate "${verb.infinitive}" (${verb.meaning}) in the ${TENSE_LABELS[tense]} for ${p}:`,
+            blank: true,
+          });
+          ws.answers.push({ num: qNum, answer: `${p} ${verb[tense][p]}` });
+          qNum++;
+        });
+      });
+      ws.sections.push(section);
+    }
+
+    if (wsType === "vocab" || wsType === "mixed") {
+      const words = pick(VOCAB, 8);
+      const sectionB = {
+        title: wsType === "mixed" ? "Section B — Vocabulary (German → English)" : "Section A — Vocabulary (German → English)",
+        questions: [],
+      };
+      const startNum = ws.answers.length + 1;
+      words.slice(0, 4).forEach((w, i) => {
+        sectionB.questions.push({ num: startNum + i, text: `${w.german} = `, blank: true });
+        ws.answers.push({ num: startNum + i, answer: w.english });
+      });
+      ws.sections.push(sectionB);
+
+      const sectionC = {
+        title: wsType === "mixed" ? "Section C — Vocabulary (English → German)" : "Section B — Vocabulary (English → German)",
+        questions: [],
+      };
+      const startNum2 = ws.answers.length + 1;
+      words.slice(4).forEach((w, i) => {
+        sectionC.questions.push({ num: startNum2 + i, text: `${w.english} = `, blank: true });
+        ws.answers.push({ num: startNum2 + i, answer: w.german });
+      });
+      ws.sections.push(sectionC);
+    }
+
+    setWorksheet(ws);
+  };
+
+  useEffect(() => { generate(); }, [wsType]);
+
+  return (
+    <div>
+      <div className="filter-bar no-print">
+        <button className={`filter-chip ${wsType === "mixed" ? "active" : ""}`}
+          onClick={() => setWsType("mixed")}>Mixed</button>
+        <button className={`filter-chip ${wsType === "conjugation" ? "active" : ""}`}
+          onClick={() => setWsType("conjugation")}>Conjugation only</button>
+        <button className={`filter-chip ${wsType === "vocab" ? "active" : ""}`}
+          onClick={() => setWsType("vocab")}>Vocab only</button>
+      </div>
+
+      {worksheet && (
+        <div className="worksheet-preview" id="worksheet">
+          <div className="ws-title">German Practice Worksheet</div>
+          <div className="ws-subtitle">A-Level / Adult Beginners</div>
+
+          <div className="ws-name-line">
+            <span className="ws-name-field">Name: _________________________</span>
+            <span className="ws-name-field">Date: ______________</span>
+          </div>
+
+          {worksheet.sections.map((section, si) => (
+            <div key={si} className="ws-section">
+              <div className="ws-section-title">{section.title}</div>
+              {section.questions.map(q => (
+                <div key={q.num} className="ws-question">
+                  <span className="ws-q-num">{q.num}.</span>
+                  <span>{q.text}{q.blank && <span className="ws-blank" />}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+
+          {showAnswers && (
+            <div className="ws-answer-key">
+              <strong>Answer Key</strong>
+              {worksheet.answers.map(a => (
+                <div key={a.num}>{a.num}. {a.answer}</div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      <div className="btn-group no-print">
+        <button className="btn btn-primary" onClick={generate}>Generate New ↻</button>
+        <button className="btn btn-secondary" onClick={() => setShowAnswers(!showAnswers)}>
+          {showAnswers ? "Hide Answers" : "Show Answers"}
+        </button>
+        <button className="btn btn-secondary" onClick={() => window.print()}>
+          Print Worksheet 🖨
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ─── MAIN APP ───────────────────────────────────────────────────────
+function App() {
+  const [page, setPage] = useState("conjugation");
+
+  return (
+    <div className="app-container">
+      <header className="app-header no-print">
+        <h1 className="app-title">Language<span>Lab</span></h1>
+        <p className="app-subtitle">Language Practice</p>
+      </header>
+
+      <nav className="nav-bar no-print">
+        <button className={`nav-btn ${page === "conjugation" ? "active" : ""}`}
+          onClick={() => setPage("conjugation")}>Conjugation</button>
+        <button className={`nav-btn ${page === "vocab" ? "active" : ""}`}
+          onClick={() => setPage("vocab")}>Vocabulary</button>
+        <button className={`nav-btn ${page === "worksheet" ? "active" : ""}`}
+          onClick={() => setPage("worksheet")}>Worksheets</button>
+      </nav>
+
+      <main>
+        {page === "conjugation" && (
+          <div className="card">
+            <h2 className="card-header">Verb Conjugation Drill</h2>
+            <ConjugationDrill />
+          </div>
+        )}
+        {page === "vocab" && (
+          <div className="card">
+            <h2 className="card-header">Vocabulary Flashcards</h2>
+            <VocabFlashcards />
+          </div>
+        )}
+        {page === "worksheet" && (
+          <div className="card">
+            <h2 className="card-header">Randomised Worksheets</h2>
+            <WorksheetGenerator />
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
