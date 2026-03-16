@@ -92,6 +92,20 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .flashcard-hint { font-size: 0.8rem; color: var(--muted); margin-top: 16px; }
 .flashcard-progress { text-align: center; margin-bottom: 16px; font-size: 0.9rem; color: var(--muted); }
 .flashcard-nav { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+.vocab-prompt-card { text-align: center; padding: 36px 24px 28px; margin: 16px 0; background: var(--ink); color: var(--cream); }
+.vocab-prompt-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.6; margin-bottom: 14px; font-weight: 600; }
+.vocab-prompt-word { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1.2; margin-bottom: 14px; }
+.vocab-topic-tag { display: inline-block; margin-top: 10px; padding: 3px 12px; background: rgba(255,255,255,0.13); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+.vocab-input-area { display: flex; gap: 10px; margin: 16px 0 10px; }
+.vocab-type-input { flex: 1; padding: 14px 16px; border: 2px solid var(--border); font-family: 'Outfit', sans-serif; font-size: 1.05rem; background: white; transition: border-color 0.2s; }
+.vocab-type-input:focus { outline: none; border-color: var(--blue); }
+.vocab-type-input.v-correct { border-color: var(--green); background: #e8f8f0; }
+.vocab-type-input.v-incorrect { border-color: var(--red); background: #fde8e6; }
+.vocab-feedback { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 16px; font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+.vocab-feedback.v-correct { background: #e8f8f0; border: 1px solid var(--green); color: #1e7d48; }
+.vocab-feedback.v-incorrect { background: #fde8e6; border: 1px solid var(--red); color: var(--red); }
+.vocab-correct-answer { font-weight: 400; color: var(--ink); font-size: 0.9rem; }
+.vocab-progress { text-align: right; font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
 .worksheet-preview { border: 2px solid var(--ink); padding: 32px; background: white; font-size: 0.95rem; }
 .ws-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; text-align: center; margin-bottom: 4px; }
 .ws-subtitle { text-align: center; color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
@@ -187,7 +201,7 @@ const S={
   page:"conjugation",conjMode:"byTense",conjScore:{correct:0,total:0},conjStreak:0,
   conjTense:"present",conjVerb:null,conjAnswers:{},conjChecked:false,
   randomQuestions:[],randomAnswers:{},randomChecked:false,
-  vocabTopic:"All",vocabDirection:"de-en",vocabCards:[],vocabIdx:0,vocabFlipped:false,vocabKnown:0,
+  vocabTopic:"All",vocabDirection:"de-en",vocabIncludePlurals:false,vocabQuiz:[],vocabQIdx:0,vocabTyped:"",vocabChecked:false,vocabLastCorrect:false,vocabScore:{correct:0,total:0},
   wsType:"mixed",wsData:null,wsShowAnswers:false
 };
 
@@ -276,28 +290,72 @@ function renderConj(){
 }
 
 // ─── VOCABULARY ──────────────────────────────────────────────────────
-function initVocab(){
-  const f=S.vocabTopic==="All"?VOCAB:VOCAB.filter(v=>v.topic===S.vocabTopic);
-  S.vocabCards=shuffle(f);S.vocabIdx=0;S.vocabFlipped=false;S.vocabKnown=0;
+function buildVocabQuiz(){
+  const pool=S.vocabTopic==="All"?VOCAB:VOCAB.filter(v=>v.topic===S.vocabTopic);
+  const qs=[];
+  shuffle(pool).forEach(word=>{
+    const dir=S.vocabDirection==="mixed"?(Math.random()<0.5?"de-en":"en-de"):S.vocabDirection;
+    if(dir==="de-en"){
+      const ans=word.english.split(/\s*\/\s*/).map(s=>s.trim().toLowerCase()).filter(Boolean);
+      qs.push({type:"de-en",word,prompt:word.german,promptLabel:"Translate to English",answer:ans});
+    }else{
+      qs.push({type:"en-de",word,prompt:word.english,promptLabel:"Translate to German (with article)",answer:word.german.trim().toLowerCase()});
+    }
+    if(S.vocabIncludePlurals&&word.plural&&Math.random()<0.35){
+      qs.push({type:"plural",word,prompt:word.german,promptLabel:"What is the plural of:",answer:word.plural.trim().toLowerCase()});
+    }
+  });
+  S.vocabQuiz=qs;S.vocabQIdx=0;S.vocabTyped="";S.vocabChecked=false;S.vocabLastCorrect=false;S.vocabScore={correct:0,total:0};
+}
+
+function checkVocabAnswer(){
+  if(S.vocabChecked)return;
+  const q=S.vocabQuiz[S.vocabQIdx],typed=S.vocabTyped.trim().toLowerCase();
+  S.vocabLastCorrect=Array.isArray(q.answer)?q.answer.some(a=>typed===a):typed===q.answer;
+  S.vocabChecked=true;S.vocabScore.total++;
+  if(S.vocabLastCorrect)S.vocabScore.correct++;
+  renderVocab();
 }
 
 function renderVocab(){
-  if(S.vocabCards.length===0)initVocab();
-  const m=document.getElementById("main-content"),gm={m:"der (m)",f:"die (f)",n:"das (n)"};
-  if(S.vocabIdx>=S.vocabCards.length){
-    const p=Math.round(S.vocabKnown/S.vocabCards.length*100);
-    m.innerHTML=`<div class="card" style="text-align:center;padding:48px 28px"><div style="font-size:3rem;margin-bottom:12px">\uD83C\uDF89</div><div class="card-header" style="border:none;text-align:center">Round complete!</div><p style="font-size:1.1rem;margin-bottom:8px">You knew <span class="score-num ${p>=80?'good':p>=50?'ok':'poor'}">${S.vocabKnown}/${S.vocabCards.length}</span> words (${p}%)</p><div class="btn-group" style="justify-content:center;margin-top:24px"><button class="btn btn-primary" id="vocabRestart">Go Again</button></div></div>`;
-    document.getElementById('vocabRestart').addEventListener('click',()=>{initVocab();renderVocab();});return;
+  if(!S.vocabQuiz.length)buildVocabQuiz();
+  const m=document.getElementById("main-content");
+  const gLabel={m:"der (m)",f:"die (f)",n:"das (n)"};
+  const topicBar=`<div class="filter-bar no-print"><button class="filter-chip ${S.vocabTopic==="All"?"active":""}" data-topic="All">All</button>${TOPICS.map(t=>`<button class="filter-chip ${S.vocabTopic===t?"active":""}" data-topic="${t}">${t}</button>`).join("")}</div>`;
+  const optBar=`<div class="filter-bar no-print"><button class="filter-chip ${S.vocabDirection==="de-en"?"active":""}" data-dir="de-en">DE \u2192 EN</button><button class="filter-chip ${S.vocabDirection==="en-de"?"active":""}" data-dir="en-de">EN \u2192 DE</button><button class="filter-chip ${S.vocabDirection==="mixed"?"active":""}" data-dir="mixed">Mixed</button><button class="filter-chip ${S.vocabIncludePlurals?"active":""}" id="pluralToggle">+ Plurals</button></div>`;
+
+  function bindFilters(){
+    document.querySelectorAll("[data-topic]").forEach(b=>b.addEventListener("click",()=>{S.vocabTopic=b.dataset.topic;buildVocabQuiz();renderVocab();}));
+    document.querySelectorAll("[data-dir]").forEach(b=>b.addEventListener("click",()=>{S.vocabDirection=b.dataset.dir;buildVocabQuiz();renderVocab();}));
+    document.getElementById("pluralToggle").addEventListener("click",()=>{S.vocabIncludePlurals=!S.vocabIncludePlurals;buildVocabQuiz();renderVocab();});
   }
-  const card=S.vocabCards[S.vocabIdx],d=S.vocabDirection;
-  const fw=d==="de-en"?card.german:card.english,bw=d==="de-en"?card.english:card.german;
-  m.innerHTML=`<div class="card"><h2 class="card-header">Vocabulary Flashcards</h2><div class="filter-bar no-print"><button class="filter-chip ${S.vocabTopic==='All'?'active':''}" data-topic="All">All</button>${TOPICS.map(t=>`<button class="filter-chip ${S.vocabTopic===t?'active':''}" data-topic="${t}">${t}</button>`).join('')}</div><div class="filter-bar no-print"><button class="filter-chip ${d==='de-en'?'active':''}" data-dir="de-en">German \u2192 English</button><button class="filter-chip ${d==='en-de'?'active':''}" data-dir="en-de">English \u2192 German</button></div><div class="flashcard-progress">Card ${S.vocabIdx+1} of ${S.vocabCards.length}</div><div class="flashcard-container"><div class="flashcard ${S.vocabFlipped?'flipped':''}" id="flashcard"><div class="flashcard-face flashcard-front"><div class="flashcard-word">${fw}</div>${d==='de-en'?`<span class="flashcard-gender gender-${card.gender}">${gm[card.gender]}</span>`:''}<div class="flashcard-detail">${card.topic}</div><div class="flashcard-hint">Click to flip</div></div><div class="flashcard-face flashcard-back"><div class="flashcard-word">${bw}</div>${d==='en-de'?`<span class="flashcard-gender gender-${card.gender}">${gm[card.gender]}</span>`:''}<div class="flashcard-detail">${card.topic}</div></div></div></div><div class="flashcard-nav no-print"><button class="btn btn-secondary" id="vocabLearning">Still learning</button><button class="btn btn-primary" id="vocabGotIt">Got it \u2713</button></div></div><div class="db-stats no-print">${VOCAB.length} words loaded \u00b7 ${TOPICS.length} topics</div>`;
-  document.getElementById('flashcard').addEventListener('click',()=>{S.vocabFlipped=!S.vocabFlipped;document.getElementById('flashcard').classList.toggle('flipped',S.vocabFlipped);});
-  document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>{S.vocabTopic=b.dataset.topic;initVocab();renderVocab();}));
-  document.querySelectorAll('[data-dir]').forEach(b=>b.addEventListener('click',()=>{S.vocabDirection=b.dataset.dir;initVocab();renderVocab();}));
-  function next(g){if(g)S.vocabKnown++;S.vocabFlipped=false;S.vocabIdx++;renderVocab();}
-  document.getElementById('vocabLearning').addEventListener('click',()=>next(false));
-  document.getElementById('vocabGotIt').addEventListener('click',()=>next(true));
+
+  if(S.vocabQIdx>=S.vocabQuiz.length){
+    const p=S.vocabScore.total>0?Math.round(S.vocabScore.correct/S.vocabScore.total*100):100;
+    m.innerHTML=`<div class="card">${topicBar}${optBar}<div style="text-align:center;padding:40px 20px"><div style="font-size:3rem;margin-bottom:12px">${p>=80?"\uD83C\uDF89":p>=50?"\uD83D\uDC4D":"\uD83D\uDCDA"}</div><div style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:12px">Round complete!</div><p style="font-size:1.1rem;margin-bottom:8px">Score: <span class="score-num ${p>=80?"good":p>=50?"ok":"poor"}">${S.vocabScore.correct}/${S.vocabScore.total}</span> (${p}%)</p><div class="btn-group" style="justify-content:center;margin-top:24px"><button class="btn btn-primary" id="vocabRestart">Go Again</button></div></div></div><div class="db-stats no-print">${VOCAB.length} words \u00b7 ${TOPICS.length} topics</div>`;
+    bindFilters();document.getElementById("vocabRestart").addEventListener("click",()=>{buildVocabQuiz();renderVocab();});return;
+  }
+
+  const q=S.vocabQuiz[S.vocabQIdx],w=q.word;
+  const pct=S.vocabScore.total>0?Math.round(S.vocabScore.correct/S.vocabScore.total*100):null;
+  const showGender=q.type==="de-en"||q.type==="plural";
+  const gBadge=showGender?`<span class="flashcard-gender gender-${w.gender}" style="margin-top:10px">${gLabel[w.gender]}</span>`:"";
+  const displayAns=Array.isArray(q.answer)?q.answer.join(" / "):q.answer;
+  const placeholder=q.type==="de-en"?"Type the English translation…":q.type==="en-de"?"Type with article, e.g. die Wohnung…":"Type the plural form, e.g. die Wohnungen…";
+  const scoreRow=pct!==null?`<div class="score-bar no-print"><span>Score: <span class="score-num ${pct>=80?"good":pct>=50?"ok":"poor"}">${S.vocabScore.correct}/${S.vocabScore.total}</span></span><span class="vocab-progress">Question ${S.vocabQIdx+1} of ${S.vocabQuiz.length}</span></div>`:`<div class="vocab-progress">Question ${S.vocabQIdx+1} of ${S.vocabQuiz.length}</div>`;
+  const feedback=S.vocabChecked?`<div class="vocab-feedback ${S.vocabLastCorrect?"v-correct":"v-incorrect"}">${S.vocabLastCorrect?"\u2713 Correct!":"\u2717 Incorrect"}${!S.vocabLastCorrect?`<span class="vocab-correct-answer">\u2192 ${displayAns}</span>`:""}</div>`:"";
+
+  m.innerHTML=`<div class="card"><h2 class="card-header">Vocabulary Practice</h2>${topicBar}${optBar}${scoreRow}<div class="vocab-prompt-card"><div class="vocab-prompt-label">${q.promptLabel}</div><div class="vocab-prompt-word">${q.prompt}</div>${gBadge}<div class="vocab-topic-tag">${w.topic}</div></div><div class="vocab-input-area"><input class="vocab-type-input${S.vocabChecked?(S.vocabLastCorrect?" v-correct":" v-incorrect"):""}" id="vocabInput" type="text" placeholder="${placeholder}" value="${S.vocabTyped.replace(/"/g,"&quot;")}" autocomplete="off" spellcheck="false"${S.vocabChecked?" disabled":""}>${!S.vocabChecked?`<button class="btn btn-primary" id="vocabCheckBtn">Check</button>`:`<button class="btn btn-primary" id="vocabNextBtn">Next \u2192</button>`}</div>${feedback}</div><div class="db-stats no-print">${VOCAB.length} words loaded \u00b7 ${TOPICS.length} topics</div>`;
+
+  bindFilters();
+  const inp=document.getElementById("vocabInput");
+  if(inp){
+    inp.addEventListener("input",e=>{S.vocabTyped=e.target.value;});
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter"){if(!S.vocabChecked)checkVocabAnswer();else{S.vocabTyped="";S.vocabChecked=false;S.vocabQIdx++;renderVocab();}}});
+    if(!S.vocabChecked)inp.focus();
+  }
+  document.getElementById("vocabCheckBtn")?.addEventListener("click",checkVocabAnswer);
+  document.getElementById("vocabNextBtn")?.addEventListener("click",()=>{S.vocabTyped="";S.vocabChecked=false;S.vocabQIdx++;renderVocab();});
 }
 
 // ─── WORKSHEET ───────────────────────────────────────────────────────
