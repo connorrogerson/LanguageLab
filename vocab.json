@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "language": "German",
+    "level": "A-Level / Adult Beginners",
+    "lastUpdated": "2026-03-16",
+    "instructions": "To add a new word, copy an existing entry and change the values. Gender must be 'm' (masculine/der), 'f' (feminine/die), or 'n' (neuter/das). Topics are created automatically — use an existing topic name to add to that group, or use a new name to create a new topic tab."
+  },
+  "vocab": [
+    { "german": "die Wohnung", "english": "flat/apartment", "gender": "f", "topic": "Home" },
+    { "german": "das Schlafzimmer", "english": "bedroom", "gender": "n", "topic": "Home" },
+    { "german": "die Küche", "english": "kitchen", "gender": "f", "topic": "Home" },
+    { "german": "der Flur", "english": "hallway", "gender": "m", "topic": "Home" },
+    { "german": "die Treppe", "english": "stairs", "gender": "f", "topic": "Home" },
+
+    { "german": "der Bahnhof", "english": "train station", "gender": "m", "topic": "Travel" },
+    { "german": "die Fahrkarte", "english": "ticket", "gender": "f", "topic": "Travel" },
+    { "german": "das Flugzeug", "english": "aeroplane", "gender": "n", "topic": "Travel" },
+    { "german": "der Koffer", "english": "suitcase", "gender": "m", "topic": "Travel" },
+    { "german": "die Reise", "english": "journey/trip", "gender": "f", "topic": "Travel" },
+
+    { "german": "das Abendessen", "english": "dinner/supper", "gender": "n", "topic": "Food" },
+    { "german": "die Rechnung", "english": "bill", "gender": "f", "topic": "Food" },
+    { "german": "der Kellner", "english": "waiter", "gender": "m", "topic": "Food" },
+    { "german": "das Gericht", "english": "dish/course", "gender": "n", "topic": "Food" },
+    { "german": "die Vorspeise", "english": "starter", "gender": "f", "topic": "Food" },
+
+    { "german": "der Beruf", "english": "profession/job", "gender": "m", "topic": "Work" },
+    { "german": "die Bewerbung", "english": "application", "gender": "f", "topic": "Work" },
+    { "german": "das Gehalt", "english": "salary", "gender": "n", "topic": "Work" },
+    { "german": "der Arbeitgeber", "english": "employer", "gender": "m", "topic": "Work" },
+    { "german": "die Erfahrung", "english": "experience", "gender": "f", "topic": "Work" },
+
+    { "german": "das Krankenhaus", "english": "hospital", "gender": "n", "topic": "Health" },
+    { "german": "der Arzt", "english": "doctor", "gender": "m", "topic": "Health" },
+    { "german": "die Erkältung", "english": "cold (illness)", "gender": "f", "topic": "Health" },
+    { "german": "das Rezept", "english": "prescription/recipe", "gender": "n", "topic": "Health" },
+    { "german": "der Schmerz", "english": "pain", "gender": "m", "topic": "Health" },
+
+    { "german": "die Umwelt", "english": "environment", "gender": "f", "topic": "Environment" },
+    { "german": "der Klimawandel", "english": "climate change", "gender": "m", "topic": "Environment" },
+    { "german": "die Verschmutzung", "english": "pollution", "gender": "f", "topic": "Environment" },
+    { "german": "das Recycling", "english": "recycling", "gender": "n", "topic": "Environment" },
+    { "german": "der Verbrauch", "english": "consumption", "gender": "m", "topic": "Environment" }
+  ]
+}

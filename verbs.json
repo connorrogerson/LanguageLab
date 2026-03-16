@@ -1,0 +1,466 @@
+{
+  "meta": {
+    "language": "German",
+    "level": "A-Level / Adult Beginners",
+    "lastUpdated": "2026-03-16",
+    "instructions": "To add a new verb, copy an existing entry and change the values. Regular verbs use 'würde + infinitive' for Konjunktiv II. Set auxiliary to 'sein' or 'haben'. Compound tenses (Perfekt, Plusquamperfekt, Futur I, Futur II) are built automatically from the auxiliary and pastParticiple — you only need to provide present, präteritum, konjunktivII and konjunktivI."
+  },
+  "verbs": [
+    {
+      "infinitive": "sein",
+      "meaning": "to be",
+      "auxiliary": "sein",
+      "pastParticiple": "gewesen",
+      "present": {
+        "ich": "bin",
+        "du": "bist",
+        "er/sie/es": "ist",
+        "wir": "sind",
+        "ihr": "seid",
+        "sie/Sie": "sind"
+      },
+      "präteritum": {
+        "ich": "war",
+        "du": "warst",
+        "er/sie/es": "war",
+        "wir": "waren",
+        "ihr": "wart",
+        "sie/Sie": "waren"
+      },
+      "konjunktivII": {
+        "ich": "wäre",
+        "du": "wärest",
+        "er/sie/es": "wäre",
+        "wir": "wären",
+        "ihr": "wäret",
+        "sie/Sie": "wären"
+      },
+      "konjunktivI": {
+        "ich": "sei",
+        "du": "seist",
+        "er/sie/es": "sei",
+        "wir": "seien",
+        "ihr": "seiet",
+        "sie/Sie": "seien"
+      }
+    },
+    {
+      "infinitive": "haben",
+      "meaning": "to have",
+      "auxiliary": "haben",
+      "pastParticiple": "gehabt",
+      "present": {
+        "ich": "habe",
+        "du": "hast",
+        "er/sie/es": "hat",
+        "wir": "haben",
+        "ihr": "habt",
+        "sie/Sie": "haben"
+      },
+      "präteritum": {
+        "ich": "hatte",
+        "du": "hattest",
+        "er/sie/es": "hatte",
+        "wir": "hatten",
+        "ihr": "hattet",
+        "sie/Sie": "hatten"
+      },
+      "konjunktivII": {
+        "ich": "hätte",
+        "du": "hättest",
+        "er/sie/es": "hätte",
+        "wir": "hätten",
+        "ihr": "hättet",
+        "sie/Sie": "hätten"
+      },
+      "konjunktivI": {
+        "ich": "habe",
+        "du": "habest",
+        "er/sie/es": "habe",
+        "wir": "haben",
+        "ihr": "habet",
+        "sie/Sie": "haben"
+      }
+    },
+    {
+      "infinitive": "werden",
+      "meaning": "to become",
+      "auxiliary": "sein",
+      "pastParticiple": "geworden",
+      "present": {
+        "ich": "werde",
+        "du": "wirst",
+        "er/sie/es": "wird",
+        "wir": "werden",
+        "ihr": "werdet",
+        "sie/Sie": "werden"
+      },
+      "präteritum": {
+        "ich": "wurde",
+        "du": "wurdest",
+        "er/sie/es": "wurde",
+        "wir": "wurden",
+        "ihr": "wurdet",
+        "sie/Sie": "wurden"
+      },
+      "konjunktivII": {
+        "ich": "würde",
+        "du": "würdest",
+        "er/sie/es": "würde",
+        "wir": "würden",
+        "ihr": "würdet",
+        "sie/Sie": "würden"
+      },
+      "konjunktivI": {
+        "ich": "werde",
+        "du": "werdest",
+        "er/sie/es": "werde",
+        "wir": "werden",
+        "ihr": "werdet",
+        "sie/Sie": "werden"
+      }
+    },
+    {
+      "infinitive": "gehen",
+      "meaning": "to go",
+      "auxiliary": "sein",
+      "pastParticiple": "gegangen",
+      "present": {
+        "ich": "gehe",
+        "du": "gehst",
+        "er/sie/es": "geht",
+        "wir": "gehen",
+        "ihr": "geht",
+        "sie/Sie": "gehen"
+      },
+      "präteritum": {
+        "ich": "ging",
+        "du": "gingst",
+        "er/sie/es": "ging",
+        "wir": "gingen",
+        "ihr": "gingt",
+        "sie/Sie": "gingen"
+      },
+      "konjunktivII": {
+        "ich": "würde gehen",
+        "du": "würdest gehen",
+        "er/sie/es": "würde gehen",
+        "wir": "würden gehen",
+        "ihr": "würdet gehen",
+        "sie/Sie": "würden gehen"
+      },
+      "konjunktivI": {
+        "ich": "gehe",
+        "du": "gehest",
+        "er/sie/es": "gehe",
+        "wir": "gehen",
+        "ihr": "gehet",
+        "sie/Sie": "gehen"
+      }
+    },
+    {
+      "infinitive": "machen",
+      "meaning": "to do/make",
+      "auxiliary": "haben",
+      "pastParticiple": "gemacht",
+      "present": {
+        "ich": "mache",
+        "du": "machst",
+        "er/sie/es": "macht",
+        "wir": "machen",
+        "ihr": "macht",
+        "sie/Sie": "machen"
+      },
+      "präteritum": {
+        "ich": "machte",
+        "du": "machtest",
+        "er/sie/es": "machte",
+        "wir": "machten",
+        "ihr": "machtet",
+        "sie/Sie": "machten"
+      },
+      "konjunktivII": {
+        "ich": "würde machen",
+        "du": "würdest machen",
+        "er/sie/es": "würde machen",
+        "wir": "würden machen",
+        "ihr": "würdet machen",
+        "sie/Sie": "würden machen"
+      },
+      "konjunktivI": {
+        "ich": "mache",
+        "du": "machest",
+        "er/sie/es": "mache",
+        "wir": "machen",
+        "ihr": "machet",
+        "sie/Sie": "machen"
+      }
+    },
+    {
+      "infinitive": "können",
+      "meaning": "to be able to",
+      "auxiliary": "haben",
+      "pastParticiple": "gekonnt",
+      "present": {
+        "ich": "kann",
+        "du": "kannst",
+        "er/sie/es": "kann",
+        "wir": "können",
+        "ihr": "könnt",
+        "sie/Sie": "können"
+      },
+      "präteritum": {
+        "ich": "konnte",
+        "du": "konntest",
+        "er/sie/es": "konnte",
+        "wir": "konnten",
+        "ihr": "konntet",
+        "sie/Sie": "konnten"
+      },
+      "konjunktivII": {
+        "ich": "könnte",
+        "du": "könntest",
+        "er/sie/es": "könnte",
+        "wir": "könnten",
+        "ihr": "könntet",
+        "sie/Sie": "könnten"
+      },
+      "konjunktivI": {
+        "ich": "könne",
+        "du": "könnest",
+        "er/sie/es": "könne",
+        "wir": "können",
+        "ihr": "könnet",
+        "sie/Sie": "können"
+      }
+    },
+    {
+      "infinitive": "müssen",
+      "meaning": "to have to/must",
+      "auxiliary": "haben",
+      "pastParticiple": "gemusst",
+      "present": {
+        "ich": "muss",
+        "du": "musst",
+        "er/sie/es": "muss",
+        "wir": "müssen",
+        "ihr": "müsst",
+        "sie/Sie": "müssen"
+      },
+      "präteritum": {
+        "ich": "musste",
+        "du": "musstest",
+        "er/sie/es": "musste",
+        "wir": "mussten",
+        "ihr": "musstet",
+        "sie/Sie": "mussten"
+      },
+      "konjunktivII": {
+        "ich": "müsste",
+        "du": "müsstest",
+        "er/sie/es": "müsste",
+        "wir": "müssten",
+        "ihr": "müsstet",
+        "sie/Sie": "müssten"
+      },
+      "konjunktivI": {
+        "ich": "müsse",
+        "du": "müssest",
+        "er/sie/es": "müsse",
+        "wir": "müssen",
+        "ihr": "müsset",
+        "sie/Sie": "müssen"
+      }
+    },
+    {
+      "infinitive": "sagen",
+      "meaning": "to say",
+      "auxiliary": "haben",
+      "pastParticiple": "gesagt",
+      "present": {
+        "ich": "sage",
+        "du": "sagst",
+        "er/sie/es": "sagt",
+        "wir": "sagen",
+        "ihr": "sagt",
+        "sie/Sie": "sagen"
+      },
+      "präteritum": {
+        "ich": "sagte",
+        "du": "sagtest",
+        "er/sie/es": "sagte",
+        "wir": "sagten",
+        "ihr": "sagtet",
+        "sie/Sie": "sagten"
+      },
+      "konjunktivII": {
+        "ich": "würde sagen",
+        "du": "würdest sagen",
+        "er/sie/es": "würde sagen",
+        "wir": "würden sagen",
+        "ihr": "würdet sagen",
+        "sie/Sie": "würden sagen"
+      },
+      "konjunktivI": {
+        "ich": "sage",
+        "du": "sagest",
+        "er/sie/es": "sage",
+        "wir": "sagen",
+        "ihr": "saget",
+        "sie/Sie": "sagen"
+      }
+    },
+    {
+      "infinitive": "geben",
+      "meaning": "to give",
+      "auxiliary": "haben",
+      "pastParticiple": "gegeben",
+      "present": {
+        "ich": "gebe",
+        "du": "gibst",
+        "er/sie/es": "gibt",
+        "wir": "geben",
+        "ihr": "gebt",
+        "sie/Sie": "geben"
+      },
+      "präteritum": {
+        "ich": "gab",
+        "du": "gabst",
+        "er/sie/es": "gab",
+        "wir": "gaben",
+        "ihr": "gabt",
+        "sie/Sie": "gaben"
+      },
+      "konjunktivII": {
+        "ich": "würde geben",
+        "du": "würdest geben",
+        "er/sie/es": "würde geben",
+        "wir": "würden geben",
+        "ihr": "würdet geben",
+        "sie/Sie": "würden geben"
+      },
+      "konjunktivI": {
+        "ich": "gebe",
+        "du": "gebest",
+        "er/sie/es": "gebe",
+        "wir": "geben",
+        "ihr": "gebet",
+        "sie/Sie": "geben"
+      }
+    },
+    {
+      "infinitive": "kommen",
+      "meaning": "to come",
+      "auxiliary": "sein",
+      "pastParticiple": "gekommen",
+      "present": {
+        "ich": "komme",
+        "du": "kommst",
+        "er/sie/es": "kommt",
+        "wir": "kommen",
+        "ihr": "kommt",
+        "sie/Sie": "kommen"
+      },
+      "präteritum": {
+        "ich": "kam",
+        "du": "kamst",
+        "er/sie/es": "kam",
+        "wir": "kamen",
+        "ihr": "kamt",
+        "sie/Sie": "kamen"
+      },
+      "konjunktivII": {
+        "ich": "würde kommen",
+        "du": "würdest kommen",
+        "er/sie/es": "würde kommen",
+        "wir": "würden kommen",
+        "ihr": "würdet kommen",
+        "sie/Sie": "würden kommen"
+      },
+      "konjunktivI": {
+        "ich": "komme",
+        "du": "kommest",
+        "er/sie/es": "komme",
+        "wir": "kommen",
+        "ihr": "kommet",
+        "sie/Sie": "kommen"
+      }
+    },
+    {
+      "infinitive": "wollen",
+      "meaning": "to want",
+      "auxiliary": "haben",
+      "pastParticiple": "gewollt",
+      "present": {
+        "ich": "will",
+        "du": "willst",
+        "er/sie/es": "will",
+        "wir": "wollen",
+        "ihr": "wollt",
+        "sie/Sie": "wollen"
+      },
+      "präteritum": {
+        "ich": "wollte",
+        "du": "wolltest",
+        "er/sie/es": "wollte",
+        "wir": "wollten",
+        "ihr": "wolltet",
+        "sie/Sie": "wollten"
+      },
+      "konjunktivII": {
+        "ich": "wollte",
+        "du": "wolltest",
+        "er/sie/es": "wollte",
+        "wir": "wollten",
+        "ihr": "wolltet",
+        "sie/Sie": "wollten"
+      },
+      "konjunktivI": {
+        "ich": "wolle",
+        "du": "wollest",
+        "er/sie/es": "wolle",
+        "wir": "wollen",
+        "ihr": "wollet",
+        "sie/Sie": "wollen"
+      }
+    },
+    {
+      "infinitive": "wissen",
+      "meaning": "to know (a fact)",
+      "auxiliary": "haben",
+      "pastParticiple": "gewusst",
+      "present": {
+        "ich": "weiß",
+        "du": "weißt",
+        "er/sie/es": "weiß",
+        "wir": "wissen",
+        "ihr": "wisst",
+        "sie/Sie": "wissen"
+      },
+      "präteritum": {
+        "ich": "wusste",
+        "du": "wusstest",
+        "er/sie/es": "wusste",
+        "wir": "wussten",
+        "ihr": "wusstet",
+        "sie/Sie": "wussten"
+      },
+      "konjunktivII": {
+        "ich": "wüsste",
+        "du": "wüsstest",
+        "er/sie/es": "wüsste",
+        "wir": "wüssten",
+        "ihr": "wüsstet",
+        "sie/Sie": "wüssten"
+      },
+      "konjunktivI": {
+        "ich": "wisse",
+        "du": "wissest",
+        "er/sie/es": "wisse",
+        "wir": "wissen",
+        "ihr": "wisset",
+        "sie/Sie": "wissen"
+      }
+    }
+  ]
+}

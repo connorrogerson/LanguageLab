@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LanguageLab — Language Practice</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LanguageLab — Language Practice</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
 :root {
   --ink: #1a1a2e;
   --cream: #faf8f4;
@@ -21,7 +20,7 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
-.app-container { max-width: 900px; margin: 0 auto; padding: 20px; }
+.app-container { max-width: 900px; margin: 0 auto; padding: 20px; min-height: 100vh; }
 .app-header { text-align: center; padding: 32px 0 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; position: relative; }
 .app-header::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 1px; background: var(--ink); }
 .app-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; letter-spacing: -0.02em; line-height: 1.1; }
@@ -35,6 +34,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .card { background: var(--card); border: 2px solid var(--ink); padding: 28px; margin-bottom: 20px; }
 .card-header { font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 .info-box { padding: 14px 18px; background: var(--warm); border-left: 4px solid var(--blue); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.5; }
+.info-box.error { border-left-color: var(--red); }
 .drill-verb-display { text-align: center; padding: 24px; margin-bottom: 24px; background: var(--ink); color: var(--cream); }
 .drill-verb { font-family: 'DM Serif Display', serif; font-size: 2.2rem; }
 .drill-meaning { font-size: 0.9rem; opacity: 0.7; margin-top: 4px; }
@@ -42,7 +42,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .drill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .drill-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border: 1px solid var(--border); background: var(--warm); }
 .drill-pronoun { font-weight: 600; min-width: 80px; font-size: 0.95rem; color: var(--blue); }
-.drill-input { flex: 1; padding: 8px 12px; border: 2px solid var(--border); font-family: 'Outfit', sans-serif; font-size: 0.95rem; background: white; transition: border-color 0.2s; min-width: 0; }
+.drill-input { flex: 1; padding: 8px 12px; border: 2px solid var(--border); font-family: 'Outfit', sans-serif; font-size: 0.95rem; background: white; transition: border-color 0.2s; }
 .drill-input:focus { outline: none; border-color: var(--blue); }
 .drill-input.correct { border-color: var(--green); background: #e8f8f0; }
 .drill-input.incorrect { border-color: var(--red); background: #fde8e6; }
@@ -55,15 +55,28 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .btn-group { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
 .score-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--warm); border: 1px solid var(--border); margin-bottom: 20px; font-size: 0.9rem; }
 .score-num { font-weight: 700; font-size: 1.1rem; }
-.score-num.good { color: var(--green); } .score-num.ok { color: var(--gold); } .score-num.poor { color: var(--red); }
+.score-num.good { color: var(--green); }
+.score-num.ok { color: var(--gold); }
+.score-num.poor { color: var(--red); }
 .streak { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; font-weight: 600; color: var(--gold); }
-.tense-selector { display: flex; flex-wrap: wrap; margin-bottom: 20px; border: 2px solid var(--ink); overflow: hidden; }
-.tense-btn { flex: 1 1 auto; min-width: 110px; padding: 10px 8px; border: none; background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.03em; }
-.tense-btn:hover { background: var(--warm); } .tense-btn.active { background: var(--red); color: white; }
 .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .filter-chip { padding: 6px 16px; border: 1.5px solid var(--border); background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.15s; }
 .filter-chip:hover { border-color: var(--ink); }
 .filter-chip.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.tense-selector { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 20px; border: 2px solid var(--ink); overflow: hidden; }
+.tense-btn { flex: 1 1 auto; min-width: 100px; padding: 10px 8px; border: none; background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.03em; }
+.tense-btn:hover { background: var(--warm); }
+.tense-btn.active { background: var(--red); color: white; }
+.mode-toggle { display: flex; margin-bottom: 20px; border: 2px solid var(--ink); overflow: hidden; }
+.mode-btn { flex: 1; padding: 12px; border: none; background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); }
+.mode-btn:first-child { border-right: 1px solid var(--border); }
+.mode-btn:hover { background: var(--warm); }
+.mode-btn.active { background: var(--blue); color: white; }
+.random-item { padding: 14px 18px; border: 1px solid var(--border); background: var(--warm); margin-bottom: 10px; }
+.random-prompt { font-size: 0.95rem; margin-bottom: 8px; line-height: 1.5; }
+.random-prompt strong { color: var(--blue); }
+.random-prompt .tense-tag { display: inline-block; padding: 2px 10px; background: var(--red); color: white; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-left: 6px; vertical-align: middle; }
+.random-number { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--ink); color: var(--cream); font-weight: 700; font-size: 0.85rem; margin-right: 10px; flex-shrink: 0; }
 .flashcard-container { perspective: 1000px; margin: 20px 0; }
 .flashcard { width: 100%; min-height: 220px; cursor: pointer; position: relative; transform-style: preserve-3d; transition: transform 0.5s ease; }
 .flashcard.flipped { transform: rotateY(180deg); }
@@ -73,14 +86,17 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .flashcard-word { font-family: 'DM Serif Display', serif; font-size: 2rem; text-align: center; }
 .flashcard-detail { font-size: 0.95rem; margin-top: 8px; opacity: 0.7; }
 .flashcard-gender { display: inline-block; margin-top: 12px; padding: 4px 14px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-.gender-m { background: var(--blue); color: white; } .gender-f { background: var(--red); color: white; } .gender-n { background: var(--green); color: white; }
+.gender-m { background: var(--blue); color: white; }
+.gender-f { background: var(--red); color: white; }
+.gender-n { background: var(--green); color: white; }
 .flashcard-hint { font-size: 0.8rem; color: var(--muted); margin-top: 16px; }
 .flashcard-progress { text-align: center; margin-bottom: 16px; font-size: 0.9rem; color: var(--muted); }
 .flashcard-nav { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
 .worksheet-preview { border: 2px solid var(--ink); padding: 32px; background: white; font-size: 0.95rem; }
 .ws-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; text-align: center; margin-bottom: 4px; }
 .ws-subtitle { text-align: center; color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-.ws-section { margin-bottom: 24px; } .ws-section-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--blue); }
+.ws-section { margin-bottom: 24px; }
+.ws-section-title { font-weight: 700; font-size: 1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--blue); }
 .ws-question { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; line-height: 1.6; }
 .ws-q-num { font-weight: 700; min-width: 24px; color: var(--muted); }
 .ws-blank { display: inline-block; min-width: 140px; border-bottom: 1.5px solid var(--ink); margin: 0 4px; }
@@ -88,272 +104,241 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .ws-name-field { font-size: 0.85rem; color: var(--muted); }
 .ws-answer-key { margin-top: 24px; padding-top: 16px; border-top: 2px dashed var(--border); font-size: 0.85rem; color: var(--muted); }
 .ws-answer-key strong { display: block; margin-bottom: 6px; color: var(--ink); text-transform: uppercase; letter-spacing: 0.04em; }
-.quiz-question { padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); background: var(--warm); }
-.quiz-question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
-.quiz-q-num { font-weight: 700; font-size: 0.9rem; color: var(--muted); }
-.quiz-verb-label { font-family: 'DM Serif Display', serif; font-size: 1.1rem; }
-.quiz-tense-label { display: inline-block; padding: 2px 10px; background: var(--red); color: white; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-.quiz-prompt { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.quiz-prompt-text { font-weight: 600; color: var(--blue); min-width: 80px; }
-.quiz-input { flex: 1; min-width: 160px; padding: 8px 12px; border: 2px solid var(--border); font-family: 'Outfit', sans-serif; font-size: 0.95rem; background: white; transition: border-color 0.2s; }
-.quiz-input:focus { outline: none; border-color: var(--blue); }
-.quiz-input.correct { border-color: var(--green); background: #e8f8f0; }
-.quiz-input.incorrect { border-color: var(--red); background: #fde8e6; }
-.quiz-meaning { font-size: 0.82rem; color: var(--muted); font-style: italic; }
-.quiz-results { text-align: center; padding: 32px; }
-.quiz-results-score { font-family: 'DM Serif Display', serif; font-size: 2.4rem; margin: 12px 0; }
-.quiz-results-msg { font-size: 1rem; color: var(--muted); margin-bottom: 20px; }
-.mode-toggle { display: flex; margin-bottom: 20px; border: 2px solid var(--ink); overflow: hidden; }
-.mode-btn { flex: 1; padding: 12px 16px; border: none; background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; color: var(--ink); border-right: 1px solid var(--border); }
-.mode-btn:last-child { border-right: none; } .mode-btn:hover { background: var(--warm); } .mode-btn.active { background: var(--blue); color: white; }
+.loading { text-align: center; padding: 60px 20px; }
+.loading-spinner { display: inline-block; width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 16px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 0.95rem; color: var(--muted); }
+.db-stats { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: -20px; margin-bottom: 24px; }
 @media print { .no-print { display: none !important; } .worksheet-preview { border: none; padding: 20px 0; } body { background: white; } }
-@media (max-width: 600px) { .app-title { font-size: 2rem; } .card { padding: 18px; } .nav-btn { font-size: 0.75rem; padding: 10px 6px; } .drill-verb { font-size: 1.6rem; } .drill-grid { grid-template-columns: 1fr; } .tense-btn { min-width: 90px; font-size: 0.7rem; padding: 8px 4px; } }
-  </style>
+@media (max-width: 600px) { .app-title { font-size: 2rem; } .card { padding: 18px; } .nav-btn { font-size: 0.75rem; padding: 10px 6px; } .drill-verb { font-size: 1.6rem; } .drill-grid { grid-template-columns: 1fr; } .tense-btn { min-width: 80px; font-size: 0.72rem; padding: 8px 4px; } }
+</style>
 </head>
 <body>
-  <div id="root"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-  <script type="text/babel">
-const { useState, useEffect, useCallback, useRef } = React;
+<div class="app-container">
+  <header class="app-header no-print">
+    <h1 class="app-title">Language<span>Lab</span></h1>
+    <p class="app-subtitle">Language Practice</p>
+  </header>
+  <nav class="nav-bar no-print" id="nav">
+    <button class="nav-btn active" data-page="conjugation">Conjugation</button>
+    <button class="nav-btn" data-page="vocab">Vocabulary</button>
+    <button class="nav-btn" data-page="worksheet">Worksheets</button>
+  </nav>
+  <main id="main-content">
+    <div class="loading"><div class="loading-spinner"></div><div class="loading-text">Loading language data...</div></div>
+  </main>
+</div>
+<script>
+// ════════════════════════════════════════════════════════════════════
+// DATA LOADING — all language content lives in /data/*.json
+// To update verbs or vocab, edit those files, not this one.
+// ════════════════════════════════════════════════════════════════════
 
-const VERBS = [
-  { infinitive: "sein", meaning: "to be",
-    present: { ich: "bin", du: "bist", "er/sie/es": "ist", wir: "sind", ihr: "seid", "sie/Sie": "sind" },
-    präteritum: { ich: "war", du: "warst", "er/sie/es": "war", wir: "waren", ihr: "wart", "sie/Sie": "waren" },
-    perfekt: { ich: "bin gewesen", du: "bist gewesen", "er/sie/es": "ist gewesen", wir: "sind gewesen", ihr: "seid gewesen", "sie/Sie": "sind gewesen" },
-    plusquamperfekt: { ich: "war gewesen", du: "warst gewesen", "er/sie/es": "war gewesen", wir: "waren gewesen", ihr: "wart gewesen", "sie/Sie": "waren gewesen" },
-    futurI: { ich: "werde sein", du: "wirst sein", "er/sie/es": "wird sein", wir: "werden sein", ihr: "werdet sein", "sie/Sie": "werden sein" },
-    futurII: { ich: "werde gewesen sein", du: "wirst gewesen sein", "er/sie/es": "wird gewesen sein", wir: "werden gewesen sein", ihr: "werdet gewesen sein", "sie/Sie": "werden gewesen sein" },
-    konjunktivII: { ich: "wäre", du: "wärst", "er/sie/es": "wäre", wir: "wären", ihr: "wärt", "sie/Sie": "wären" } },
-  { infinitive: "haben", meaning: "to have",
-    present: { ich: "habe", du: "hast", "er/sie/es": "hat", wir: "haben", ihr: "habt", "sie/Sie": "haben" },
-    präteritum: { ich: "hatte", du: "hattest", "er/sie/es": "hatte", wir: "hatten", ihr: "hattet", "sie/Sie": "hatten" },
-    perfekt: { ich: "habe gehabt", du: "hast gehabt", "er/sie/es": "hat gehabt", wir: "haben gehabt", ihr: "habt gehabt", "sie/Sie": "haben gehabt" },
-    plusquamperfekt: { ich: "hatte gehabt", du: "hattest gehabt", "er/sie/es": "hatte gehabt", wir: "hatten gehabt", ihr: "hattet gehabt", "sie/Sie": "hatten gehabt" },
-    futurI: { ich: "werde haben", du: "wirst haben", "er/sie/es": "wird haben", wir: "werden haben", ihr: "werdet haben", "sie/Sie": "werden haben" },
-    futurII: { ich: "werde gehabt haben", du: "wirst gehabt haben", "er/sie/es": "wird gehabt haben", wir: "werden gehabt haben", ihr: "werdet gehabt haben", "sie/Sie": "werden gehabt haben" },
-    konjunktivII: { ich: "hätte", du: "hättest", "er/sie/es": "hätte", wir: "hätten", ihr: "hättet", "sie/Sie": "hätten" } },
-  { infinitive: "werden", meaning: "to become",
-    present: { ich: "werde", du: "wirst", "er/sie/es": "wird", wir: "werden", ihr: "werdet", "sie/Sie": "werden" },
-    präteritum: { ich: "wurde", du: "wurdest", "er/sie/es": "wurde", wir: "wurden", ihr: "wurdet", "sie/Sie": "wurden" },
-    perfekt: { ich: "bin geworden", du: "bist geworden", "er/sie/es": "ist geworden", wir: "sind geworden", ihr: "seid geworden", "sie/Sie": "sind geworden" },
-    plusquamperfekt: { ich: "war geworden", du: "warst geworden", "er/sie/es": "war geworden", wir: "waren geworden", ihr: "wart geworden", "sie/Sie": "waren geworden" },
-    futurI: { ich: "werde werden", du: "wirst werden", "er/sie/es": "wird werden", wir: "werden werden", ihr: "werdet werden", "sie/Sie": "werden werden" },
-    futurII: { ich: "werde geworden sein", du: "wirst geworden sein", "er/sie/es": "wird geworden sein", wir: "werden geworden sein", ihr: "werdet geworden sein", "sie/Sie": "werden geworden sein" },
-    konjunktivII: { ich: "würde", du: "würdest", "er/sie/es": "würde", wir: "würden", ihr: "würdet", "sie/Sie": "würden" } },
-  { infinitive: "gehen", meaning: "to go",
-    present: { ich: "gehe", du: "gehst", "er/sie/es": "geht", wir: "gehen", ihr: "geht", "sie/Sie": "gehen" },
-    präteritum: { ich: "ging", du: "gingst", "er/sie/es": "ging", wir: "gingen", ihr: "gingt", "sie/Sie": "gingen" },
-    perfekt: { ich: "bin gegangen", du: "bist gegangen", "er/sie/es": "ist gegangen", wir: "sind gegangen", ihr: "seid gegangen", "sie/Sie": "sind gegangen" },
-    plusquamperfekt: { ich: "war gegangen", du: "warst gegangen", "er/sie/es": "war gegangen", wir: "waren gegangen", ihr: "wart gegangen", "sie/Sie": "waren gegangen" },
-    futurI: { ich: "werde gehen", du: "wirst gehen", "er/sie/es": "wird gehen", wir: "werden gehen", ihr: "werdet gehen", "sie/Sie": "werden gehen" },
-    futurII: { ich: "werde gegangen sein", du: "wirst gegangen sein", "er/sie/es": "wird gegangen sein", wir: "werden gegangen sein", ihr: "werdet gegangen sein", "sie/Sie": "werden gegangen sein" },
-    konjunktivII: { ich: "würde gehen", du: "würdest gehen", "er/sie/es": "würde gehen", wir: "würden gehen", ihr: "würdet gehen", "sie/Sie": "würden gehen" } },
-  { infinitive: "machen", meaning: "to do/make",
-    present: { ich: "mache", du: "machst", "er/sie/es": "macht", wir: "machen", ihr: "macht", "sie/Sie": "machen" },
-    präteritum: { ich: "machte", du: "machtest", "er/sie/es": "machte", wir: "machten", ihr: "machtet", "sie/Sie": "machten" },
-    perfekt: { ich: "habe gemacht", du: "hast gemacht", "er/sie/es": "hat gemacht", wir: "haben gemacht", ihr: "habt gemacht", "sie/Sie": "haben gemacht" },
-    plusquamperfekt: { ich: "hatte gemacht", du: "hattest gemacht", "er/sie/es": "hatte gemacht", wir: "hatten gemacht", ihr: "hattet gemacht", "sie/Sie": "hatten gemacht" },
-    futurI: { ich: "werde machen", du: "wirst machen", "er/sie/es": "wird machen", wir: "werden machen", ihr: "werdet machen", "sie/Sie": "werden machen" },
-    futurII: { ich: "werde gemacht haben", du: "wirst gemacht haben", "er/sie/es": "wird gemacht haben", wir: "werden gemacht haben", ihr: "werdet gemacht haben", "sie/Sie": "werden gemacht haben" },
-    konjunktivII: { ich: "würde machen", du: "würdest machen", "er/sie/es": "würde machen", wir: "würden machen", ihr: "würdet machen", "sie/Sie": "würden machen" } },
-  { infinitive: "können", meaning: "to be able to",
-    present: { ich: "kann", du: "kannst", "er/sie/es": "kann", wir: "können", ihr: "könnt", "sie/Sie": "können" },
-    präteritum: { ich: "konnte", du: "konntest", "er/sie/es": "konnte", wir: "konnten", ihr: "konntet", "sie/Sie": "konnten" },
-    perfekt: { ich: "habe gekonnt", du: "hast gekonnt", "er/sie/es": "hat gekonnt", wir: "haben gekonnt", ihr: "habt gekonnt", "sie/Sie": "haben gekonnt" },
-    plusquamperfekt: { ich: "hatte gekonnt", du: "hattest gekonnt", "er/sie/es": "hatte gekonnt", wir: "hatten gekonnt", ihr: "hattet gekonnt", "sie/Sie": "hatten gekonnt" },
-    futurI: { ich: "werde können", du: "wirst können", "er/sie/es": "wird können", wir: "werden können", ihr: "werdet können", "sie/Sie": "werden können" },
-    futurII: { ich: "werde gekonnt haben", du: "wirst gekonnt haben", "er/sie/es": "wird gekonnt haben", wir: "werden gekonnt haben", ihr: "werdet gekonnt haben", "sie/Sie": "werden gekonnt haben" },
-    konjunktivII: { ich: "könnte", du: "könntest", "er/sie/es": "könnte", wir: "könnten", ihr: "könntet", "sie/Sie": "könnten" } },
-  { infinitive: "müssen", meaning: "to have to/must",
-    present: { ich: "muss", du: "musst", "er/sie/es": "muss", wir: "müssen", ihr: "müsst", "sie/Sie": "müssen" },
-    präteritum: { ich: "musste", du: "musstest", "er/sie/es": "musste", wir: "mussten", ihr: "musstet", "sie/Sie": "mussten" },
-    perfekt: { ich: "habe gemusst", du: "hast gemusst", "er/sie/es": "hat gemusst", wir: "haben gemusst", ihr: "habt gemusst", "sie/Sie": "haben gemusst" },
-    plusquamperfekt: { ich: "hatte gemusst", du: "hattest gemusst", "er/sie/es": "hatte gemusst", wir: "hatten gemusst", ihr: "hattet gemusst", "sie/Sie": "hatten gemusst" },
-    futurI: { ich: "werde müssen", du: "wirst müssen", "er/sie/es": "wird müssen", wir: "werden müssen", ihr: "werdet müssen", "sie/Sie": "werden müssen" },
-    futurII: { ich: "werde gemusst haben", du: "wirst gemusst haben", "er/sie/es": "wird gemusst haben", wir: "werden gemusst haben", ihr: "werdet gemusst haben", "sie/Sie": "werden gemusst haben" },
-    konjunktivII: { ich: "müsste", du: "müsstest", "er/sie/es": "müsste", wir: "müssten", ihr: "müsstet", "sie/Sie": "müssten" } },
-  { infinitive: "sagen", meaning: "to say",
-    present: { ich: "sage", du: "sagst", "er/sie/es": "sagt", wir: "sagen", ihr: "sagt", "sie/Sie": "sagen" },
-    präteritum: { ich: "sagte", du: "sagtest", "er/sie/es": "sagte", wir: "sagten", ihr: "sagtet", "sie/Sie": "sagten" },
-    perfekt: { ich: "habe gesagt", du: "hast gesagt", "er/sie/es": "hat gesagt", wir: "haben gesagt", ihr: "habt gesagt", "sie/Sie": "haben gesagt" },
-    plusquamperfekt: { ich: "hatte gesagt", du: "hattest gesagt", "er/sie/es": "hatte gesagt", wir: "hatten gesagt", ihr: "hattet gesagt", "sie/Sie": "hatten gesagt" },
-    futurI: { ich: "werde sagen", du: "wirst sagen", "er/sie/es": "wird sagen", wir: "werden sagen", ihr: "werdet sagen", "sie/Sie": "werden sagen" },
-    futurII: { ich: "werde gesagt haben", du: "wirst gesagt haben", "er/sie/es": "wird gesagt haben", wir: "werden gesagt haben", ihr: "werdet gesagt haben", "sie/Sie": "werden gesagt haben" },
-    konjunktivII: { ich: "würde sagen", du: "würdest sagen", "er/sie/es": "würde sagen", wir: "würden sagen", ihr: "würdet sagen", "sie/Sie": "würden sagen" } },
-  { infinitive: "geben", meaning: "to give",
-    present: { ich: "gebe", du: "gibst", "er/sie/es": "gibt", wir: "geben", ihr: "gebt", "sie/Sie": "geben" },
-    präteritum: { ich: "gab", du: "gabst", "er/sie/es": "gab", wir: "gaben", ihr: "gabt", "sie/Sie": "gaben" },
-    perfekt: { ich: "habe gegeben", du: "hast gegeben", "er/sie/es": "hat gegeben", wir: "haben gegeben", ihr: "habt gegeben", "sie/Sie": "haben gegeben" },
-    plusquamperfekt: { ich: "hatte gegeben", du: "hattest gegeben", "er/sie/es": "hatte gegeben", wir: "hatten gegeben", ihr: "hattet gegeben", "sie/Sie": "hatten gegeben" },
-    futurI: { ich: "werde geben", du: "wirst geben", "er/sie/es": "wird geben", wir: "werden geben", ihr: "werdet geben", "sie/Sie": "werden geben" },
-    futurII: { ich: "werde gegeben haben", du: "wirst gegeben haben", "er/sie/es": "wird gegeben haben", wir: "werden gegeben haben", ihr: "werdet gegeben haben", "sie/Sie": "werden gegeben haben" },
-    konjunktivII: { ich: "würde geben", du: "würdest geben", "er/sie/es": "würde geben", wir: "würden geben", ihr: "würdet geben", "sie/Sie": "würden geben" } },
-  { infinitive: "kommen", meaning: "to come",
-    present: { ich: "komme", du: "kommst", "er/sie/es": "kommt", wir: "kommen", ihr: "kommt", "sie/Sie": "kommen" },
-    präteritum: { ich: "kam", du: "kamst", "er/sie/es": "kam", wir: "kamen", ihr: "kamt", "sie/Sie": "kamen" },
-    perfekt: { ich: "bin gekommen", du: "bist gekommen", "er/sie/es": "ist gekommen", wir: "sind gekommen", ihr: "seid gekommen", "sie/Sie": "sind gekommen" },
-    plusquamperfekt: { ich: "war gekommen", du: "warst gekommen", "er/sie/es": "war gekommen", wir: "waren gekommen", ihr: "wart gekommen", "sie/Sie": "waren gekommen" },
-    futurI: { ich: "werde kommen", du: "wirst kommen", "er/sie/es": "wird kommen", wir: "werden kommen", ihr: "werdet kommen", "sie/Sie": "werden kommen" },
-    futurII: { ich: "werde gekommen sein", du: "wirst gekommen sein", "er/sie/es": "wird gekommen sein", wir: "werden gekommen sein", ihr: "werdet gekommen sein", "sie/Sie": "werden gekommen sein" },
-    konjunktivII: { ich: "würde kommen", du: "würdest kommen", "er/sie/es": "würde kommen", wir: "würden kommen", ihr: "würdet kommen", "sie/Sie": "würden kommen" } },
-  { infinitive: "wollen", meaning: "to want",
-    present: { ich: "will", du: "willst", "er/sie/es": "will", wir: "wollen", ihr: "wollt", "sie/Sie": "wollen" },
-    präteritum: { ich: "wollte", du: "wolltest", "er/sie/es": "wollte", wir: "wollten", ihr: "wolltet", "sie/Sie": "wollten" },
-    perfekt: { ich: "habe gewollt", du: "hast gewollt", "er/sie/es": "hat gewollt", wir: "haben gewollt", ihr: "habt gewollt", "sie/Sie": "haben gewollt" },
-    plusquamperfekt: { ich: "hatte gewollt", du: "hattest gewollt", "er/sie/es": "hatte gewollt", wir: "hatten gewollt", ihr: "hattet gewollt", "sie/Sie": "hatten gewollt" },
-    futurI: { ich: "werde wollen", du: "wirst wollen", "er/sie/es": "wird wollen", wir: "werden wollen", ihr: "werdet wollen", "sie/Sie": "werden wollen" },
-    futurII: { ich: "werde gewollt haben", du: "wirst gewollt haben", "er/sie/es": "wird gewollt haben", wir: "werden gewollt haben", ihr: "werdet gewollt haben", "sie/Sie": "werden gewollt haben" },
-    konjunktivII: { ich: "wollte", du: "wolltest", "er/sie/es": "wollte", wir: "wollten", ihr: "wolltet", "sie/Sie": "wollten" } },
-  { infinitive: "wissen", meaning: "to know (a fact)",
-    present: { ich: "weiß", du: "weißt", "er/sie/es": "weiß", wir: "wissen", ihr: "wisst", "sie/Sie": "wissen" },
-    präteritum: { ich: "wusste", du: "wusstest", "er/sie/es": "wusste", wir: "wussten", ihr: "wusstet", "sie/Sie": "wussten" },
-    perfekt: { ich: "habe gewusst", du: "hast gewusst", "er/sie/es": "hat gewusst", wir: "haben gewusst", ihr: "habt gewusst", "sie/Sie": "haben gewusst" },
-    plusquamperfekt: { ich: "hatte gewusst", du: "hattest gewusst", "er/sie/es": "hatte gewusst", wir: "hatten gewusst", ihr: "hattet gewusst", "sie/Sie": "hatten gewusst" },
-    futurI: { ich: "werde wissen", du: "wirst wissen", "er/sie/es": "wird wissen", wir: "werden wissen", ihr: "werdet wissen", "sie/Sie": "werden wissen" },
-    futurII: { ich: "werde gewusst haben", du: "wirst gewusst haben", "er/sie/es": "wird gewusst haben", wir: "werden gewusst haben", ihr: "werdet gewusst haben", "sie/Sie": "werden gewusst haben" },
-    konjunktivII: { ich: "wüsste", du: "wüsstest", "er/sie/es": "wüsste", wir: "wüssten", ihr: "wüsstet", "sie/Sie": "wüssten" } },
-];
+const PRONOUNS=["ich","du","er/sie/es","wir","ihr","sie/Sie"];
+const ALL_TENSES=["present","präteritum","perfekt","plusquamperfekt","futurI","futurII","konjunktivII","konjunktivI"];
+const TENSE_LABELS={present:"Präsens","präteritum":"Präteritum",perfekt:"Perfekt",plusquamperfekt:"Plusquamperfekt",futurI:"Futur I",futurII:"Futur II",konjunktivII:"Konjunktiv II",konjunktivI:"Konjunktiv I"};
 
-const PRONOUNS = ["ich", "du", "er/sie/es", "wir", "ihr", "sie/Sie"];
-const TENSES = ["present", "präteritum", "perfekt", "plusquamperfekt", "futurI", "futurII", "konjunktivII"];
-const TENSE_LABELS = { present: "Präsens", "präteritum": "Präteritum", perfekt: "Perfekt", plusquamperfekt: "Plusquamperfekt", futurI: "Futur I", futurII: "Futur II", konjunktivII: "Konjunktiv II" };
+let VERBS=[],VOCAB=[],TOPICS=[];
+let dataLoaded=false,loadError=null;
 
-const VOCAB = [
-  { german: "die Wohnung", english: "flat/apartment", gender: "f", topic: "Home" },
-  { german: "das Schlafzimmer", english: "bedroom", gender: "n", topic: "Home" },
-  { german: "die Küche", english: "kitchen", gender: "f", topic: "Home" },
-  { german: "der Flur", english: "hallway", gender: "m", topic: "Home" },
-  { german: "die Treppe", english: "stairs", gender: "f", topic: "Home" },
-  { german: "der Bahnhof", english: "train station", gender: "m", topic: "Travel" },
-  { german: "die Fahrkarte", english: "ticket", gender: "f", topic: "Travel" },
-  { german: "das Flugzeug", english: "aeroplane", gender: "n", topic: "Travel" },
-  { german: "der Koffer", english: "suitcase", gender: "m", topic: "Travel" },
-  { german: "die Reise", english: "journey/trip", gender: "f", topic: "Travel" },
-  { german: "das Abendessen", english: "dinner/supper", gender: "n", topic: "Food" },
-  { german: "die Rechnung", english: "bill", gender: "f", topic: "Food" },
-  { german: "der Kellner", english: "waiter", gender: "m", topic: "Food" },
-  { german: "das Gericht", english: "dish/course", gender: "n", topic: "Food" },
-  { german: "die Vorspeise", english: "starter", gender: "f", topic: "Food" },
-  { german: "der Beruf", english: "profession/job", gender: "m", topic: "Work" },
-  { german: "die Bewerbung", english: "application", gender: "f", topic: "Work" },
-  { german: "das Gehalt", english: "salary", gender: "n", topic: "Work" },
-  { german: "der Arbeitgeber", english: "employer", gender: "m", topic: "Work" },
-  { german: "die Erfahrung", english: "experience", gender: "f", topic: "Work" },
-  { german: "das Krankenhaus", english: "hospital", gender: "n", topic: "Health" },
-  { german: "der Arzt", english: "doctor", gender: "m", topic: "Health" },
-  { german: "die Erkältung", english: "cold (illness)", gender: "f", topic: "Health" },
-  { german: "das Rezept", english: "prescription/recipe", gender: "n", topic: "Health" },
-  { german: "der Schmerz", english: "pain", gender: "m", topic: "Health" },
-  { german: "die Umwelt", english: "environment", gender: "f", topic: "Environment" },
-  { german: "der Klimawandel", english: "climate change", gender: "m", topic: "Environment" },
-  { german: "die Verschmutzung", english: "pollution", gender: "f", topic: "Environment" },
-  { german: "das Recycling", english: "recycling", gender: "n", topic: "Environment" },
-  { german: "der Verbrauch", english: "consumption", gender: "m", topic: "Environment" },
-];
+const WERDEN_PRESENT={ich:"werde",du:"wirst","er/sie/es":"wird",wir:"werden",ihr:"werdet","sie/Sie":"werden"};
+const HABEN_PRÄT={ich:"hatte",du:"hattest","er/sie/es":"hatte",wir:"hatten",ihr:"hattet","sie/Sie":"hatten"};
+const SEIN_PRÄT={ich:"war",du:"warst","er/sie/es":"war",wir:"waren",ihr:"wart","sie/Sie":"waren"};
 
-const TOPICS = [...new Set(VOCAB.map(v => v.topic))];
-const shuffle = (a) => { const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; };
-const pick = (a,n) => shuffle(a).slice(0,n);
-
-function ConjugationByTense() {
-  const [tense,setTense]=useState("present");
-  const [verb,setVerb]=useState(null);
-  const [ans,setAns]=useState({});
-  const [checked,setChecked]=useState(false);
-  const [score,setScore]=useState({c:0,t:0});
-  const [streak,setStreak]=useState(0);
-  const refs=useRef({});
-  const next=useCallback(()=>{setVerb(VERBS[Math.floor(Math.random()*VERBS.length)]);setAns({});setChecked(false);},[]);
-  useEffect(()=>{next();},[next]);
-  const check=()=>{if(!verb)return;setChecked(true);const c=verb[tense];let all=true,cc=0;PRONOUNS.forEach(p=>{if((ans[p]||"").trim().toLowerCase()===c[p].toLowerCase())cc++;else all=false;});setScore(s=>({c:s.c+cc,t:s.t+6}));setStreak(all?streak+1:0);};
-  const kd=(e,p)=>{if(e.key==="Enter"){const i=PRONOUNS.indexOf(p);if(i<5)refs.current[PRONOUNS[i+1]]?.focus();else check();}};
-  if(!verb)return null;
-  const c=verb[tense],pct=score.t>0?Math.round(score.c/score.t*100):null;
-  return (<div>
-    <div className="info-box">Conjugate the verb for each pronoun. Press <strong>Enter</strong> to move between fields.</div>
-    <div className="tense-selector no-print">{TENSES.map(t=><button key={t} className={`tense-btn ${tense===t?"active":""}`} onClick={()=>{setTense(t);next();}}>{TENSE_LABELS[t]}</button>)}</div>
-    {(pct!==null||streak>1)&&<div className="score-bar no-print">{pct!==null&&<span>Accuracy: <span className={`score-num ${pct>=80?"good":pct>=50?"ok":"poor"}`}>{pct}%</span></span>}{streak>1&&<span className="streak">{"\uD83D\uDD25"} {streak} in a row</span>}</div>}
-    <div className="drill-verb-display"><div className="drill-verb">{verb.infinitive}</div><div className="drill-meaning">{verb.meaning}</div><div className="drill-tense">{TENSE_LABELS[tense]}</div></div>
-    <div className="drill-grid">{PRONOUNS.map(p=>{const ok=checked&&(ans[p]||"").trim().toLowerCase()===c[p].toLowerCase();const bad=checked&&!ok;return(<div key={p} className="drill-item"><span className="drill-pronoun">{p}</span><div style={{flex:1}}><input ref={el=>refs.current[p]=el} className={`drill-input ${checked?(ok?"correct":"incorrect"):""}`} value={ans[p]||""} onChange={e=>setAns({...ans,[p]:e.target.value})} onKeyDown={e=>kd(e,p)} disabled={checked} placeholder="..." autoComplete="off" spellCheck="false"/>{bad&&<div className="drill-answer">{"\u2192"} {c[p]}</div>}</div></div>);})}</div>
-    <div className="btn-group no-print">{!checked?<><button className="btn btn-primary" onClick={check}>Check Answers</button><button className="btn btn-secondary" onClick={next}>Skip</button></>:<button className="btn btn-primary" onClick={next}>Next Verb {"\u2192"}</button>}</div>
-  </div>);
+function buildCompoundTenses(rawVerbs){
+  const seinV=rawVerbs.find(v=>v.infinitive==="sein");
+  const habenV=rawVerbs.find(v=>v.infinitive==="haben");
+  return rawVerbs.map(v=>{
+    const auxP=v.auxiliary==="sein"?SEIN_PRÄT:HABEN_PRÄT;
+    const pp=v.pastParticiple,inf=v.infinitive,auxInf=v.auxiliary;
+    const perfekt={},plusquamperfekt={},futurI={},futurII={};
+    PRONOUNS.forEach(p=>{
+      const auxPres=v.auxiliary==="sein"?seinV.present[p]:habenV.present[p];
+      perfekt[p]=auxPres+" "+pp;
+      plusquamperfekt[p]=auxP[p]+" "+pp;
+      futurI[p]=WERDEN_PRESENT[p]+" "+inf;
+      futurII[p]=WERDEN_PRESENT[p]+" "+pp+" "+auxInf;
+    });
+    return{...v,perfekt,plusquamperfekt,futurI,futurII};
+  });
 }
 
-function RandomQuiz() {
-  const [qs,setQs]=useState([]);
-  const [ans,setAns]=useState({});
-  const [checked,setChecked]=useState(false);
-  const [selT,setSelT]=useState(new Set(TENSES));
-  const refs=useRef({});
-  const gen=useCallback((ts)=>{const pool=TENSES.filter(t=>(ts||selT).has(t));if(!pool.length)return;const q=[];for(let i=0;i<10;i++){const v=VERBS[Math.floor(Math.random()*VERBS.length)],t=pool[Math.floor(Math.random()*pool.length)],p=PRONOUNS[Math.floor(Math.random()*PRONOUNS.length)];q.push({v,t,p,a:v[t][p]});}setQs(q);setAns({});setChecked(false);},[selT]);
-  useEffect(()=>{gen();},[]);
-  const toggle=(t)=>{const n=new Set(selT);if(n.has(t)){if(n.size>1)n.delete(t);}else n.add(t);setSelT(n);};
-  const kd=(e,i)=>{if(e.key==="Enter"){if(i<9)refs.current[i+1]?.focus();else setChecked(true);}};
-  const cc=checked?qs.filter((q,i)=>(ans[i]||"").trim().toLowerCase()===q.a.toLowerCase()).length:0;
-  if(checked){const pct=Math.round(cc/10*100);const msg=pct===100?"Perfekt! Absolutely flawless!":pct>=80?"Sehr gut! Really strong work.":pct>=60?"Gut! You're getting there.":pct>=40?"Keep practising \u2014 you'll get there!":"Don't worry \u2014 review the corrections and try again.";
-  return(<div><div className="quiz-results"><div style={{fontSize:"2.5rem"}}>{pct>=80?"\uD83C\uDF1F":pct>=50?"\uD83D\uDCAA":"\uD83D\uDCDA"}</div><div className="quiz-results-score"><span className={`score-num ${pct>=80?"good":pct>=50?"ok":"poor"}`}>{cc}/10</span></div><div className="quiz-results-msg">{msg}</div></div>
-    {qs.map((q,i)=>{const ok=(ans[i]||"").trim().toLowerCase()===q.a.toLowerCase();return(<div key={i} className="quiz-question"><div className="quiz-question-header"><span className="quiz-q-num">Q{i+1}</span><span className="quiz-verb-label">{q.v.infinitive}</span><span className="quiz-tense-label">{TENSE_LABELS[q.t]}</span></div><div className="quiz-prompt"><span className="quiz-prompt-text">{q.p}</span><input className={`quiz-input ${ok?"correct":"incorrect"}`} value={ans[i]||""} disabled/></div>{!ok&&<div className="drill-answer">{"\u2192"} {q.a}</div>}</div>);})}
-    <div className="btn-group no-print" style={{justifyContent:"center"}}><button className="btn btn-primary" onClick={()=>gen()}>New Quiz {"\u2192"}</button></div></div>);}
-  return(<div>
-    <div className="info-box">10 random questions across different verbs, tenses, and pronouns. Filter tenses below. Press <strong>Enter</strong> to move between questions.</div>
-    <div className="filter-bar no-print">{TENSES.map(t=><button key={t} className={`filter-chip ${selT.has(t)?"active":""}`} onClick={()=>toggle(t)}>{TENSE_LABELS[t]}</button>)}</div>
-    {qs.map((q,i)=>(<div key={i} className="quiz-question"><div className="quiz-question-header"><span className="quiz-q-num">Q{i+1}</span><span className="quiz-verb-label">{q.v.infinitive} <span className="quiz-meaning">({q.v.meaning})</span></span><span className="quiz-tense-label">{TENSE_LABELS[q.t]}</span></div><div className="quiz-prompt"><span className="quiz-prompt-text">{q.p}</span><input ref={el=>refs.current[i]=el} className="quiz-input" value={ans[i]||""} onChange={e=>setAns({...ans,[i]:e.target.value})} onKeyDown={e=>kd(e,i)} placeholder="..." autoComplete="off" spellCheck="false"/></div></div>))}
-    <div className="btn-group no-print"><button className="btn btn-primary" onClick={()=>setChecked(true)}>Check All Answers</button><button className="btn btn-secondary" onClick={()=>gen()}>New Questions</button></div>
-  </div>);
+async function loadData(){
+  try{
+    const[vR,voR]=await Promise.all([fetch("data/verbs.json"),fetch("data/vocab.json")]);
+    if(!vR.ok)throw new Error("Could not load verbs.json ("+vR.status+")");
+    if(!voR.ok)throw new Error("Could not load vocab.json ("+voR.status+")");
+    const vD=await vR.json(),voD=await voR.json();
+    VERBS=buildCompoundTenses(vD.verbs);
+    VOCAB=voD.vocab;
+    TOPICS=[...new Set(VOCAB.map(v=>v.topic))];
+    dataLoaded=true;
+    console.log("LanguageLab loaded: "+VERBS.length+" verbs, "+VOCAB.length+" vocab words, "+TOPICS.length+" topics");
+  }catch(e){loadError=e.message;console.error("Data load error:",e);}
 }
 
-function ConjugationDrill() {
-  const [mode,setMode]=useState("tense");
-  return(<div className="card"><h2 className="card-header">Verb Conjugation Drill</h2>
-    <div className="mode-toggle no-print"><button className={`mode-btn ${mode==="tense"?"active":""}`} onClick={()=>setMode("tense")}>By Tense</button><button className={`mode-btn ${mode==="random"?"active":""}`} onClick={()=>setMode("random")}>Random Quiz (10 Qs)</button></div>
-    {mode==="tense"?<ConjugationByTense/>:<RandomQuiz/>}</div>);
+// ─── UTILITIES ───────────────────────────────────────────────────────
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function pick(a,n){return shuffle(a).slice(0,n);}
+function randItem(a){return a[Math.floor(Math.random()*a.length)];}
+
+// ─── APP STATE ───────────────────────────────────────────────────────
+const S={
+  page:"conjugation",conjMode:"byTense",conjScore:{correct:0,total:0},conjStreak:0,
+  conjTense:"present",conjVerb:null,conjAnswers:{},conjChecked:false,
+  randomQuestions:[],randomAnswers:{},randomChecked:false,
+  vocabTopic:"All",vocabDirection:"de-en",vocabCards:[],vocabIdx:0,vocabFlipped:false,vocabKnown:0,
+  wsType:"mixed",wsData:null,wsShowAnswers:false
+};
+
+// ─── NAVIGATION ──────────────────────────────────────────────────────
+document.getElementById("nav").addEventListener("click",e=>{
+  if(!e.target.matches(".nav-btn"))return;
+  S.page=e.target.dataset.page;
+  document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===S.page));
+  render();
+});
+
+// ─── CONJUGATION: BY-TENSE ──────────────────────────────────────────
+function newVerb(){S.conjVerb=randItem(VERBS);S.conjAnswers={};S.conjChecked=false;}
+
+function checkByTense(){
+  S.conjChecked=true;
+  const c=S.conjVerb[S.conjTense];let all=true,n=0;
+  PRONOUNS.forEach(p=>{if((S.conjAnswers[p]||"").trim().toLowerCase()===c[p].toLowerCase())n++;else all=false;});
+  S.conjScore.correct+=n;S.conjScore.total+=6;
+  S.conjStreak=all?S.conjStreak+1:0;
+  renderConj();
 }
 
-function VocabFlashcards() {
-  const [topic,setTopic]=useState("All");const [cards,setCards]=useState([]);const [idx,setIdx]=useState(0);const [flipped,setFlipped]=useState(false);const [dir,setDir]=useState("de-en");const [known,setKnown]=useState(0);
-  useEffect(()=>{const f=topic==="All"?VOCAB:VOCAB.filter(v=>v.topic===topic);setCards(shuffle(f));setIdx(0);setFlipped(false);setKnown(0);},[topic]);
-  const next=(g)=>{if(g)setKnown(k=>k+1);setFlipped(false);setTimeout(()=>setIdx(i=>i+1),150);};
-  const restart=()=>{const f=topic==="All"?VOCAB:VOCAB.filter(v=>v.topic===topic);setCards(shuffle(f));setIdx(0);setFlipped(false);setKnown(0);};
-  if(!cards.length)return<div className="info-box">No cards.</div>;
-  if(idx>=cards.length){const pct=Math.round(known/cards.length*100);return(<div className="card" style={{textAlign:"center",padding:"48px 28px"}}><div style={{fontSize:"3rem",marginBottom:12}}>{"\uD83C\uDF89"}</div><div className="card-header" style={{border:"none",textAlign:"center"}}>Round complete!</div><p style={{fontSize:"1.1rem",marginBottom:8}}>You knew <span className={`score-num ${pct>=80?"good":pct>=50?"ok":"poor"}`}>{known}/{cards.length}</span> words ({pct}%)</p><div className="btn-group" style={{justifyContent:"center",marginTop:24}}><button className="btn btn-primary" onClick={restart}>Go Again</button></div></div>);}
-  const card=cards[idx],gm={m:"der (m)",f:"die (f)",n:"das (n)"},front=dir==="de-en"?card.german:card.english,back=dir==="de-en"?card.english:card.german;
-  return(<div className="card"><h2 className="card-header">Vocabulary Flashcards</h2>
-    <div className="filter-bar no-print"><button className={`filter-chip ${topic==="All"?"active":""}`} onClick={()=>setTopic("All")}>All</button>{TOPICS.map(t=><button key={t} className={`filter-chip ${topic===t?"active":""}`} onClick={()=>setTopic(t)}>{t}</button>)}</div>
-    <div className="filter-bar no-print"><button className={`filter-chip ${dir==="de-en"?"active":""}`} onClick={()=>setDir("de-en")}>German {"\u2192"} English</button><button className={`filter-chip ${dir==="en-de"?"active":""}`} onClick={()=>setDir("en-de")}>English {"\u2192"} German</button></div>
-    <div className="flashcard-progress">Card {idx+1} of {cards.length}</div>
-    <div className="flashcard-container"><div className={`flashcard ${flipped?"flipped":""}`} onClick={()=>setFlipped(!flipped)}><div className="flashcard-face flashcard-front"><div className="flashcard-word">{front}</div>{dir==="de-en"&&<span className={`flashcard-gender gender-${card.gender}`}>{gm[card.gender]}</span>}<div className="flashcard-detail">{card.topic}</div><div className="flashcard-hint">Click to flip</div></div><div className="flashcard-face flashcard-back"><div className="flashcard-word">{back}</div>{dir==="en-de"&&<span className={`flashcard-gender gender-${card.gender}`}>{gm[card.gender]}</span>}<div className="flashcard-detail">{card.topic}</div></div></div></div>
-    <div className="flashcard-nav no-print"><button className="btn btn-secondary" onClick={()=>next(false)}>Still learning</button><button className="btn btn-primary" onClick={()=>next(true)}>Got it {"\u2713"}</button></div></div>);
+function renderByTense(){
+  if(!S.conjVerb)newVerb();
+  const v=S.conjVerb,t=S.conjTense,c=v[t];
+  const pct=S.conjScore.total>0?Math.round(S.conjScore.correct/S.conjScore.total*100):null;
+  let sc='';
+  if(pct!==null||S.conjStreak>1)sc=`<div class="score-bar no-print">${pct!==null?`<span>Accuracy: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span>`:''} ${S.conjStreak>1?`<span class="streak">\uD83D\uDD25 ${S.conjStreak} in a row</span>`:''}</div>`;
+  return`<div class="tense-selector no-print">${ALL_TENSES.map(tn=>`<button class="tense-btn ${t===tn?'active':''}" data-tense="${tn}">${TENSE_LABELS[tn]}</button>`).join('')}</div>${sc}<div class="drill-verb-display"><div class="drill-verb">${v.infinitive}</div><div class="drill-meaning">${v.meaning}</div><div class="drill-tense">${TENSE_LABELS[t]}</div></div><div class="drill-grid">${PRONOUNS.map((p,i)=>{const a=S.conjAnswers[p]||'',ok=S.conjChecked&&a.trim().toLowerCase()===c[p].toLowerCase(),bad=S.conjChecked&&!ok;return`<div class="drill-item"><span class="drill-pronoun">${p}</span><div style="flex:1"><input class="drill-input ${S.conjChecked?(ok?'correct':'incorrect'):''}" data-pronoun="${p}" data-idx="${i}" value="${a}" ${S.conjChecked?'disabled':''} placeholder="..." autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">\u2192 ${c[p]}</div>`:''}</div></div>`;}).join('')}</div><div class="btn-group no-print">${!S.conjChecked?`<button class="btn btn-primary" id="checkBtn">Check Answers</button><button class="btn btn-secondary" id="skipBtn">Skip</button>`:`<button class="btn btn-primary" id="nextBtn">Next Verb \u2192</button>`}</div>`;
 }
 
-function WorksheetGenerator() {
-  const [ws,setWs]=useState(null);const [showA,setShowA]=useState(false);const [type,setType]=useState("mixed");
-  const gen=()=>{const w={sections:[],answers:[]};setShowA(false);
-    if(type==="conjugation"||type==="mixed"){const vs=pick(VERBS,3);const s={title:"Section A \u2014 Verb Conjugation",questions:[]};let q=1;vs.forEach(v=>{const t=TENSES[Math.floor(Math.random()*TENSES.length)];const ps=pick(PRONOUNS,3);ps.forEach(p=>{s.questions.push({num:q,text:`Conjugate \u201C${v.infinitive}\u201D (${v.meaning}) in the ${TENSE_LABELS[t]} for `,bold:p});w.answers.push({num:q,answer:`${p} ${v[t][p]}`});q++;});});w.sections.push(s);}
-    if(type==="vocab"||type==="mixed"){const words=pick(VOCAB,8);const lB=type==="mixed"?"Section B":"Section A",lC=type==="mixed"?"Section C":"Section B";
-      const sB={title:`${lB} \u2014 Vocabulary (German \u2192 English)`,questions:[]};const stB=w.answers.length+1;words.slice(0,4).forEach((v,i)=>{sB.questions.push({num:stB+i,text:`${v.german} = `});w.answers.push({num:stB+i,answer:v.english});});w.sections.push(sB);
-      const sC={title:`${lC} \u2014 Vocabulary (English \u2192 German)`,questions:[]};const stC=w.answers.length+1;words.slice(4).forEach((v,i)=>{sC.questions.push({num:stC+i,text:`${v.english} = `});w.answers.push({num:stC+i,answer:v.german});});w.sections.push(sC);}
-    setWs(w);};
-  useEffect(()=>{gen();},[type]);
-  return(<div className="card"><h2 className="card-header">Randomised Worksheets</h2>
-    <div className="filter-bar no-print"><button className={`filter-chip ${type==="mixed"?"active":""}`} onClick={()=>setType("mixed")}>Mixed</button><button className={`filter-chip ${type==="conjugation"?"active":""}`} onClick={()=>setType("conjugation")}>Conjugation only</button><button className={`filter-chip ${type==="vocab"?"active":""}`} onClick={()=>setType("vocab")}>Vocab only</button></div>
-    {ws&&<div className="worksheet-preview"><div className="ws-title">German Practice Worksheet</div><div className="ws-subtitle">A-Level / Adult Beginners</div><div className="ws-name-line"><span className="ws-name-field">Name: _________________________</span><span className="ws-name-field">Date: ______________</span></div>
-      {ws.sections.map((s,i)=><div key={i} className="ws-section"><div className="ws-section-title">{s.title}</div>{s.questions.map(q=><div key={q.num} className="ws-question"><span className="ws-q-num">{q.num}.</span><span>{q.text}{q.bold&&<strong>{q.bold}</strong>}{q.bold&&":"} <span className="ws-blank"/></span></div>)}</div>)}
-      {showA&&<div className="ws-answer-key"><strong>Answer Key</strong>{ws.answers.map(a=><div key={a.num}>{a.num}. {a.answer}</div>)}</div>}</div>}
-    <div className="btn-group no-print"><button className="btn btn-primary" onClick={gen}>Generate New {"\u21BB"}</button><button className="btn btn-secondary" onClick={()=>setShowA(!showA)}>{showA?"Hide Answers":"Show Answers"}</button><button className="btn btn-secondary" onClick={()=>window.print()}>Print Worksheet {"\uD83D\uDDA8"}</button></div></div>);
+function bindByTense(){
+  document.querySelectorAll('.tense-btn').forEach(b=>b.addEventListener('click',()=>{S.conjTense=b.dataset.tense;newVerb();renderConj();}));
+  document.querySelectorAll('.drill-input').forEach(inp=>{
+    inp.addEventListener('input',()=>{S.conjAnswers[inp.dataset.pronoun]=inp.value;});
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const i=parseInt(inp.dataset.idx);if(i<PRONOUNS.length-1)document.querySelector(`.drill-input[data-idx="${i+1}"]`)?.focus();else checkByTense();}});
+  });
+  document.getElementById('checkBtn')?.addEventListener('click',checkByTense);
+  document.getElementById('skipBtn')?.addEventListener('click',()=>{newVerb();renderConj();});
+  document.getElementById('nextBtn')?.addEventListener('click',()=>{newVerb();renderConj();});
+  if(!S.conjChecked)document.querySelector('.drill-input[data-idx="0"]')?.focus();
 }
 
-function App() {
-  const [page,setPage]=useState("conjugation");
-  return(<div className="app-container">
-    <header className="app-header no-print"><h1 className="app-title">Language<span>Lab</span></h1><p className="app-subtitle">Language Practice</p></header>
-    <nav className="nav-bar no-print"><button className={`nav-btn ${page==="conjugation"?"active":""}`} onClick={()=>setPage("conjugation")}>Conjugation</button><button className={`nav-btn ${page==="vocab"?"active":""}`} onClick={()=>setPage("vocab")}>Vocabulary</button><button className={`nav-btn ${page==="worksheet"?"active":""}`} onClick={()=>setPage("worksheet")}>Worksheets</button></nav>
-    <main>{page==="conjugation"&&<ConjugationDrill/>}{page==="vocab"&&<VocabFlashcards/>}{page==="worksheet"&&<WorksheetGenerator/>}</main>
-  </div>);
+// ─── CONJUGATION: RANDOM ────────────────────────────────────────────
+function genRandom(){
+  const qs=[];for(let i=0;i<10;i++){const v=randItem(VERBS),t=randItem(ALL_TENSES),p=randItem(PRONOUNS);qs.push({verb:v,tense:t,pronoun:p,answer:v[t][p]});}
+  S.randomQuestions=qs;S.randomAnswers={};S.randomChecked=false;
 }
-ReactDOM.render(<App/>,document.getElementById("root"));
-  </script>
+
+function checkRandom(){
+  S.randomChecked=true;let n=0;
+  S.randomQuestions.forEach((q,i)=>{if((S.randomAnswers[i]||"").trim().toLowerCase()===q.answer.toLowerCase())n++;});
+  S.conjScore.correct+=n;S.conjScore.total+=10;
+  S.conjStreak=n===10?S.conjStreak+1:0;
+  renderConj();
+}
+
+function renderRandom(){
+  if(S.randomQuestions.length===0)genRandom();
+  const qs=S.randomQuestions,pct=S.conjScore.total>0?Math.round(S.conjScore.correct/S.conjScore.total*100):null;
+  let res='';
+  if(S.randomChecked){const c=qs.filter((q,i)=>(S.randomAnswers[i]||"").trim().toLowerCase()===q.answer.toLowerCase()).length;res=`<div class="score-bar"><span>This round: <span class="score-num ${c>=8?'good':c>=5?'ok':'poor'}">${c}/10</span></span>${pct!==null?`<span>Overall: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span>`:''}</div>`;}
+  else if(pct!==null)res=`<div class="score-bar no-print"><span>Overall accuracy: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span></div>`;
+  return`${res}<div class="info-box">10 random questions \u2014 any verb, any tense, any pronoun. Press <strong>Enter</strong> to move between fields.</div>${qs.map((q,i)=>{const a=S.randomAnswers[i]||'',ok=S.randomChecked&&a.trim().toLowerCase()===q.answer.toLowerCase(),bad=S.randomChecked&&!ok;return`<div class="random-item"><div class="random-prompt"><span class="random-number">${i+1}</span><strong>${q.verb.infinitive}</strong> (${q.verb.meaning}) \u2014 <strong>${q.pronoun}</strong><span class="tense-tag">${TENSE_LABELS[q.tense]}</span></div><input class="drill-input ${S.randomChecked?(ok?'correct':'incorrect'):''}" data-ridx="${i}" value="${a}" ${S.randomChecked?'disabled':''} placeholder="Type the conjugated form..." autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">\u2192 ${q.answer}</div>`:''}</div>`;}).join('')}<div class="btn-group no-print">${!S.randomChecked?`<button class="btn btn-primary" id="checkRandomBtn">Check All</button><button class="btn btn-secondary" id="regenBtn">New Questions</button>`:`<button class="btn btn-primary" id="nextRandomBtn">New Round \u2192</button>`}</div>`;
+}
+
+function bindRandom(){
+  document.querySelectorAll('.drill-input[data-ridx]').forEach(inp=>{
+    inp.addEventListener('input',()=>{S.randomAnswers[parseInt(inp.dataset.ridx)]=inp.value;});
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const i=parseInt(inp.dataset.ridx);if(i<9)document.querySelector(`.drill-input[data-ridx="${i+1}"]`)?.focus();else checkRandom();}});
+  });
+  document.getElementById('checkRandomBtn')?.addEventListener('click',checkRandom);
+  document.getElementById('regenBtn')?.addEventListener('click',()=>{genRandom();renderConj();});
+  document.getElementById('nextRandomBtn')?.addEventListener('click',()=>{genRandom();renderConj();});
+  if(!S.randomChecked)document.querySelector('.drill-input[data-ridx="0"]')?.focus();
+}
+
+// ─── CONJUGATION: MAIN ──────────────────────────────────────────────
+function renderConj(){
+  const m=document.getElementById("main-content"),mode=S.conjMode;
+  const content=mode==="byTense"?renderByTense():renderRandom();
+  m.innerHTML=`<div class="card"><h2 class="card-header">Verb Conjugation Drill</h2><div class="mode-toggle no-print"><button class="mode-btn ${mode==='byTense'?'active':''}" data-mode="byTense">By Tense</button><button class="mode-btn ${mode==='random'?'active':''}" data-mode="random">Random Mix</button></div>${content}</div><div class="db-stats no-print">${VERBS.length} verbs loaded \u00b7 ${ALL_TENSES.length} tenses</div>`;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>{S.conjMode=b.dataset.mode;renderConj();}));
+  if(mode==="byTense")bindByTense();else bindRandom();
+}
+
+// ─── VOCABULARY ──────────────────────────────────────────────────────
+function initVocab(){
+  const f=S.vocabTopic==="All"?VOCAB:VOCAB.filter(v=>v.topic===S.vocabTopic);
+  S.vocabCards=shuffle(f);S.vocabIdx=0;S.vocabFlipped=false;S.vocabKnown=0;
+}
+
+function renderVocab(){
+  if(S.vocabCards.length===0)initVocab();
+  const m=document.getElementById("main-content"),gm={m:"der (m)",f:"die (f)",n:"das (n)"};
+  if(S.vocabIdx>=S.vocabCards.length){
+    const p=Math.round(S.vocabKnown/S.vocabCards.length*100);
+    m.innerHTML=`<div class="card" style="text-align:center;padding:48px 28px"><div style="font-size:3rem;margin-bottom:12px">\uD83C\uDF89</div><div class="card-header" style="border:none;text-align:center">Round complete!</div><p style="font-size:1.1rem;margin-bottom:8px">You knew <span class="score-num ${p>=80?'good':p>=50?'ok':'poor'}">${S.vocabKnown}/${S.vocabCards.length}</span> words (${p}%)</p><div class="btn-group" style="justify-content:center;margin-top:24px"><button class="btn btn-primary" id="vocabRestart">Go Again</button></div></div>`;
+    document.getElementById('vocabRestart').addEventListener('click',()=>{initVocab();renderVocab();});return;
+  }
+  const card=S.vocabCards[S.vocabIdx],d=S.vocabDirection;
+  const fw=d==="de-en"?card.german:card.english,bw=d==="de-en"?card.english:card.german;
+  m.innerHTML=`<div class="card"><h2 class="card-header">Vocabulary Flashcards</h2><div class="filter-bar no-print"><button class="filter-chip ${S.vocabTopic==='All'?'active':''}" data-topic="All">All</button>${TOPICS.map(t=>`<button class="filter-chip ${S.vocabTopic===t?'active':''}" data-topic="${t}">${t}</button>`).join('')}</div><div class="filter-bar no-print"><button class="filter-chip ${d==='de-en'?'active':''}" data-dir="de-en">German \u2192 English</button><button class="filter-chip ${d==='en-de'?'active':''}" data-dir="en-de">English \u2192 German</button></div><div class="flashcard-progress">Card ${S.vocabIdx+1} of ${S.vocabCards.length}</div><div class="flashcard-container"><div class="flashcard ${S.vocabFlipped?'flipped':''}" id="flashcard"><div class="flashcard-face flashcard-front"><div class="flashcard-word">${fw}</div>${d==='de-en'?`<span class="flashcard-gender gender-${card.gender}">${gm[card.gender]}</span>`:''}<div class="flashcard-detail">${card.topic}</div><div class="flashcard-hint">Click to flip</div></div><div class="flashcard-face flashcard-back"><div class="flashcard-word">${bw}</div>${d==='en-de'?`<span class="flashcard-gender gender-${card.gender}">${gm[card.gender]}</span>`:''}<div class="flashcard-detail">${card.topic}</div></div></div></div><div class="flashcard-nav no-print"><button class="btn btn-secondary" id="vocabLearning">Still learning</button><button class="btn btn-primary" id="vocabGotIt">Got it \u2713</button></div></div><div class="db-stats no-print">${VOCAB.length} words loaded \u00b7 ${TOPICS.length} topics</div>`;
+  document.getElementById('flashcard').addEventListener('click',()=>{S.vocabFlipped=!S.vocabFlipped;document.getElementById('flashcard').classList.toggle('flipped',S.vocabFlipped);});
+  document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>{S.vocabTopic=b.dataset.topic;initVocab();renderVocab();}));
+  document.querySelectorAll('[data-dir]').forEach(b=>b.addEventListener('click',()=>{S.vocabDirection=b.dataset.dir;initVocab();renderVocab();}));
+  function next(g){if(g)S.vocabKnown++;S.vocabFlipped=false;S.vocabIdx++;renderVocab();}
+  document.getElementById('vocabLearning').addEventListener('click',()=>next(false));
+  document.getElementById('vocabGotIt').addEventListener('click',()=>next(true));
+}
+
+// ─── WORKSHEET ───────────────────────────────────────────────────────
+function genWS(){
+  const ws={sections:[],answers:[]};S.wsShowAnswers=false;
+  if(S.wsType==="conjugation"||S.wsType==="mixed"){
+    const verbs=pick(VERBS,3),sec={title:"Section A \u2014 Verb Conjugation",questions:[]};let q=1;
+    verbs.forEach(v=>{const t=randItem(ALL_TENSES),ps=pick(PRONOUNS,3);ps.forEach(p=>{sec.questions.push({num:q,text:`Conjugate \u201C${v.infinitive}\u201D (${v.meaning}) in the ${TENSE_LABELS[t]} for <strong>${p}</strong>:`});ws.answers.push({num:q,answer:`${p} ${v[t][p]}`});q++;});});
+    ws.sections.push(sec);
+  }
+  if(S.wsType==="vocab"||S.wsType==="mixed"){
+    const words=pick(VOCAB,8),lB=S.wsType==="mixed"?"Section B":"Section A",lC=S.wsType==="mixed"?"Section C":"Section B";
+    const sB=ws.answers.length+1,secB={title:`${lB} \u2014 Vocabulary (German \u2192 English)`,questions:[]};
+    words.slice(0,4).forEach((w,i)=>{secB.questions.push({num:sB+i,text:`${w.german} = `});ws.answers.push({num:sB+i,answer:w.english});});
+    ws.sections.push(secB);
+    const sC=ws.answers.length+1,secC={title:`${lC} \u2014 Vocabulary (English \u2192 German)`,questions:[]};
+    words.slice(4).forEach((w,i)=>{secC.questions.push({num:sC+i,text:`${w.english} = `});ws.answers.push({num:sC+i,answer:w.german});});
+    ws.sections.push(secC);
+  }
+  S.wsData=ws;
+}
+
+function renderWS(){
+  if(!S.wsData)genWS();const ws=S.wsData,m=document.getElementById("main-content");
+  m.innerHTML=`<div class="card"><h2 class="card-header">Randomised Worksheets</h2><div class="filter-bar no-print"><button class="filter-chip ${S.wsType==='mixed'?'active':''}" data-wstype="mixed">Mixed</button><button class="filter-chip ${S.wsType==='conjugation'?'active':''}" data-wstype="conjugation">Conjugation only</button><button class="filter-chip ${S.wsType==='vocab'?'active':''}" data-wstype="vocab">Vocab only</button></div><div class="worksheet-preview"><div class="ws-title">German Practice Worksheet</div><div class="ws-subtitle">A-Level / Adult Beginners</div><div class="ws-name-line"><span class="ws-name-field">Name: _________________________</span><span class="ws-name-field">Date: ______________</span></div>${ws.sections.map(s=>`<div class="ws-section"><div class="ws-section-title">${s.title}</div>${s.questions.map(q=>`<div class="ws-question"><span class="ws-q-num">${q.num}.</span><span>${q.text}<span class="ws-blank"></span></span></div>`).join('')}</div>`).join('')}${S.wsShowAnswers?`<div class="ws-answer-key"><strong>Answer Key</strong>${ws.answers.map(a=>`<div>${a.num}. ${a.answer}</div>`).join('')}</div>`:''}</div><div class="btn-group no-print"><button class="btn btn-primary" id="wsGenerate">Generate New \u21BB</button><button class="btn btn-secondary" id="wsToggleAnswers">${S.wsShowAnswers?'Hide Answers':'Show Answers'}</button><button class="btn btn-secondary" id="wsPrint">Print Worksheet \uD83D\uDDA8</button></div></div>`;
+  document.querySelectorAll('[data-wstype]').forEach(b=>b.addEventListener('click',()=>{S.wsType=b.dataset.wstype;genWS();renderWS();}));
+  document.getElementById('wsGenerate').addEventListener('click',()=>{genWS();renderWS();});
+  document.getElementById('wsToggleAnswers').addEventListener('click',()=>{S.wsShowAnswers=!S.wsShowAnswers;renderWS();});
+  document.getElementById('wsPrint').addEventListener('click',()=>window.print());
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────
+function render(){
+  if(!dataLoaded){
+    if(loadError)document.getElementById("main-content").innerHTML=`<div class="card"><div class="info-box error"><strong>Error loading data:</strong> ${loadError}<br><br>Make sure your repository has a <code>data/</code> folder containing <code>verbs.json</code> and <code>vocab.json</code>.</div></div>`;
+    return;
+  }
+  switch(S.page){case"conjugation":renderConj();break;case"vocab":renderVocab();break;case"worksheet":renderWS();break;}
+}
+
+loadData().then(()=>{if(dataLoaded){newVerb();genWS();}render();});
+</script>
 </body>
 </html>
