@@ -131,6 +131,52 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .db-stats { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: -20px; margin-bottom: 24px; }
 @media print { .no-print { display: none !important; } .worksheet-preview { border: none; padding: 20px 0; } body { background: white; } }
 @media (max-width: 600px) { .app-title { font-size: 2rem; } .card { padding: 18px; } .nav-btn { font-size: 0.75rem; padding: 10px 6px; } .drill-verb { font-size: 1.6rem; } .drill-grid { grid-template-columns: 1fr; } .tense-btn { min-width: 80px; font-size: 0.72rem; padding: 8px 4px; } }
+/* ── Cheatsheet ── */
+.cs-section-label { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--ink); margin-bottom: 4px; }
+.cs-section-sub { color: var(--muted); font-size: 0.87rem; margin-bottom: 22px; }
+.cs-divider { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--ink); margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--border); }
+.tense-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 8px; margin-bottom: 18px; overflow: hidden; }
+.tense-card-header { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border-bottom: 1.5px solid var(--border); background: var(--warm); }
+.tense-flag { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
+.flag-present { background: #222; } .flag-prät { background: var(--blue); } .flag-perfekt { background: var(--red); }
+.flag-plusq { background: #7d2cac; } .flag-futI { background: var(--green); } .flag-futII { background: #2471a3; }
+.flag-kII { background: var(--red); } .flag-kI { background: var(--muted); }
+.tense-de { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); }
+.tense-en { font-size: 0.78rem; color: var(--muted); }
+.tense-body { display: grid; grid-template-columns: 1fr 1fr; }
+.tense-col { padding: 14px 18px; border-right: 1.5px solid var(--border); }
+.tense-col:last-child { border-right: none; }
+.col-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+.cs-formula { font-family: monospace; font-size: 0.9rem; background: var(--warm); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; margin-bottom: 10px; line-height: 1.55; }
+.cs-formula .kw { color: var(--red); font-weight: 700; } .cs-formula .ex { color: var(--blue); }
+.cs-example-de { font-weight: 600; font-size: 0.9rem; } .cs-example-en { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+.usage-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.utag { font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; border: 1.5px solid currentColor; }
+.utag-spoken { color: var(--green); } .utag-written { color: #2471a3; } .utag-formal { color: var(--red); } .utag-common { color: var(--blue); } .utag-modal { color: #7d2cac; }
+.passive-bar { background: var(--warm); border-top: 1.5px solid var(--border); padding: 9px 18px; display: flex; align-items: flex-start; gap: 10px; }
+.passive-bar-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); white-space: nowrap; padding-top: 2px; }
+.passive-formula { font-family: monospace; font-size: 0.83rem; color: var(--ink); }
+.passive-formula .kw { color: var(--red); font-weight: 700; }
+.cs-ref-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; border: 1.5px solid var(--border); border-radius: 8px; overflow: hidden; }
+.cs-ref-table th { background: var(--ink); color: var(--cream); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.cs-ref-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.cs-ref-table tr:last-child td { border-bottom: none; } .cs-ref-table tr:nth-child(even) td { background: var(--warm); }
+.cs-ref-table td:first-child { font-weight: 600; } .mono { font-family: monospace; font-size: 0.84rem; }
+.cs-note { background: #fffbe6; border: 1.5px solid var(--gold); border-radius: 8px; padding: 11px 15px; font-size: 0.84rem; color: #5a4a00; margin-top: 16px; }
+.modal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 16px; margin-top: 4px; }
+.modal-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 8px; overflow: hidden; }
+.modal-card-header { display: flex; align-items: baseline; gap: 10px; padding: 10px 14px; background: var(--warm); border-bottom: 1.5px solid var(--border); }
+.modal-infinitive { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--ink); }
+.modal-meaning { font-size: 0.77rem; color: var(--muted); }
+.modal-conj-table { width: 100%; border-collapse: collapse; font-size: 0.81rem; }
+.modal-conj-table td { padding: 5px 14px; border-bottom: 1px solid var(--border); }
+.modal-conj-table tr:last-child td { border-bottom: none; }
+.modal-conj-table td:first-child { color: var(--muted); width: 46%; }
+.modal-conj-table td:last-child { font-weight: 600; }
+.modal-conj-table tr:nth-child(even) td { background: var(--warm); }
+.modal-use-row { padding: 8px 14px; font-size: 0.8rem; border-top: 1.5px solid var(--border); background: var(--warm); }
+.modal-use-row strong { color: var(--red); }
+@media (max-width: 600px) { .tense-body { grid-template-columns: 1fr; } .modal-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -143,6 +189,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
     <button class="nav-btn active" data-page="conjugation">Conjugation</button>
     <button class="nav-btn" data-page="vocab">Vocabulary</button>
     <button class="nav-btn" data-page="worksheet">Worksheets</button>
+    <button class="nav-btn" data-page="cheatsheet">Cheatsheet</button>
   </nav>
   <main id="main-content">
     <div class="loading"><div class="loading-spinner"></div><div class="loading-text">Loading language data...</div></div>
@@ -403,13 +450,132 @@ function renderWS(){
   document.getElementById('wsPrint').addEventListener('click',()=>window.print());
 }
 
+// ─── CHEATSHEET ──────────────────────────────────────────────────────
+function renderCheatsheet(){
+  const m=document.getElementById("main-content");
+  const tc=(flagCls,de,en,formHtml,exDe,exEn,useHtml,tagsHtml,passiveHtml)=>`
+<div class="tense-card">
+  <div class="tense-card-header"><div class="tense-flag ${flagCls}"></div><div><div class="tense-de">${de}</div><div class="tense-en">${en}</div></div></div>
+  <div class="tense-body">
+    <div class="tense-col"><div class="col-title">Formation</div><div class="cs-formula">${formHtml}</div><div class="col-title">Example</div><div class="cs-example-de">${exDe}</div><div class="cs-example-en">${exEn}</div></div>
+    <div class="tense-col"><div class="col-title">When to use</div>${useHtml}<div class="usage-tags">${tagsHtml}</div></div>
+  </div>
+  <div class="passive-bar"><div class="passive-bar-label">Passiv</div><div class="passive-formula">${passiveHtml}</div></div>
+</div>`;
+  const tag=(cls,label)=>`<span class="utag ${cls}">${label}</span>`;
+  const spoken=tag('utag-spoken','spoken'), written=tag('utag-written','written'), formal=tag('utag-formal','formal/literary'), common=tag('utag-common','very common'), modal=tag('utag-modal','modals always');
+  const kw=s=>`<span class="kw">${s}</span>`, ex=s=>`<span class="ex">${s}</span>`;
+
+  const tenseCards=[
+    tc('flag-present','Präsens','Present tense',
+      `verb stem + ${kw('-e / -st / -t / -en / -t / -en')}<br>${ex('lernen → lern<b>e</b>, lern<b>st</b>, lern<b>t</b>…')}`,
+      'Ich lerne jeden Tag Deutsch.','I learn German every day.',
+      'Current actions, habitual facts, scheduled future events, and general truths.',
+      spoken+written+common,
+      `${kw('werden')} (Präsens) + Partizip II &nbsp;→&nbsp; Das Buch ${kw('wird')} gelesen.`),
+    tc('flag-prät','Präteritum','Simple past / narrative past',
+      `<em>Regular:</em> stem + ${kw('-te / -test / -te / -ten / -tet / -ten')}<br><em>Irregular:</em> strong verb stem change<br>${ex('gehen → <b>ging</b>, kommen → <b>kam</b>')}`,
+      'Er arbeitete bis spät in die Nacht.','He worked until late into the night.',
+      'Narrative and written past (novels, news). Modals and <em>sein/haben</em> always prefer Präteritum over Perfekt in speech too.',
+      written+formal+modal,
+      `${kw('wurde(n)')} + Partizip II &nbsp;→&nbsp; Das Buch ${kw('wurde')} geschrieben.`),
+    tc('flag-perfekt','Perfekt','Present perfect / conversational past',
+      `${kw('haben')} / ${kw('sein')} (Präsens) + Partizip II<br>${ex('ge- + stem + -(e)t &nbsp;or&nbsp; irregular ge-…-en')}<br>Motion/change verbs take ${kw('sein')}`,
+      'Wir haben das Buch gelesen.','We have read / we read the book.',
+      'The default spoken past tense in everyday conversation. Use for completed actions in the past.',
+      spoken+common,
+      `${kw('sein')} (Präsens) + Partizip II + ${kw('worden')} &nbsp;→&nbsp; Es ${kw('ist')} gemacht ${kw('worden')}.`),
+    tc('flag-plusq','Plusquamperfekt','Past perfect / pluperfect',
+      `${kw('hatte(n)')} / ${kw('war(en)')} + Partizip II<br>${ex('hatten gegessen, waren gegangen')}`,
+      'Sie hatte schon gegessen, als er ankam.','She had already eaten when he arrived.',
+      'A past action that happened <em>before</em> another past action. Often paired with Präteritum to show sequence.',
+      spoken+written,
+      `${kw('war(en)')} + Partizip II + ${kw('worden')} &nbsp;→&nbsp; Es ${kw('war')} bereits gemacht ${kw('worden')}.`),
+    tc('flag-futI','Futur I','Future tense',
+      `${kw('werden')} (Präsens) + Infinitiv<br>${ex('ich werde, du wirst, er wird…')}`,
+      'Ich werde morgen kommen.','I will come tomorrow.',
+      'Future predictions, intentions, or promises. Also expresses <em>probability</em> about the present (<em>Er wird müde sein</em> — He\'s probably tired).',
+      spoken+written,
+      `${kw('werden')} (Präsens) + Partizip II + ${kw('werden')} &nbsp;→&nbsp; Es ${kw('wird')} gemacht ${kw('werden')}.`),
+    tc('flag-futII','Futur II','Future perfect',
+      `${kw('werden')} (Präsens) + Partizip II + ${kw('haben/sein')}<br>${ex('ich werde gegessen haben')}`,
+      'Bis Montag werde ich es fertig haben.','By Monday I will have finished it.',
+      'An action completed before a point in the future. Also expresses <em>probability about the past</em> (<em>Er wird es vergessen haben</em> — He\'s probably forgotten it).',
+      written+formal,
+      `${kw('werden')} + Partizip II + ${kw('worden sein')} &nbsp;→&nbsp; Es ${kw('wird')} gemacht ${kw('worden sein')}.`),
+    tc('flag-kII','Konjunktiv II','Subjunctive II — conditionals &amp; politeness',
+      `<em>Common:</em> ${kw('würde')} + Infinitiv<br><em>Strong verbs (own forms):</em><br>${ex('wäre, hätte, käme, ginge, könnte…')}`,
+      'Wenn ich Zeit hätte, würde ich reisen.','If I had time, I would travel.',
+      'Hypotheticals and conditionals (<em>wenn…</em>), polite requests (<em>Könnten Sie…?</em>), wishes (<em>Ich wünschte…</em>), and unreal comparisons (<em>als ob…</em>).',
+      spoken+written+common,
+      `${kw('würde(n)')} + Partizip II + ${kw('werden')} &nbsp;→&nbsp; Es ${kw('würde')} gemacht ${kw('werden')}.`),
+    tc('flag-kI','Konjunktiv I','Subjunctive I — indirect speech',
+      `verb stem + ${kw('-e / -est / -e / -en / -et / -en')}<br>${ex('sagen → ich sage, er sage, sie sagen')}<br>${ex('sein → ich sei, du sei(e)st, er sei…')}`,
+      'Er sagte, er sei krank.','He said he was ill. (reported speech)',
+      'Reported / indirect speech in journalism and formal writing. When Konj. I = indicative form, use Konj. II instead to avoid ambiguity.',
+      written+formal,
+      `${kw('werde(n)')} (Konj. I) + Partizip II &nbsp;→&nbsp; Er sagte, es ${kw('werde')} gemacht.`)
+  ].join('');
+
+  const modal=(inf,meaning,rows,useHtml)=>`
+<div class="modal-card">
+  <div class="modal-card-header"><div class="modal-infinitive">${inf}</div><div class="modal-meaning">${meaning}</div></div>
+  <table class="modal-conj-table">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table>
+  <div class="modal-use-row"><strong>Use:</strong> ${useHtml}</div>
+</div>`;
+
+  const modalCards=[
+    modal('dürfen','may / to be allowed to',[['ich / er/sie/es','darf'],['du','darfst'],['wir / sie/Sie','dürfen'],['ihr','dürft'],['Präteritum ich','durfte'],['Konjunktiv II','dürfte']],
+      `permission — <em>Darf ich das Fenster öffnen?</em> (May I open the window?)`),
+    modal('können','can / to be able to',[['ich / er/sie/es','kann'],['du','kannst'],['wir / sie/Sie','können'],['ihr','könnt'],['Präteritum ich','konnte'],['Konjunktiv II','könnte']],
+      `ability or possibility — <em>Kannst du mir helfen?</em> (Can you help me?)`),
+    modal('mögen','to like / may (formal)',[['ich / er/sie/es','mag'],['du','magst'],['wir / sie/Sie','mögen'],['ihr','mögt'],['Präteritum ich','mochte'],['Konjunktiv II','möchte']],
+      `liking (<em>Ich mag Kaffee</em>) or polite wish — <em>Ich möchte bitte zahlen.</em> (I'd like to pay.)`),
+    modal('müssen','must / to have to',[['ich / er/sie/es','muss'],['du','musst'],['wir / sie/Sie','müssen'],['ihr','müsst'],['Präteritum ich','musste'],['Konjunktiv II','müsste']],
+      `necessity or obligation — <em>Ich muss jetzt gehen.</em> (I have to go now.)`),
+    modal('sollen','should / to be supposed to',[['ich / er/sie/es','soll'],['du','sollst'],['wir / sie/Sie','sollen'],['ihr','sollt'],['Präteritum ich','sollte'],['Konjunktiv II','sollte']],
+      `external obligation or instruction — <em>Du sollst nicht lügen.</em> (You shall not lie.)`),
+    modal('wollen','to want to',[['ich / er/sie/es','will'],['du','willst'],['wir / sie/Sie','wollen'],['ihr','wollt'],['Präteritum ich','wollte'],['Konjunktiv II','wollte']],
+      `desire or intention — <em>Ich will Deutsch lernen.</em> (I want to learn German.)`),
+    modal('werden','will / to become',[['ich','werde'],['du','wirst'],['er/sie/es','wird'],['wir / sie/Sie','werden'],['ihr','werdet'],['Konjunktiv II','würde']],
+      `future (+ Infinitiv), passive (+ Partizip II), or becoming — <em>Es wird kalt.</em> (It's getting cold.)`)
+  ].join('');
+
+  m.innerHTML=`<div class="card">
+<h2 class="card-header">Tenses Cheatsheet</h2>
+<div class="cs-section-label">German Tenses</div>
+<p class="cs-section-sub">A reference guide to all eight tenses — formation, examples, and when to use them.</p>
+${tenseCards}
+<div class="cs-divider">Quick Reference</div>
+<table class="cs-ref-table">
+<thead><tr><th>Tense</th><th>Active formula</th><th>Passive formula</th><th>Key signal words</th></tr></thead>
+<tbody>
+<tr><td>Präsens</td><td class="mono">lern<b>e</b></td><td class="mono"><b>wird</b> gemacht</td><td>jetzt, immer, täglich</td></tr>
+<tr><td>Präteritum</td><td class="mono">lern<b>te</b> / kam</td><td class="mono"><b>wurde</b> gemacht</td><td>damals, früher, plötzlich</td></tr>
+<tr><td>Perfekt</td><td class="mono"><b>hat</b> gelernt / <b>ist</b> gegangen</td><td class="mono"><b>ist</b> gemacht <b>worden</b></td><td>schon, bereits, gerade</td></tr>
+<tr><td>Plusquamperfekt</td><td class="mono"><b>hatte</b> gelernt / <b>war</b> gegangen</td><td class="mono"><b>war</b> gemacht <b>worden</b></td><td>nachdem, bevor, schon</td></tr>
+<tr><td>Futur I</td><td class="mono"><b>wird</b> lernen</td><td class="mono"><b>wird</b> gemacht <b>werden</b></td><td>morgen, bald, nächste Woche</td></tr>
+<tr><td>Futur II</td><td class="mono"><b>wird</b> gelernt <b>haben</b></td><td class="mono"><b>wird</b> gemacht worden <b>sein</b></td><td>bis dann, bis Montag</td></tr>
+<tr><td>Konjunktiv II</td><td class="mono"><b>würde</b> lernen / wäre / hätte</td><td class="mono"><b>würde</b> gemacht <b>werden</b></td><td>wenn, falls, ich wünschte</td></tr>
+<tr><td>Konjunktiv I</td><td class="mono">er lern<b>e</b> / er <b>sei</b></td><td class="mono">es <b>werde</b> gemacht</td><td>er sagte, sie berichtete</td></tr>
+</tbody>
+</table>
+<div class="cs-note">💡 <strong>Tip:</strong> When the Konjunktiv I form looks identical to the indicative (e.g. <em>sie lernen</em>), switch to Konjunktiv II (<em>sie lernten</em> or <em>würden lernen</em>) to make the reported-speech meaning clear.</div>
+<div class="cs-divider" style="margin-top:40px">Modal Verbs</div>
+<p class="cs-section-sub" style="margin-top:-8px">Six modals + <em>werden</em> — conjugation and core meanings. Modals always use Präteritum (not Perfekt) in speech.</p>
+<div class="modal-grid">${modalCards}</div>
+<div class="cs-note" style="margin-top:18px">💡 <strong>Double infinitive (Ersatzinfinitiv):</strong> In Perfekt/Plusquamperfekt with a dependent verb, both appear as infinitives — <em>Ich habe kommen <strong>müssen</strong></em> (not <em>gemusst</em>).</div>
+<div class="cs-note" style="margin-top:10px">💡 <strong>nicht müssen vs. nicht dürfen:</strong> <em>Du musst nicht</em> = you don't have to. <em>Du darfst nicht</em> = you must not (prohibition). Commonly confused by English speakers.</div>
+</div>`;
+}
+
 // ─── RENDER ──────────────────────────────────────────────────────────
 function render(){
   if(!dataLoaded){
     if(loadError)document.getElementById("main-content").innerHTML=`<div class="card"><div class="info-box error"><strong>Error loading data:</strong> ${loadError}<br><br>Make sure your repository has a <code>data/</code> folder containing <code>verbs.json</code> and <code>vocab.json</code>.</div></div>`;
     return;
   }
-  switch(S.page){case"conjugation":renderConj();break;case"vocab":renderVocab();break;case"worksheet":renderWS();break;}
+  switch(S.page){case"conjugation":renderConj();break;case"vocab":renderVocab();break;case"worksheet":renderWS();break;case"cheatsheet":renderCheatsheet();break;}
 }
 
 loadData().then(()=>{if(dataLoaded){newVerb();genWS();}render();});
