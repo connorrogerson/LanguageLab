@@ -13,7 +13,7 @@
   --red: #c0392b;
   --gold: #d4a017;
   --green: #27ae60;
-  --blue: #2471a3;
+  --blue: #9a7300;
   --muted: #7f8c8d;
   --border: #ddd5c8;
   --card: #ffffff;
@@ -21,7 +21,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
 .app-container { max-width: 900px; margin: 0 auto; padding: 20px; min-height: 100vh; }
-.app-header { text-align: center; padding: 32px 0 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; position: relative; }
+.app-header { text-align: center; padding: 44px 0 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; position: relative; }
+.app-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(to bottom, #222 0% 33.33%, #c0392b 33.33% 66.66%, #c8a200 66.66% 100%); }
 .app-header::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 1px; background: var(--ink); }
 .app-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; letter-spacing: -0.02em; line-height: 1.1; }
 .app-title span { color: var(--red); }
@@ -67,6 +68,11 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .tense-btn { flex: 1 1 auto; min-width: 100px; padding: 10px 8px; border: none; background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: 0.03em; }
 .tense-btn:hover { background: var(--warm); }
 .tense-btn.active { background: var(--red); color: white; }
+.voice-toggle { display: flex; margin-bottom: 16px; border: 1.5px solid var(--border); overflow: hidden; }
+.voice-btn { flex: 1; padding: 8px 12px; border: none; background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.voice-btn:first-child { border-right: 1px solid var(--border); }
+.voice-btn:hover { background: var(--warm); color: var(--ink); }
+.voice-btn.active { background: var(--ink); color: var(--cream); }
 .mode-toggle { display: flex; margin-bottom: 20px; border: 2px solid var(--ink); overflow: hidden; }
 .mode-btn { flex: 1; padding: 12px; border: none; background: var(--card); font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); }
 .mode-btn:first-child { border-right: 1px solid var(--border); }
@@ -86,9 +92,9 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .flashcard-word { font-family: 'DM Serif Display', serif; font-size: 2rem; text-align: center; }
 .flashcard-detail { font-size: 0.95rem; margin-top: 8px; opacity: 0.7; }
 .flashcard-gender { display: inline-block; margin-top: 12px; padding: 4px 14px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-.gender-m { background: var(--blue); color: white; }
+.gender-m { background: #222; color: white; }
 .gender-f { background: var(--red); color: white; }
-.gender-n { background: var(--green); color: white; }
+.gender-n { background: #c8a200; color: white; }
 .flashcard-hint { font-size: 0.8rem; color: var(--muted); margin-top: 16px; }
 .flashcard-progress { text-align: center; margin-bottom: 16px; font-size: 0.9rem; color: var(--muted); }
 .flashcard-nav { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
@@ -158,6 +164,11 @@ let dataLoaded=false,loadError=null;
 const WERDEN_PRESENT={ich:"werde",du:"wirst","er/sie/es":"wird",wir:"werden",ihr:"werdet","sie/Sie":"werden"};
 const HABEN_PRÄT={ich:"hatte",du:"hattest","er/sie/es":"hatte",wir:"hatten",ihr:"hattet","sie/Sie":"hatten"};
 const SEIN_PRÄT={ich:"war",du:"warst","er/sie/es":"war",wir:"waren",ihr:"wart","sie/Sie":"waren"};
+const SEIN_PRES={ich:"bin",du:"bist","er/sie/es":"ist",wir:"sind",ihr:"seid","sie/Sie":"sind"};
+const WERDEN_PRÄT={ich:"wurde",du:"wurdest","er/sie/es":"wurde",wir:"wurden",ihr:"wurdet","sie/Sie":"wurden"};
+const WERDEN_KI={ich:"werde",du:"werdest","er/sie/es":"werde",wir:"werden",ihr:"werdet","sie/Sie":"werden"};
+const WERDEN_KII={ich:"würde",du:"würdest","er/sie/es":"würde",wir:"würden",ihr:"würdet","sie/Sie":"würden"};
+function getPassiveForms(pp,tense){const r={};PRONOUNS.forEach(p=>{switch(tense){case"present":r[p]=WERDEN_PRESENT[p]+" "+pp;break;case"präteritum":r[p]=WERDEN_PRÄT[p]+" "+pp;break;case"perfekt":r[p]=SEIN_PRES[p]+" "+pp+" worden";break;case"plusquamperfekt":r[p]=SEIN_PRÄT[p]+" "+pp+" worden";break;case"futurI":r[p]=WERDEN_PRESENT[p]+" "+pp+" werden";break;case"futurII":r[p]=WERDEN_PRESENT[p]+" "+pp+" worden sein";break;case"konjunktivII":r[p]=WERDEN_KII[p]+" "+pp+" werden";break;case"konjunktivI":r[p]=WERDEN_KI[p]+" "+pp;break;}});return r;}
 
 function buildCompoundTenses(rawVerbs){
   const seinV=rawVerbs.find(v=>v.infinitive==="sein");
@@ -195,12 +206,13 @@ async function loadData(){
 function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
 function pick(a,n){return shuffle(a).slice(0,n);}
 function randItem(a){return a[Math.floor(Math.random()*a.length)];}
+function normRandom(typed,pronoun){let t=(typed||"").trim().toLowerCase();const pr=pronoun.toLowerCase();if(t.startsWith(pr+" "))t=t.slice(pr.length+1).trim();return t;}
 
 // ─── APP STATE ───────────────────────────────────────────────────────
 const S={
   page:"conjugation",conjMode:"byTense",conjScore:{correct:0,total:0},conjStreak:0,
   conjTense:"present",conjVerb:null,conjAnswers:{},conjChecked:false,
-  randomQuestions:[],randomAnswers:{},randomChecked:false,
+  randomQuestions:[],randomAnswers:{},randomChecked:false,conjPassive:false,
   vocabTopic:"All",vocabDirection:"de-en",vocabIncludePlurals:false,vocabQuiz:[],vocabQIdx:0,vocabTyped:"",vocabChecked:false,vocabLastCorrect:false,vocabScore:{correct:0,total:0},
   wsType:"mixed",wsData:null,wsShowAnswers:false
 };
@@ -218,7 +230,8 @@ function newVerb(){S.conjVerb=randItem(VERBS);S.conjAnswers={};S.conjChecked=fal
 
 function checkByTense(){
   S.conjChecked=true;
-  const c=S.conjVerb[S.conjTense];let all=true,n=0;
+  const c=S.conjPassive?getPassiveForms(S.conjVerb.pastParticiple,S.conjTense):S.conjVerb[S.conjTense];
+  let all=true,n=0;
   PRONOUNS.forEach(p=>{if((S.conjAnswers[p]||"").trim().toLowerCase()===c[p].toLowerCase())n++;else all=false;});
   S.conjScore.correct+=n;S.conjScore.total+=6;
   S.conjStreak=all?S.conjStreak+1:0;
@@ -227,15 +240,18 @@ function checkByTense(){
 
 function renderByTense(){
   if(!S.conjVerb)newVerb();
-  const v=S.conjVerb,t=S.conjTense,c=v[t];
+  const v=S.conjVerb,t=S.conjTense,passive=S.conjPassive;
+  const c=passive?getPassiveForms(v.pastParticiple,t):v[t];
   const pct=S.conjScore.total>0?Math.round(S.conjScore.correct/S.conjScore.total*100):null;
   let sc='';
   if(pct!==null||S.conjStreak>1)sc=`<div class="score-bar no-print">${pct!==null?`<span>Accuracy: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span>`:''} ${S.conjStreak>1?`<span class="streak">\uD83D\uDD25 ${S.conjStreak} in a row</span>`:''}</div>`;
-  return`<div class="tense-selector no-print">${ALL_TENSES.map(tn=>`<button class="tense-btn ${t===tn?'active':''}" data-tense="${tn}">${TENSE_LABELS[tn]}</button>`).join('')}</div>${sc}<div class="drill-verb-display"><div class="drill-verb">${v.infinitive}</div><div class="drill-meaning">${v.meaning}</div><div class="drill-tense">${TENSE_LABELS[t]}</div></div><div class="drill-grid">${PRONOUNS.map((p,i)=>{const a=S.conjAnswers[p]||'',ok=S.conjChecked&&a.trim().toLowerCase()===c[p].toLowerCase(),bad=S.conjChecked&&!ok;return`<div class="drill-item"><span class="drill-pronoun">${p}</span><div style="flex:1"><input class="drill-input ${S.conjChecked?(ok?'correct':'incorrect'):''}" data-pronoun="${p}" data-idx="${i}" value="${a}" ${S.conjChecked?'disabled':''} placeholder="..." autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">\u2192 ${c[p]}</div>`:''}</div></div>`;}).join('')}</div><div class="btn-group no-print">${!S.conjChecked?`<button class="btn btn-primary" id="checkBtn">Check Answers</button><button class="btn btn-secondary" id="skipBtn">Skip</button>`:`<button class="btn btn-primary" id="nextBtn">Next Verb \u2192</button>`}</div>`;
+  const passivePlaceholder=passive?`e.g. ${c["er/sie/es"]}`:"...";
+  return`<div class="tense-selector no-print">${ALL_TENSES.map(tn=>`<button class="tense-btn ${t===tn?'active':''}" data-tense="${tn}">${TENSE_LABELS[tn]}</button>`).join('')}</div><div class="voice-toggle no-print"><button class="voice-btn ${!passive?'active':''}" data-voice="active">Aktiv</button><button class="voice-btn ${passive?'active':''}" data-voice="passive">Passiv (Vorgangspassiv)</button></div>${sc}<div class="drill-verb-display"><div class="drill-verb">${v.infinitive}</div><div class="drill-meaning">${v.meaning}${passive?` &mdash; <em style="opacity:0.7;font-size:0.85rem">Partizip II: ${v.pastParticiple}</em>`:''}</div><div class="drill-tense">${TENSE_LABELS[t]}${passive?' &mdash; Passiv':''}</div></div><div class="drill-grid">${PRONOUNS.map((p,i)=>{const a=S.conjAnswers[p]||'',ok=S.conjChecked&&a.trim().toLowerCase()===c[p].toLowerCase(),bad=S.conjChecked&&!ok;return`<div class="drill-item"><span class="drill-pronoun">${p}</span><div style="flex:1"><input class="drill-input ${S.conjChecked?(ok?'correct':'incorrect'):''}" data-pronoun="${p}" data-idx="${i}" value="${a}" ${S.conjChecked?'disabled':''} placeholder="${passivePlaceholder}" autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">\u2192 ${c[p]}</div>`:''}</div></div>`;}).join('')}</div><div class="btn-group no-print">${!S.conjChecked?`<button class="btn btn-primary" id="checkBtn">Check Answers</button><button class="btn btn-secondary" id="skipBtn">Skip</button>`:`<button class="btn btn-primary" id="nextBtn">Next Verb \u2192</button>`}</div>`;
 }
 
 function bindByTense(){
   document.querySelectorAll('.tense-btn').forEach(b=>b.addEventListener('click',()=>{S.conjTense=b.dataset.tense;newVerb();renderConj();}));
+  document.querySelectorAll('.voice-btn').forEach(b=>b.addEventListener('click',()=>{S.conjPassive=b.dataset.voice==='passive';newVerb();renderConj();}));
   document.querySelectorAll('.drill-input').forEach(inp=>{
     inp.addEventListener('input',()=>{S.conjAnswers[inp.dataset.pronoun]=inp.value;});
     inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const i=parseInt(inp.dataset.idx);if(i<PRONOUNS.length-1)document.querySelector(`.drill-input[data-idx="${i+1}"]`)?.focus();else checkByTense();}});
@@ -254,7 +270,7 @@ function genRandom(){
 
 function checkRandom(){
   S.randomChecked=true;let n=0;
-  S.randomQuestions.forEach((q,i)=>{if((S.randomAnswers[i]||"").trim().toLowerCase()===q.answer.toLowerCase())n++;});
+  S.randomQuestions.forEach((q,i)=>{if(normRandom(S.randomAnswers[i],q.pronoun)===q.answer.toLowerCase())n++;});
   S.conjScore.correct+=n;S.conjScore.total+=10;
   S.conjStreak=n===10?S.conjStreak+1:0;
   renderConj();
@@ -264,9 +280,9 @@ function renderRandom(){
   if(S.randomQuestions.length===0)genRandom();
   const qs=S.randomQuestions,pct=S.conjScore.total>0?Math.round(S.conjScore.correct/S.conjScore.total*100):null;
   let res='';
-  if(S.randomChecked){const c=qs.filter((q,i)=>(S.randomAnswers[i]||"").trim().toLowerCase()===q.answer.toLowerCase()).length;res=`<div class="score-bar"><span>This round: <span class="score-num ${c>=8?'good':c>=5?'ok':'poor'}">${c}/10</span></span>${pct!==null?`<span>Overall: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span>`:''}</div>`;}
+  if(S.randomChecked){const c=qs.filter((q,i)=>normRandom(S.randomAnswers[i],q.pronoun)===q.answer.toLowerCase()).length;res=`<div class="score-bar"><span>This round: <span class="score-num ${c>=8?'good':c>=5?'ok':'poor'}">${c}/10</span></span>${pct!==null?`<span>Overall: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span>`:''}</div>`;}
   else if(pct!==null)res=`<div class="score-bar no-print"><span>Overall accuracy: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span></div>`;
-  return`${res}<div class="info-box">10 random questions \u2014 any verb, any tense, any pronoun. Press <strong>Enter</strong> to move between fields.</div>${qs.map((q,i)=>{const a=S.randomAnswers[i]||'',ok=S.randomChecked&&a.trim().toLowerCase()===q.answer.toLowerCase(),bad=S.randomChecked&&!ok;return`<div class="random-item"><div class="random-prompt"><span class="random-number">${i+1}</span><strong>${q.verb.infinitive}</strong> (${q.verb.meaning}) \u2014 <strong>${q.pronoun}</strong><span class="tense-tag">${TENSE_LABELS[q.tense]}</span></div><input class="drill-input ${S.randomChecked?(ok?'correct':'incorrect'):''}" data-ridx="${i}" value="${a}" ${S.randomChecked?'disabled':''} placeholder="Type the conjugated form..." autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">\u2192 ${q.answer}</div>`:''}</div>`;}).join('')}<div class="btn-group no-print">${!S.randomChecked?`<button class="btn btn-primary" id="checkRandomBtn">Check All</button><button class="btn btn-secondary" id="regenBtn">New Questions</button>`:`<button class="btn btn-primary" id="nextRandomBtn">New Round \u2192</button>`}</div>`;
+  return`${res}<div class="info-box">10 random questions \u2014 any verb, any tense, any pronoun. Press <strong>Enter</strong> to move between fields.</div>${qs.map((q,i)=>{const a=S.randomAnswers[i]||'',ok=S.randomChecked&&normRandom(a,q.pronoun)===q.answer.toLowerCase(),bad=S.randomChecked&&!ok;return`<div class="random-item"><div class="random-prompt"><span class="random-number">${i+1}</span><strong>${q.verb.infinitive}</strong> (${q.verb.meaning})<span class="tense-tag">${TENSE_LABELS[q.tense]}</span></div><div class="drill-item" style="margin-top:8px"><span class="drill-pronoun">${q.pronoun}</span><div style="flex:1"><input class="drill-input ${S.randomChecked?(ok?'correct':'incorrect'):''}" data-ridx="${i}" value="${a}" ${S.randomChecked?'disabled':''} placeholder="conjugated form..." autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">\u2192 ${q.answer}</div>`:''}</div></div></div>`;}).join('')}<div class="btn-group no-print">${!S.randomChecked?`<button class="btn btn-primary" id="checkRandomBtn">Check All</button><button class="btn btn-secondary" id="regenBtn">New Questions</button>`:`<button class="btn btn-primary" id="nextRandomBtn">New Round \u2192</button>`}</div>`;
 }
 
 function bindRandom(){
