@@ -1,0 +1,1180 @@
+{
+  "vocab": [
+    {
+      "spanish": "la habitación",
+      "english": "room",
+      "gender": "f",
+      "plural": "las habitaciones",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el dormitorio",
+      "english": "bedroom",
+      "gender": "m",
+      "plural": "los dormitorios",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "la cocina",
+      "english": "kitchen",
+      "gender": "f",
+      "plural": "las cocinas",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el salón",
+      "english": "living room",
+      "gender": "m",
+      "plural": "los salones",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el baño",
+      "english": "bathroom",
+      "gender": "m",
+      "plural": "los baños",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el jardín",
+      "english": "garden",
+      "gender": "m",
+      "plural": "los jardines",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el piso",
+      "english": "flat/apartment",
+      "gender": "m",
+      "plural": "los pisos",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "la vivienda",
+      "english": "dwelling/housing",
+      "gender": "f",
+      "plural": "las viviendas",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el edificio",
+      "english": "building",
+      "gender": "m",
+      "plural": "los edificios",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el armario",
+      "english": "wardrobe/cupboard",
+      "gender": "m",
+      "plural": "los armarios",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "la escalera",
+      "english": "staircase",
+      "gender": "f",
+      "plural": "las escaleras",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el sótano",
+      "english": "basement",
+      "gender": "m",
+      "plural": "los sótanos",
+      "topic": "Casa"
+    },
+    {
+      "spanish": "el padre",
+      "english": "father",
+      "gender": "m",
+      "plural": "los padres",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "la madre",
+      "english": "mother",
+      "gender": "f",
+      "plural": "las madres",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "el hermano",
+      "english": "brother",
+      "gender": "m",
+      "plural": "los hermanos",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "la hermana",
+      "english": "sister",
+      "gender": "f",
+      "plural": "las hermanas",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "el abuelo",
+      "english": "grandfather",
+      "gender": "m",
+      "plural": "los abuelos",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "la abuela",
+      "english": "grandmother",
+      "gender": "f",
+      "plural": "las abuelas",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "el hijo",
+      "english": "son",
+      "gender": "m",
+      "plural": "los hijos",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "la hija",
+      "english": "daughter",
+      "gender": "f",
+      "plural": "las hijas",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "el marido",
+      "english": "husband",
+      "gender": "m",
+      "plural": "los maridos",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "la esposa",
+      "english": "wife",
+      "gender": "f",
+      "plural": "las esposas",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "el tío",
+      "english": "uncle",
+      "gender": "m",
+      "plural": "los tíos",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "la sobrina",
+      "english": "niece",
+      "gender": "f",
+      "plural": "las sobrinas",
+      "topic": "Familia"
+    },
+    {
+      "spanish": "el colegio",
+      "english": "school",
+      "gender": "m",
+      "plural": "los colegios",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "la asignatura",
+      "english": "subject",
+      "gender": "f",
+      "plural": "las asignaturas",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "el examen",
+      "english": "exam",
+      "gender": "m",
+      "plural": "los exámenes",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "los deberes",
+      "english": "homework",
+      "gender": "m",
+      "plural": "los deberes",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "la nota",
+      "english": "grade/mark",
+      "gender": "f",
+      "plural": "las notas",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "el profesor",
+      "english": "teacher",
+      "gender": "m",
+      "plural": "los profesores",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "la biblioteca",
+      "english": "library",
+      "gender": "f",
+      "plural": "las bibliotecas",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "la clase",
+      "english": "class",
+      "gender": "f",
+      "plural": "las clases",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "el uniforme",
+      "english": "uniform",
+      "gender": "m",
+      "plural": "los uniformes",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "el instituto",
+      "english": "secondary school",
+      "gender": "m",
+      "plural": "los institutos",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "la universidad",
+      "english": "university",
+      "gender": "f",
+      "plural": "las universidades",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "el recreo",
+      "english": "break/playtime",
+      "gender": "m",
+      "plural": "los recreos",
+      "topic": "Educación"
+    },
+    {
+      "spanish": "el trabajo",
+      "english": "work",
+      "gender": "m",
+      "plural": "los trabajos",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "el empleo",
+      "english": "employment/job",
+      "gender": "m",
+      "plural": "los empleos",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "la empresa",
+      "english": "company",
+      "gender": "f",
+      "plural": "las empresas",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "el sueldo",
+      "english": "salary",
+      "gender": "m",
+      "plural": "los sueldos",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "el jefe",
+      "english": "boss",
+      "gender": "m",
+      "plural": "los jefes",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "la reunión",
+      "english": "meeting",
+      "gender": "f",
+      "plural": "las reuniones",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "el horario",
+      "english": "timetable/schedule",
+      "gender": "m",
+      "plural": "los horarios",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "el contrato",
+      "english": "contract",
+      "gender": "m",
+      "plural": "los contratos",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "la carrera",
+      "english": "career",
+      "gender": "f",
+      "plural": "las carreras",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "el colega",
+      "english": "colleague",
+      "gender": "m",
+      "plural": "los colegas",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "la oficina",
+      "english": "office",
+      "gender": "f",
+      "plural": "las oficinas",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "el sindicato",
+      "english": "trade union",
+      "gender": "m",
+      "plural": "los sindicatos",
+      "topic": "Trabajo"
+    },
+    {
+      "spanish": "la enfermedad",
+      "english": "illness",
+      "gender": "f",
+      "plural": "las enfermedades",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "el médico",
+      "english": "doctor",
+      "gender": "m",
+      "plural": "los médicos",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "el hospital",
+      "english": "hospital",
+      "gender": "m",
+      "plural": "los hospitales",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la medicina",
+      "english": "medicine",
+      "gender": "f",
+      "plural": "las medicinas",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la salud",
+      "english": "health",
+      "gender": "f",
+      "plural": null,
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la operación",
+      "english": "operation/surgery",
+      "gender": "f",
+      "plural": "las operaciones",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la farmacia",
+      "english": "pharmacy",
+      "gender": "f",
+      "plural": "las farmacias",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "el dolor",
+      "english": "pain",
+      "gender": "m",
+      "plural": "los dolores",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la herida",
+      "english": "wound",
+      "gender": "f",
+      "plural": "las heridas",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "el seguro",
+      "english": "insurance",
+      "gender": "m",
+      "plural": "los seguros",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la consulta",
+      "english": "consultation",
+      "gender": "f",
+      "plural": "las consultas",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la ambulancia",
+      "english": "ambulance",
+      "gender": "f",
+      "plural": "las ambulancias",
+      "topic": "Salud"
+    },
+    {
+      "spanish": "la cabeza",
+      "english": "head",
+      "gender": "f",
+      "plural": "las cabezas",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "el ojo",
+      "english": "eye",
+      "gender": "m",
+      "plural": "los ojos",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "la nariz",
+      "english": "nose",
+      "gender": "f",
+      "plural": "las narices",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "la boca",
+      "english": "mouth",
+      "gender": "f",
+      "plural": "las bocas",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "el brazo",
+      "english": "arm",
+      "gender": "m",
+      "plural": "los brazos",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "la mano",
+      "english": "hand",
+      "gender": "f",
+      "plural": "las manos",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "la pierna",
+      "english": "leg",
+      "gender": "f",
+      "plural": "las piernas",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "el pie",
+      "english": "foot",
+      "gender": "m",
+      "plural": "los pies",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "el corazón",
+      "english": "heart",
+      "gender": "m",
+      "plural": "los corazones",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "el estómago",
+      "english": "stomach",
+      "gender": "m",
+      "plural": "los estómagos",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "la espalda",
+      "english": "back",
+      "gender": "f",
+      "plural": "las espaldas",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "el cuello",
+      "english": "neck",
+      "gender": "m",
+      "plural": "los cuellos",
+      "topic": "Cuerpo"
+    },
+    {
+      "spanish": "el pan",
+      "english": "bread",
+      "gender": "m",
+      "plural": "los panes",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la fruta",
+      "english": "fruit",
+      "gender": "f",
+      "plural": "las frutas",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la verdura",
+      "english": "vegetable",
+      "gender": "f",
+      "plural": "las verduras",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la carne",
+      "english": "meat",
+      "gender": "f",
+      "plural": "las carnes",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "el pescado",
+      "english": "fish",
+      "gender": "m",
+      "plural": "los pescados",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la bebida",
+      "english": "drink",
+      "gender": "f",
+      "plural": "las bebidas",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "el desayuno",
+      "english": "breakfast",
+      "gender": "m",
+      "plural": "los desayunos",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la comida",
+      "english": "lunch/meal",
+      "gender": "f",
+      "plural": "las comidas",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la cena",
+      "english": "dinner",
+      "gender": "f",
+      "plural": "las cenas",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "el postre",
+      "english": "dessert",
+      "gender": "m",
+      "plural": "los postres",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "el aceite",
+      "english": "oil",
+      "gender": "m",
+      "plural": "los aceites",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la receta",
+      "english": "recipe",
+      "gender": "f",
+      "plural": "las recetas",
+      "topic": "Comida"
+    },
+    {
+      "spanish": "la calle",
+      "english": "street",
+      "gender": "f",
+      "plural": "las calles",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "la tienda",
+      "english": "shop",
+      "gender": "f",
+      "plural": "las tiendas",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el banco",
+      "english": "bank",
+      "gender": "m",
+      "plural": "los bancos",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el supermercado",
+      "english": "supermarket",
+      "gender": "m",
+      "plural": "los supermercados",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "la iglesia",
+      "english": "church",
+      "gender": "f",
+      "plural": "las iglesias",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "la biblioteca",
+      "english": "library",
+      "gender": "f",
+      "plural": "las bibliotecas",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el ayuntamiento",
+      "english": "town hall",
+      "gender": "m",
+      "plural": "los ayuntamientos",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el semáforo",
+      "english": "traffic light",
+      "gender": "m",
+      "plural": "los semáforos",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el transporte",
+      "english": "transport",
+      "gender": "m",
+      "plural": "los transportes",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el aparcamiento",
+      "english": "car park",
+      "gender": "m",
+      "plural": "los aparcamientos",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el barrio",
+      "english": "neighbourhood",
+      "gender": "m",
+      "plural": "los barrios",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el centro comercial",
+      "english": "shopping centre",
+      "gender": "m",
+      "plural": "los centros comerciales",
+      "topic": "Ciudad"
+    },
+    {
+      "spanish": "el viaje",
+      "english": "journey/trip",
+      "gender": "m",
+      "plural": "los viajes",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el aeropuerto",
+      "english": "airport",
+      "gender": "m",
+      "plural": "los aeropuertos",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el avión",
+      "english": "plane",
+      "gender": "m",
+      "plural": "los aviones",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el tren",
+      "english": "train",
+      "gender": "m",
+      "plural": "los trenes",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el billete",
+      "english": "ticket",
+      "gender": "m",
+      "plural": "los billetes",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el hotel",
+      "english": "hotel",
+      "gender": "m",
+      "plural": "los hoteles",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "la maleta",
+      "english": "suitcase",
+      "gender": "f",
+      "plural": "las maletas",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el pasaporte",
+      "english": "passport",
+      "gender": "m",
+      "plural": "los pasaportes",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "la frontera",
+      "english": "border",
+      "gender": "f",
+      "plural": "las fronteras",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el turista",
+      "english": "tourist",
+      "gender": "m",
+      "plural": "los turistas",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "la aduana",
+      "english": "customs",
+      "gender": "f",
+      "plural": "las aduanas",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el vuelo",
+      "english": "flight",
+      "gender": "m",
+      "plural": "los vuelos",
+      "topic": "Viajes"
+    },
+    {
+      "spanish": "el deporte",
+      "english": "sport",
+      "gender": "m",
+      "plural": "los deportes",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el partido",
+      "english": "match",
+      "gender": "m",
+      "plural": "los partidos",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el equipo",
+      "english": "team",
+      "gender": "m",
+      "plural": "los equipos",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "la película",
+      "english": "film",
+      "gender": "f",
+      "plural": "las películas",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el concierto",
+      "english": "concert",
+      "gender": "m",
+      "plural": "los conciertos",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "la música",
+      "english": "music",
+      "gender": "f",
+      "plural": null,
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el libro",
+      "english": "book",
+      "gender": "m",
+      "plural": "los libros",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el ocio",
+      "english": "leisure",
+      "gender": "m",
+      "plural": null,
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "la afición",
+      "english": "hobby",
+      "gender": "f",
+      "plural": "las aficiones",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el club",
+      "english": "club",
+      "gender": "m",
+      "plural": "los clubs",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "la natación",
+      "english": "swimming",
+      "gender": "f",
+      "plural": null,
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el baile",
+      "english": "dance",
+      "gender": "m",
+      "plural": "los bailes",
+      "topic": "Tiempo Libre"
+    },
+    {
+      "spanish": "el ordenador",
+      "english": "computer",
+      "gender": "m",
+      "plural": "los ordenadores",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "el móvil",
+      "english": "mobile phone",
+      "gender": "m",
+      "plural": "los móviles",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "internet",
+      "english": "internet",
+      "gender": "m",
+      "plural": null,
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "la red social",
+      "english": "social network",
+      "gender": "f",
+      "plural": "las redes sociales",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "el correo electrónico",
+      "english": "email",
+      "gender": "m",
+      "plural": "los correos electrónicos",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "la aplicación",
+      "english": "application/app",
+      "gender": "f",
+      "plural": "las aplicaciones",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "la pantalla",
+      "english": "screen",
+      "gender": "f",
+      "plural": "las pantallas",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "la contraseña",
+      "english": "password",
+      "gender": "f",
+      "plural": "las contraseñas",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "el sitio web",
+      "english": "website",
+      "gender": "m",
+      "plural": "los sitios web",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "la tecnología",
+      "english": "technology",
+      "gender": "f",
+      "plural": "las tecnologías",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "la descarga",
+      "english": "download",
+      "gender": "f",
+      "plural": "las descargas",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "el usuario",
+      "english": "user",
+      "gender": "m",
+      "plural": "los usuarios",
+      "topic": "Tecnología"
+    },
+    {
+      "spanish": "el medio ambiente",
+      "english": "environment",
+      "gender": "m",
+      "plural": "los medios ambientes",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "la contaminación",
+      "english": "pollution",
+      "gender": "f",
+      "plural": "las contaminaciones",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "el reciclaje",
+      "english": "recycling",
+      "gender": "m",
+      "plural": "los reciclajes",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "la energía",
+      "english": "energy",
+      "gender": "f",
+      "plural": "las energías",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "el cambio climático",
+      "english": "climate change",
+      "gender": "m",
+      "plural": "los cambios climáticos",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "la basura",
+      "english": "rubbish/waste",
+      "gender": "f",
+      "plural": "las basuras",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "el bosque",
+      "english": "forest",
+      "gender": "m",
+      "plural": "los bosques",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "el río",
+      "english": "river",
+      "gender": "m",
+      "plural": "los ríos",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "la especie",
+      "english": "species",
+      "gender": "f",
+      "plural": "las especies",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "el calentamiento",
+      "english": "warming",
+      "gender": "m",
+      "plural": "los calentamientos",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "el residuo",
+      "english": "waste/residue",
+      "gender": "m",
+      "plural": "los residuos",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "la sequía",
+      "english": "drought",
+      "gender": "f",
+      "plural": "las sequías",
+      "topic": "Medio Ambiente"
+    },
+    {
+      "spanish": "la sociedad",
+      "english": "society",
+      "gender": "f",
+      "plural": "las sociedades",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "el gobierno",
+      "english": "government",
+      "gender": "m",
+      "plural": "los gobiernos",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la ley",
+      "english": "law",
+      "gender": "f",
+      "plural": "las leyes",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "los derechos",
+      "english": "rights",
+      "gender": "m",
+      "plural": "los derechos",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la pobreza",
+      "english": "poverty",
+      "gender": "f",
+      "plural": null,
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la desigualdad",
+      "english": "inequality",
+      "gender": "f",
+      "plural": "las desigualdades",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la inmigración",
+      "english": "immigration",
+      "gender": "f",
+      "plural": "las inmigraciones",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "el crimen",
+      "english": "crime",
+      "gender": "m",
+      "plural": "los crímenes",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la violencia",
+      "english": "violence",
+      "gender": "f",
+      "plural": "las violencias",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la manifestación",
+      "english": "demonstration/protest",
+      "gender": "f",
+      "plural": "las manifestaciones",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "el partido político",
+      "english": "political party",
+      "gender": "m",
+      "plural": "los partidos políticos",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la elección",
+      "english": "election",
+      "gender": "f",
+      "plural": "las elecciones",
+      "topic": "Sociedad"
+    },
+    {
+      "spanish": "la fiesta",
+      "english": "party/celebration",
+      "gender": "f",
+      "plural": "las fiestas",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la tradición",
+      "english": "tradition",
+      "gender": "f",
+      "plural": "las tradiciones",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "el festival",
+      "english": "festival",
+      "gender": "m",
+      "plural": "los festivales",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la costumbre",
+      "english": "custom",
+      "gender": "f",
+      "plural": "las costumbres",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "el arte",
+      "english": "art",
+      "gender": "m",
+      "plural": "los artes",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "el museo",
+      "english": "museum",
+      "gender": "m",
+      "plural": "los museos",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la historia",
+      "english": "history/story",
+      "gender": "f",
+      "plural": "las historias",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la lengua",
+      "english": "language",
+      "gender": "f",
+      "plural": "las lenguas",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la religión",
+      "english": "religion",
+      "gender": "f",
+      "plural": "las religiones",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la identidad",
+      "english": "identity",
+      "gender": "f",
+      "plural": "las identidades",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la gastronomía",
+      "english": "gastronomy",
+      "gender": "f",
+      "plural": "las gastronomías",
+      "topic": "Cultura"
+    },
+    {
+      "spanish": "la herencia",
+      "english": "heritage",
+      "gender": "f",
+      "plural": "las herencias",
+      "topic": "Cultura"
+    }
+  ]
+}

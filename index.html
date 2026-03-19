@@ -176,14 +176,28 @@ body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(-
 .modal-conj-table tr:nth-child(even) td { background: var(--warm); }
 .modal-use-row { padding: 8px 14px; font-size: 0.8rem; border-top: 1.5px solid var(--border); background: var(--warm); }
 .modal-use-row strong { color: var(--red); }
+/* ── Spanish theme ── */
+body.lang-es { --red:#c60b1e; --gold:#ffc400; --blue:#c8950a; }
+body.lang-es .app-header::before { background: linear-gradient(to bottom, #c60b1e 0% 25%, #ffc400 25% 75%, #c60b1e 75% 100%); }
+body.lang-es .gender-m { background:#1a6eb5; color:white; }
+body.lang-es .gender-f { background:#c60b1e; color:white; }
+/* ── Language switcher ── */
+.lang-switcher { position:absolute; right:20px; top:50%; transform:translateY(-50%); display:flex; gap:6px; }
+.lang-btn { padding:6px 10px; border:2px solid transparent; background:rgba(255,255,255,0.15); font-size:1.3rem; border-radius:6px; cursor:pointer; transition:all 0.15s; line-height:1; }
+.lang-btn:hover { background:rgba(255,255,255,0.25); }
+.lang-btn.active { border-color:var(--cream); background:rgba(255,255,255,0.2); }
 @media (max-width: 600px) { .tense-body { grid-template-columns: 1fr; } .modal-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
-<body>
+<body class="lang-de">
 <div class="app-container">
   <header class="app-header no-print">
     <h1 class="app-title">Language<span>Lab</span></h1>
     <p class="app-subtitle">Language Practice</p>
+    <div class="lang-switcher no-print">
+      <button class="lang-btn active" data-lang="de">🇩🇪</button>
+      <button class="lang-btn" data-lang="es">🇪🇸</button>
+    </div>
   </header>
   <nav class="nav-bar no-print" id="nav">
     <button class="nav-btn active" data-page="conjugation">Conjugation</button>
@@ -205,7 +219,12 @@ const PRONOUNS=["ich","du","er/sie/es","wir","ihr","sie/Sie"];
 const ALL_TENSES=["present","präteritum","perfekt","plusquamperfekt","futurI","futurII","konjunktivII","konjunktivI"];
 const TENSE_LABELS={present:"Präsens","präteritum":"Präteritum",perfekt:"Perfekt",plusquamperfekt:"Plusquamperfekt",futurI:"Futur I",futurII:"Futur II",konjunktivII:"Konjunktiv II",konjunktivI:"Konjunktiv I"};
 
+const ES_PRONOUNS=["yo","tú","él/ella","nosotros","vosotros","ellos/ellas"];
+const ES_ALL_TENSES=["presente","indefinido","imperfecto","subjuntivoPres","perfecto","pluscuamperfecto","futuro","condicional"];
+const ES_TENSE_LABELS={presente:"Presente",indefinido:"Indefinido",imperfecto:"Imperfecto",subjuntivoPres:"Subj. Presente",perfecto:"Pretérito Perfecto",pluscuamperfecto:"Pluscuamperfecto",futuro:"Futuro Simple",condicional:"Condicional"};
+
 let VERBS=[],VOCAB=[],TOPICS=[];
+let DE_VERBS=[],DE_VOCAB=[],DE_TOPICS=[],ES_VERBS=[],ES_VOCAB=[],ES_TOPICS=[];
 let dataLoaded=false,loadError=null;
 
 const WERDEN_PRESENT={ich:"werde",du:"wirst","er/sie/es":"wird",wir:"werden",ihr:"werdet","sie/Sie":"werden"};
@@ -215,6 +234,10 @@ const SEIN_PRES={ich:"bin",du:"bist","er/sie/es":"ist",wir:"sind",ihr:"seid","si
 const WERDEN_PRÄT={ich:"wurde",du:"wurdest","er/sie/es":"wurde",wir:"wurden",ihr:"wurdet","sie/Sie":"wurden"};
 const WERDEN_KI={ich:"werde",du:"werdest","er/sie/es":"werde",wir:"werden",ihr:"werdet","sie/Sie":"werden"};
 const WERDEN_KII={ich:"würde",du:"würdest","er/sie/es":"würde",wir:"würden",ihr:"würdet","sie/Sie":"würden"};
+
+const HABER_PRES={yo:"he","tú":"has","él/ella":"ha",nosotros:"hemos",vosotros:"habéis","ellos/ellas":"han"};
+const HABER_IMP={yo:"había","tú":"habías","él/ella":"había",nosotros:"habíamos",vosotros:"habíais","ellos/ellas":"habían"};
+
 function getPassiveForms(pp,tense){const r={};PRONOUNS.forEach(p=>{switch(tense){case"present":r[p]=WERDEN_PRESENT[p]+" "+pp;break;case"präteritum":r[p]=WERDEN_PRÄT[p]+" "+pp;break;case"perfekt":r[p]=SEIN_PRES[p]+" "+pp+" worden";break;case"plusquamperfekt":r[p]=SEIN_PRÄT[p]+" "+pp+" worden";break;case"futurI":r[p]=WERDEN_PRESENT[p]+" "+pp+" werden";break;case"futurII":r[p]=WERDEN_PRESENT[p]+" "+pp+" worden sein";break;case"konjunktivII":r[p]=WERDEN_KII[p]+" "+pp+" werden";break;case"konjunktivI":r[p]=WERDEN_KI[p]+" "+pp;break;}});return r;}
 
 function buildCompoundTenses(rawVerbs){
@@ -235,17 +258,31 @@ function buildCompoundTenses(rawVerbs){
   });
 }
 
+function buildCompoundTensesES(rawVerbs){
+  return rawVerbs.map(v=>{
+    const pp=v.pastParticiple,perfecto={},pluscuamperfecto={};
+    ES_PRONOUNS.forEach(p=>{perfecto[p]=HABER_PRES[p]+" "+pp;pluscuamperfecto[p]=HABER_IMP[p]+" "+pp;});
+    return{...v,perfecto,pluscuamperfecto};
+  });
+}
+
 async function loadData(){
   try{
-    const[vR,voR]=await Promise.all([fetch("data/verbs.json"),fetch("data/vocab.json")]);
+    const[vR,voR,evR,evoR]=await Promise.all([fetch("data/verbs.json"),fetch("data/vocab.json"),fetch("data/es/verbs.json"),fetch("data/es/vocab.json")]);
     if(!vR.ok)throw new Error("Could not load verbs.json ("+vR.status+")");
     if(!voR.ok)throw new Error("Could not load vocab.json ("+voR.status+")");
-    const vD=await vR.json(),voD=await voR.json();
-    VERBS=buildCompoundTenses(vD.verbs);
-    VOCAB=voD.vocab;
-    TOPICS=[...new Set(VOCAB.map(v=>v.topic))];
+    if(!evR.ok)throw new Error("Could not load es/verbs.json ("+evR.status+")");
+    if(!evoR.ok)throw new Error("Could not load es/vocab.json ("+evoR.status+")");
+    const vD=await vR.json(),voD=await voR.json(),evD=await evR.json(),evoD=await evoR.json();
+    DE_VERBS=buildCompoundTenses(vD.verbs);
+    DE_VOCAB=voD.vocab;
+    DE_TOPICS=[...new Set(DE_VOCAB.map(v=>v.topic))];
+    ES_VERBS=buildCompoundTensesES(evD.verbs);
+    ES_VOCAB=evoD.vocab;
+    ES_TOPICS=[...new Set(ES_VOCAB.map(v=>v.topic))];
+    VERBS=DE_VERBS; VOCAB=DE_VOCAB; TOPICS=DE_TOPICS;
     dataLoaded=true;
-    console.log("LanguageLab loaded: "+VERBS.length+" verbs, "+VOCAB.length+" vocab words, "+TOPICS.length+" topics");
+    console.log("LanguageLab loaded: DE "+DE_VERBS.length+" verbs / "+DE_VOCAB.length+" vocab; ES "+ES_VERBS.length+" verbs / "+ES_VOCAB.length+" vocab");
   }catch(e){loadError=e.message;console.error("Data load error:",e);}
 }
 
@@ -261,7 +298,7 @@ const S={
   conjTense:"present",conjVerb:null,conjAnswers:{},conjChecked:false,
   randomQuestions:[],randomAnswers:{},randomChecked:false,conjPassive:false,
   vocabTopic:"All",vocabDirection:"de-en",vocabIncludePlurals:false,vocabQuiz:[],vocabQIdx:0,vocabTyped:"",vocabChecked:false,vocabLastCorrect:false,vocabScore:{correct:0,total:0},
-  wsType:"mixed",wsData:null,wsShowAnswers:false
+  wsType:"mixed",wsData:null,wsShowAnswers:false,lang:"de"
 };
 
 // ─── NAVIGATION ──────────────────────────────────────────────────────
@@ -271,6 +308,18 @@ document.getElementById("nav").addEventListener("click",e=>{
   document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.page===S.page));
   render();
 });
+
+document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>{
+  if(b.dataset.lang===S.lang)return;
+  S.lang=b.dataset.lang;
+  if(S.lang==="es"){VERBS=ES_VERBS;VOCAB=ES_VOCAB;TOPICS=ES_TOPICS;}
+  else{VERBS=DE_VERBS;VOCAB=DE_VOCAB;TOPICS=DE_TOPICS;}
+  S.conjVerb=null;S.conjAnswers={};S.conjChecked=false;S.randomQuestions=[];S.randomChecked=false;
+  S.vocabQuiz=[];S.vocabQIdx=0;S.vocabTyped="";S.vocabChecked=false;S.wsData=null;
+  document.body.className="lang-"+S.lang;
+  document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===S.lang));
+  render();
+}));
 
 // ─── CONJUGATION: BY-TENSE ──────────────────────────────────────────
 function newVerb(){S.conjVerb=randItem(VERBS);S.conjAnswers={};S.conjChecked=false;}
@@ -298,7 +347,6 @@ function renderByTense(){
 
 function bindByTense(){
   document.querySelectorAll('.tense-btn').forEach(b=>b.addEventListener('click',()=>{S.conjTense=b.dataset.tense;newVerb();renderConj();}));
-  document.querySelectorAll('.voice-btn').forEach(b=>b.addEventListener('click',()=>{S.conjPassive=b.dataset.voice==='passive';newVerb();renderConj();}));
   document.querySelectorAll('.drill-input').forEach(inp=>{
     inp.addEventListener('input',()=>{S.conjAnswers[inp.dataset.pronoun]=inp.value;});
     inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const i=parseInt(inp.dataset.idx);if(i<PRONOUNS.length-1)document.querySelector(`.drill-input[data-idx="${i+1}"]`)?.focus();else checkByTense();}});
@@ -306,6 +354,7 @@ function bindByTense(){
   document.getElementById('checkBtn')?.addEventListener('click',checkByTense);
   document.getElementById('skipBtn')?.addEventListener('click',()=>{newVerb();renderConj();});
   document.getElementById('nextBtn')?.addEventListener('click',()=>{newVerb();renderConj();});
+  document.querySelectorAll('.voice-btn').forEach(b=>b.addEventListener('click',()=>{S.conjPassive=b.dataset.voice==='passive';newVerb();renderConj();}));
   if(!S.conjChecked)document.querySelector('.drill-input[data-idx="0"]')?.focus();
 }
 
@@ -350,6 +399,84 @@ function renderConj(){
   m.innerHTML=`<div class="card"><h2 class="card-header">Verb Conjugation Drill</h2><div class="mode-toggle no-print"><button class="mode-btn ${mode==='byTense'?'active':''}" data-mode="byTense">By Tense</button><button class="mode-btn ${mode==='random'?'active':''}" data-mode="random">Random Mix</button></div>${content}</div><div class="db-stats no-print">${VERBS.length} verbs loaded \u00b7 ${ALL_TENSES.length} tenses</div>`;
   document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>{S.conjMode=b.dataset.mode;renderConj();}));
   if(mode==="byTense")bindByTense();else bindRandom();
+}
+
+// ─── CONJUGATION: SPANISH ────────────────────────────────────────────
+function newVerbES(){S.conjVerb=randItem(ES_VERBS);S.conjAnswers={};S.conjChecked=false;}
+
+function checkByTenseES(){
+  S.conjChecked=true;
+  const c=S.conjVerb[S.conjTense];
+  let all=true,n=0;
+  ES_PRONOUNS.forEach(p=>{if((S.conjAnswers[p]||"").trim().toLowerCase()===c[p].toLowerCase())n++;else all=false;});
+  S.conjScore.correct+=n;S.conjScore.total+=6;
+  S.conjStreak=all?S.conjStreak+1:0;
+  renderConjES();
+}
+
+function renderByTenseES(){
+  if(!S.conjVerb||!S.conjVerb.presente)newVerbES();
+  const v=S.conjVerb,t=S.conjTense;
+  if(!v[t]){S.conjTense="presente";return renderByTenseES();}
+  const c=v[t];
+  const pct=S.conjScore.total>0?Math.round(S.conjScore.correct/S.conjScore.total*100):null;
+  let sc='';
+  if(pct!==null||S.conjStreak>1)sc=`<div class="score-bar no-print">${pct!==null?`<span>Accuracy: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span>`:''} ${S.conjStreak>1?`<span class="streak">🔥 ${S.conjStreak} in a row</span>`:''}</div>`;
+  return`<div class="tense-selector no-print">${ES_ALL_TENSES.map(tn=>`<button class="tense-btn ${t===tn?'active':''}" data-tense="${tn}">${ES_TENSE_LABELS[tn]}</button>`).join('')}</div>${sc}<div class="drill-verb-display"><div class="drill-verb">${v.infinitive}</div><div class="drill-meaning">${v.meaning}</div><div class="drill-tense">${ES_TENSE_LABELS[t]}</div></div><div class="drill-grid">${ES_PRONOUNS.map((p,i)=>{const a=S.conjAnswers[p]||'',ok=S.conjChecked&&a.trim().toLowerCase()===c[p].toLowerCase(),bad=S.conjChecked&&!ok;return`<div class="drill-item"><span class="drill-pronoun">${p}</span><div style="flex:1"><input class="drill-input ${S.conjChecked?(ok?'correct':'incorrect'):''}" data-pronoun="${p}" data-idx="${i}" value="${a}" ${S.conjChecked?'disabled':''} placeholder="..." autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">→ ${c[p]}</div>`:''}</div></div>`;}).join('')}</div><div class="btn-group no-print">${!S.conjChecked?`<button class="btn btn-primary" id="checkBtn">Check Answers</button><button class="btn btn-secondary" id="skipBtn">Skip</button>`:`<button class="btn btn-primary" id="nextBtn">Next Verb →</button>`}</div>`;
+}
+
+function bindByTenseES(){
+  document.querySelectorAll('.tense-btn').forEach(b=>b.addEventListener('click',()=>{S.conjTense=b.dataset.tense;newVerbES();renderConjES();}));
+  document.querySelectorAll('.drill-input').forEach(inp=>{
+    inp.addEventListener('input',()=>{S.conjAnswers[inp.dataset.pronoun]=inp.value;});
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const i=parseInt(inp.dataset.idx);if(i<ES_PRONOUNS.length-1)document.querySelector(`.drill-input[data-idx="${i+1}"]`)?.focus();else checkByTenseES();}});
+  });
+  document.getElementById('checkBtn')?.addEventListener('click',checkByTenseES);
+  document.getElementById('skipBtn')?.addEventListener('click',()=>{newVerbES();renderConjES();});
+  document.getElementById('nextBtn')?.addEventListener('click',()=>{newVerbES();renderConjES();});
+  if(!S.conjChecked)document.querySelector('.drill-input[data-idx="0"]')?.focus();
+}
+
+function genRandomES(){
+  const qs=[];for(let i=0;i<10;i++){const v=randItem(ES_VERBS),t=randItem(ES_ALL_TENSES),p=randItem(ES_PRONOUNS);if(v[t]&&v[t][p])qs.push({verb:v,tense:t,pronoun:p,answer:v[t][p]});}
+  S.randomQuestions=qs;S.randomAnswers={};S.randomChecked=false;
+}
+
+function checkRandomES(){
+  S.randomChecked=true;let n=0;
+  S.randomQuestions.forEach((q,i)=>{if(normRandom(S.randomAnswers[i],q.pronoun)===q.answer.toLowerCase())n++;});
+  S.conjScore.correct+=n;S.conjScore.total+=S.randomQuestions.length;
+  S.conjStreak=n===S.randomQuestions.length?S.conjStreak+1:0;
+  renderConjES();
+}
+
+function renderRandomES(){
+  if(S.randomQuestions.length===0)genRandomES();
+  const qs=S.randomQuestions,pct=S.conjScore.total>0?Math.round(S.conjScore.correct/S.conjScore.total*100):null;
+  let res='';
+  if(S.randomChecked){const c=qs.filter((q,i)=>normRandom(S.randomAnswers[i],q.pronoun)===q.answer.toLowerCase()).length;res=`<div class="score-bar"><span>This round: <span class="score-num ${c>=8?'good':c>=5?'ok':'poor'}">${c}/${qs.length}</span></span>${pct!==null?`<span>Overall: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span>`:''}</div>`;}
+  else if(pct!==null)res=`<div class="score-bar no-print"><span>Overall accuracy: <span class="score-num ${pct>=80?'good':pct>=50?'ok':'poor'}">${pct}%</span></span></div>`;
+  return`${res}<div class="info-box">10 random questions — any verb, any tense, any pronoun. Press <strong>Enter</strong> to move between fields.</div>${qs.map((q,i)=>{const a=S.randomAnswers[i]||'',ok=S.randomChecked&&normRandom(a,q.pronoun)===q.answer.toLowerCase(),bad=S.randomChecked&&!ok;return`<div class="random-item"><div class="random-prompt"><span class="random-number">${i+1}</span><strong>${q.verb.infinitive}</strong> (${q.verb.meaning})<span class="tense-tag">${ES_TENSE_LABELS[q.tense]}</span></div><div class="drill-item" style="margin-top:8px"><span class="drill-pronoun">${q.pronoun}</span><div style="flex:1"><input class="drill-input ${S.randomChecked?(ok?'correct':'incorrect'):''}" data-ridx="${i}" value="${a}" ${S.randomChecked?'disabled':''} placeholder="conjugated form..." autocomplete="off" spellcheck="false">${bad?`<div class="drill-answer">→ ${q.answer}</div>`:''}</div></div></div>`;}).join('')}<div class="btn-group no-print">${!S.randomChecked?`<button class="btn btn-primary" id="checkRandomBtn">Check All</button><button class="btn btn-secondary" id="regenBtn">New Questions</button>`:`<button class="btn btn-primary" id="nextRandomBtn">New Round →</button>`}</div>`;
+}
+
+function bindRandomES(){
+  document.querySelectorAll('.drill-input[data-ridx]').forEach(inp=>{
+    inp.addEventListener('input',()=>{S.randomAnswers[parseInt(inp.dataset.ridx)]=inp.value;});
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const i=parseInt(inp.dataset.ridx);if(i<S.randomQuestions.length-1)document.querySelector(`.drill-input[data-ridx="${i+1}"]`)?.focus();else checkRandomES();}});
+  });
+  document.getElementById('checkRandomBtn')?.addEventListener('click',checkRandomES);
+  document.getElementById('regenBtn')?.addEventListener('click',()=>{genRandomES();renderConjES();});
+  document.getElementById('nextRandomBtn')?.addEventListener('click',()=>{genRandomES();renderConjES();});
+  if(!S.randomChecked)document.querySelector('.drill-input[data-ridx="0"]')?.focus();
+}
+
+function renderConjES(){
+  const m=document.getElementById("main-content"),mode=S.conjMode;
+  if(!S.conjVerb||!S.conjVerb.presente){newVerbES();}
+  const content=mode==="byTense"?renderByTenseES():renderRandomES();
+  m.innerHTML=`<div class="card"><h2 class="card-header">Verb Conjugation Drill</h2><div class="mode-toggle no-print"><button class="mode-btn ${mode==='byTense'?'active':''}" data-mode="byTense">By Tense</button><button class="mode-btn ${mode==='random'?'active':''}" data-mode="random">Random Mix</button></div>${content}</div><div class="db-stats no-print">${ES_VERBS.length} verbs loaded · ${ES_ALL_TENSES.length} tenses</div>`;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>{S.conjMode=b.dataset.mode;renderConjES();}));
+  if(mode==="byTense")bindByTenseES();else bindRandomES();
 }
 
 // ─── VOCABULARY ──────────────────────────────────────────────────────
@@ -421,20 +548,85 @@ function renderVocab(){
   document.getElementById("vocabNextBtn")?.addEventListener("click",()=>{S.vocabTyped="";S.vocabChecked=false;S.vocabQIdx++;renderVocab();});
 }
 
+// ─── VOCABULARY: SPANISH ─────────────────────────────────────────────
+function buildVocabQuizES(){
+  const pool=S.vocabTopic==="All"?ES_VOCAB:ES_VOCAB.filter(v=>v.topic===S.vocabTopic);
+  const qs=[];
+  shuffle(pool).forEach(word=>{
+    const dir=S.vocabDirection==="mixed"?(Math.random()<0.5?"es-en":"en-es"):S.vocabDirection.replace("de-en","es-en").replace("en-de","en-es");
+    if(dir==="es-en"){
+      const ans=word.english.split(/\s*\/\s*/).map(s=>s.trim().toLowerCase()).filter(Boolean);
+      qs.push({type:"es-en",word,prompt:word.spanish,promptLabel:"Translate to English",answer:ans});
+    }else{
+      qs.push({type:"en-es",word,prompt:word.english,promptLabel:"Translate to Spanish (with article)",answer:word.spanish.trim().toLowerCase()});
+    }
+  });
+  S.vocabQuiz=qs;S.vocabQIdx=0;S.vocabTyped="";S.vocabChecked=false;S.vocabLastCorrect=false;S.vocabScore={correct:0,total:0};
+}
+
+function checkVocabAnswerES(){
+  if(S.vocabChecked)return;
+  const q=S.vocabQuiz[S.vocabQIdx],typed=S.vocabTyped.trim().toLowerCase();
+  S.vocabLastCorrect=Array.isArray(q.answer)?q.answer.some(a=>typed===a):typed===q.answer;
+  S.vocabChecked=true;S.vocabScore.total++;
+  if(S.vocabLastCorrect)S.vocabScore.correct++;
+  renderVocabES();
+}
+
+function renderVocabES(){
+  if(!S.vocabQuiz.length)buildVocabQuizES();
+  const m=document.getElementById("main-content");
+  const gLabel={m:"el (m)",f:"la (f)"};
+  const topicBar=`<div class="filter-bar no-print"><button class="filter-chip ${S.vocabTopic==="All"?"active":""}" data-topic="All">All</button>${ES_TOPICS.map(t=>`<button class="filter-chip ${S.vocabTopic===t?"active":""}" data-topic="${t}">${t}</button>`).join("")}</div>`;
+  const optBar=`<div class="filter-bar no-print"><button class="filter-chip ${S.vocabDirection==="de-en"||S.vocabDirection==="es-en"?"active":""}" data-dir="es-en">ES → EN</button><button class="filter-chip ${S.vocabDirection==="en-de"||S.vocabDirection==="en-es"?"active":""}" data-dir="en-es">EN → ES</button><button class="filter-chip ${S.vocabDirection==="mixed"?"active":""}" data-dir="mixed">Mixed</button></div>`;
+
+  function bindFiltersES(){
+    document.querySelectorAll("[data-topic]").forEach(b=>b.addEventListener("click",()=>{S.vocabTopic=b.dataset.topic;buildVocabQuizES();renderVocabES();}));
+    document.querySelectorAll("[data-dir]").forEach(b=>b.addEventListener("click",()=>{S.vocabDirection=b.dataset.dir;buildVocabQuizES();renderVocabES();}));
+  }
+
+  if(S.vocabQIdx>=S.vocabQuiz.length){
+    const p=S.vocabScore.total>0?Math.round(S.vocabScore.correct/S.vocabScore.total*100):100;
+    m.innerHTML=`<div class="card">${topicBar}${optBar}<div style="text-align:center;padding:40px 20px"><div style="font-size:3rem;margin-bottom:12px">${p>=80?"🎉":p>=50?"👍":"📚"}</div><div style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:12px">Round complete!</div><p style="font-size:1.1rem;margin-bottom:8px">Score: <span class="score-num ${p>=80?"good":p>=50?"ok":"poor"}">${S.vocabScore.correct}/${S.vocabScore.total}</span> (${p}%)</p><div class="btn-group" style="justify-content:center;margin-top:24px"><button class="btn btn-primary" id="vocabRestart">Go Again</button></div></div></div><div class="db-stats no-print">${ES_VOCAB.length} words · ${ES_TOPICS.length} topics</div>`;
+    bindFiltersES();document.getElementById("vocabRestart").addEventListener("click",()=>{buildVocabQuizES();renderVocabES();});return;
+  }
+
+  const q=S.vocabQuiz[S.vocabQIdx],w=q.word;
+  const pct=S.vocabScore.total>0?Math.round(S.vocabScore.correct/S.vocabScore.total*100):null;
+  const showGender=q.type==="es-en";
+  const gBadge=showGender&&gLabel[w.gender]?`<span class="flashcard-gender gender-${w.gender}" style="margin-top:10px">${gLabel[w.gender]}</span>`:"";
+  const displayAns=Array.isArray(q.answer)?q.answer.join(" / "):q.answer;
+  const placeholder=q.type==="es-en"?"Type the English translation…":"Type with article, e.g. la casa…";
+  const scoreRow=pct!==null?`<div class="score-bar no-print"><span>Score: <span class="score-num ${pct>=80?"good":pct>=50?"ok":"poor"}">${S.vocabScore.correct}/${S.vocabScore.total}</span></span><span class="vocab-progress">Question ${S.vocabQIdx+1} of ${S.vocabQuiz.length}</span></div>`:`<div class="vocab-progress">Question ${S.vocabQIdx+1} of ${S.vocabQuiz.length}</div>`;
+  const feedback=S.vocabChecked?`<div class="vocab-feedback ${S.vocabLastCorrect?"v-correct":"v-incorrect"}">${S.vocabLastCorrect?"✓ Correct!":"✗ Incorrect"}${!S.vocabLastCorrect?`<span class="vocab-correct-answer">→ ${displayAns}</span>`:""}</div>`:"";
+
+  m.innerHTML=`<div class="card"><h2 class="card-header">Vocabulary Practice</h2>${topicBar}${optBar}${scoreRow}<div class="vocab-prompt-card"><div class="vocab-prompt-label">${q.promptLabel}</div><div class="vocab-prompt-word">${q.prompt}</div>${gBadge}<div class="vocab-topic-tag">${w.topic}</div></div><div class="vocab-input-area"><input class="vocab-type-input${S.vocabChecked?(S.vocabLastCorrect?" v-correct":" v-incorrect"):""}" id="vocabInput" type="text" placeholder="${placeholder}" value="${S.vocabTyped.replace(/"/g,"&quot;")}" autocomplete="off" spellcheck="false"${S.vocabChecked?" disabled":""}>${!S.vocabChecked?`<button class="btn btn-primary" id="vocabCheckBtn">Check</button>`:`<button class="btn btn-primary" id="vocabNextBtn">Next →</button>`}</div>${feedback}</div><div class="db-stats no-print">${ES_VOCAB.length} words loaded · ${ES_TOPICS.length} topics</div>`;
+
+  bindFiltersES();
+  const inp=document.getElementById("vocabInput");
+  if(inp){
+    inp.addEventListener("input",e=>{S.vocabTyped=e.target.value;});
+    inp.addEventListener("keydown",e=>{if(e.key==="Enter"){if(!S.vocabChecked)checkVocabAnswerES();else{S.vocabTyped="";S.vocabChecked=false;S.vocabQIdx++;renderVocabES();}}});
+    if(!S.vocabChecked)inp.focus();
+  }
+  document.getElementById("vocabCheckBtn")?.addEventListener("click",checkVocabAnswerES);
+  document.getElementById("vocabNextBtn")?.addEventListener("click",()=>{S.vocabTyped="";S.vocabChecked=false;S.vocabQIdx++;renderVocabES();});
+}
+
 // ─── WORKSHEET ───────────────────────────────────────────────────────
 function genWS(){
   const ws={sections:[],answers:[]};S.wsShowAnswers=false;
   if(S.wsType==="conjugation"||S.wsType==="mixed"){
-    const verbs=pick(VERBS,3),sec={title:"Section A \u2014 Verb Conjugation",questions:[]};let q=1;
-    verbs.forEach(v=>{const t=randItem(ALL_TENSES),ps=pick(PRONOUNS,3);ps.forEach(p=>{sec.questions.push({num:q,text:`Conjugate \u201C${v.infinitive}\u201D (${v.meaning}) in the ${TENSE_LABELS[t]} for <strong>${p}</strong>:`});ws.answers.push({num:q,answer:`${p} ${v[t][p]}`});q++;});});
+    const verbs=pick(VERBS,3),sec={title:"Section A — Verb Conjugation",questions:[]};let q=1;
+    verbs.forEach(v=>{const t=randItem(ALL_TENSES),ps=pick(PRONOUNS,3);ps.forEach(p=>{sec.questions.push({num:q,text:`Conjugate "${v.infinitive}" (${v.meaning}) in the ${TENSE_LABELS[t]} for <strong>${p}</strong>:`});ws.answers.push({num:q,answer:`${p} ${v[t][p]}`});q++;});});
     ws.sections.push(sec);
   }
   if(S.wsType==="vocab"||S.wsType==="mixed"){
     const words=pick(VOCAB,8),lB=S.wsType==="mixed"?"Section B":"Section A",lC=S.wsType==="mixed"?"Section C":"Section B";
-    const sB=ws.answers.length+1,secB={title:`${lB} \u2014 Vocabulary (German \u2192 English)`,questions:[]};
+    const sB=ws.answers.length+1,secB={title:`${lB} — Vocabulary (German → English)`,questions:[]};
     words.slice(0,4).forEach((w,i)=>{secB.questions.push({num:sB+i,text:`${w.german} = `});ws.answers.push({num:sB+i,answer:w.english});});
     ws.sections.push(secB);
-    const sC=ws.answers.length+1,secC={title:`${lC} \u2014 Vocabulary (English \u2192 German)`,questions:[]};
+    const sC=ws.answers.length+1,secC={title:`${lC} — Vocabulary (English → German)`,questions:[]};
     words.slice(4).forEach((w,i)=>{secC.questions.push({num:sC+i,text:`${w.english} = `});ws.answers.push({num:sC+i,answer:w.german});});
     ws.sections.push(secC);
   }
@@ -448,6 +640,69 @@ function renderWS(){
   document.getElementById('wsGenerate').addEventListener('click',()=>{genWS();renderWS();});
   document.getElementById('wsToggleAnswers').addEventListener('click',()=>{S.wsShowAnswers=!S.wsShowAnswers;renderWS();});
   document.getElementById('wsPrint').addEventListener('click',()=>window.print());
+}
+
+// ─── WORKSHEET: SPANISH ──────────────────────────────────────────────
+function genWSES(){
+  const ws={sections:[],answers:[]};S.wsShowAnswers=false;
+  if(S.wsType==="conjugation"||S.wsType==="mixed"){
+    const verbs=pick(ES_VERBS,3),sec={title:"Sección A — Conjugación Verbal",questions:[]};let q=1;
+    verbs.forEach(v=>{const t=randItem(ES_ALL_TENSES),ps=pick(ES_PRONOUNS,3);ps.forEach(p=>{if(v[t]&&v[t][p]){sec.questions.push({num:q,text:`Conjuga "${v.infinitive}" (${v.meaning}) en el ${ES_TENSE_LABELS[t]} para <strong>${p}</strong>:`});ws.answers.push({num:q,answer:`${p} ${v[t][p]}`});q++;}});});
+    ws.sections.push(sec);
+  }
+  if(S.wsType==="vocab"||S.wsType==="mixed"){
+    const words=pick(ES_VOCAB,8),lB=S.wsType==="mixed"?"Sección B":"Sección A",lC=S.wsType==="mixed"?"Sección C":"Sección B";
+    const sB=ws.answers.length+1,secB={title:`${lB} — Vocabulario (Español → Inglés)`,questions:[]};
+    words.slice(0,4).forEach((w,i)=>{secB.questions.push({num:sB+i,text:`${w.spanish} = `});ws.answers.push({num:sB+i,answer:w.english});});
+    ws.sections.push(secB);
+    const sC=ws.answers.length+1,secC={title:`${lC} — Vocabulario (Inglés → Español)`,questions:[]};
+    words.slice(4).forEach((w,i)=>{secC.questions.push({num:sC+i,text:`${w.english} = `});ws.answers.push({num:sC+i,answer:w.spanish});});
+    ws.sections.push(secC);
+  }
+  S.wsData=ws;
+}
+
+function renderWSES(){
+  if(!S.wsData)genWSES();const ws=S.wsData,m=document.getElementById("main-content");
+  m.innerHTML=`<div class="card"><h2 class="card-header">Randomised Worksheets</h2><div class="filter-bar no-print"><button class="filter-chip ${S.wsType==='mixed'?'active':''}" data-wstype="mixed">Mixed</button><button class="filter-chip ${S.wsType==='conjugation'?'active':''}" data-wstype="conjugation">Conjugation only</button><button class="filter-chip ${S.wsType==='vocab'?'active':''}" data-wstype="vocab">Vocab only</button></div><div class="worksheet-preview"><div class="ws-title">Spanish Practice Worksheet</div><div class="ws-subtitle">A-Level / Adult Beginners</div><div class="ws-name-line"><span class="ws-name-field">Name: _________________________</span><span class="ws-name-field">Date: ______________</span></div>${ws.sections.map(s=>`<div class="ws-section"><div class="ws-section-title">${s.title}</div>${s.questions.map(q=>`<div class="ws-question"><span class="ws-q-num">${q.num}.</span><span>${q.text}<span class="ws-blank"></span></span></div>`).join('')}</div>`).join('')}${S.wsShowAnswers?`<div class="ws-answer-key"><strong>Answer Key</strong>${ws.answers.map(a=>`<div>${a.num}. ${a.answer}</div>`).join('')}</div>`:''}</div><div class="btn-group no-print"><button class="btn btn-primary" id="wsGenerate">Generate New ↻</button><button class="btn btn-secondary" id="wsToggleAnswers">${S.wsShowAnswers?'Hide Answers':'Show Answers'}</button><button class="btn btn-secondary" id="wsPrint">Print Worksheet 🖨</button></div></div>`;
+  document.querySelectorAll('[data-wstype]').forEach(b=>b.addEventListener('click',()=>{S.wsType=b.dataset.wstype;genWSES();renderWSES();}));
+  document.getElementById('wsGenerate').addEventListener('click',()=>{genWSES();renderWSES();});
+  document.getElementById('wsToggleAnswers').addEventListener('click',()=>{S.wsShowAnswers=!S.wsShowAnswers;renderWSES();});
+  document.getElementById('wsPrint').addEventListener('click',()=>window.print());
+}
+
+// ─── CHEATSHEET: SPANISH ─────────────────────────────────────────────
+function renderCheatsheetES(){
+  const m=document.getElementById("main-content");
+  const tc=(flagCls,de,en,formHtml,exDe,exEn,useHtml,tagsHtml,noteHtml)=>`<div class="tense-card"><div class="tense-card-header"><div class="tense-flag ${flagCls}"></div><div><div class="tense-de">${de}</div><div class="tense-en">${en}</div></div></div><div class="tense-body"><div class="tense-col"><div class="col-title">Formation</div><div class="cs-formula">${formHtml}</div><div class="col-title">Example</div><div class="cs-example-de">${exDe}</div><div class="cs-example-en">${exEn}</div></div><div class="tense-col"><div class="col-title">When to use</div>${useHtml}<div class="usage-tags">${tagsHtml}</div></div></div>${noteHtml?`<div class="passive-bar"><div class="passive-bar-label">Note</div><div class="passive-formula">${noteHtml}</div></div>`:''}</div>`;
+  const tag=(cls,label)=>`<span class="utag ${cls}">${label}</span>`;
+  const spoken=tag('utag-spoken','spoken'),written=tag('utag-written','written'),formal=tag('utag-formal','formal'),common=tag('utag-common','very common'),subj=tag('utag-modal','subjunctive');
+  const kw=s=>`<span class="kw">${s}</span>`,ex=s=>`<span class="ex">${s}</span>`;
+
+  const tenseCards=[
+    tc('flag-present','Presente','Present indicative',`-AR: <span class="kw">-o/-as/-a/-amos/-áis/-an</span><br>-ER: ${kw('-o/-es/-e/-emos/-éis/-en')}<br>-IR: ${kw('-o/-es/-e/-imos/-ís/-en')}<br>${ex('hablar → habl<b>o</b>, habl<b>as</b>, habl<b>a</b>…')}`,`Hablo español todos los días.`,`I speak Spanish every day.`,`Current/habitual actions, general truths, and near-future plans.`,spoken+written+common, ''),
+    tc('flag-prät','Indefinido','Simple past / preterite',`-AR: ${kw('-é/-aste/-ó/-amos/-asteis/-aron')}<br>-ER/-IR: ${kw('-í/-iste/-ió/-imos/-isteis/-ieron')}<br>${ex('fui, vine, hice, puse, dije…')} (many irregulars)`,`Ayer fui al mercado.`,`Yesterday I went to the market.`,`Completed actions with a defined endpoint. Often with <em>ayer, el lunes, en 2020</em>.`,spoken+written+common, `Contrast with Imperfecto: Indefinido = <span class="kw">completed</span>, Imperfecto = <span class="kw">ongoing/background</span>.`),
+    tc('flag-perfekt','Imperfecto','Imperfect',`-AR: ${kw('-aba/-abas/-aba/-ábamos/-abais/-aban')}<br>-ER/-IR: ${kw('-ía/-ías/-ía/-íamos/-íais/-ían')}<br>${ex('Only 3 irregulars: ser, ir, ver')}`,`Cuando era niño, vivía en Madrid.`,`When I was a child, I lived in Madrid.`,`Background description, habitual past actions, ongoing states. Often with <em>siempre, todos los días, de niño</em>.`,spoken+written+common, ''),
+    tc('flag-futII','Pretérito Perfecto','Present perfect',`${kw('haber')} (presente) + participio (-ado/-ido)<br>${ex('he, has, ha, hemos, habéis, han')}<br>${ex('hablado, comido, vivido — visto, hecho, dicho…')}`,`Esta semana he estudiado mucho.`,`This week I have studied a lot.`,`Recently completed actions, especially in Spain. Use with <em>hoy, esta semana, ya, todavía</em>.`,spoken+written, `Note: In Latin America, Indefinido is preferred over Perfecto for recent past too.`),
+    tc('flag-plusq','Pluscuamperfecto','Past perfect / pluperfect',`${kw('haber')} (imperfecto) + participio<br>${ex('había, habías, había, habíamos, habíais, habían')}`,`Ya había comido cuando llegué.`,`I had already eaten when I arrived.`,`A past action completed before another past action. Often with <em>ya, todavía no, cuando</em>.`,spoken+written, ''),
+    tc('flag-futI','Futuro Simple','Simple future',`Infinitive + ${kw('-é/-ás/-á/-emos/-éis/-án')}<br>${ex('hablar → hablaré, hablarás…')}<br>${ex('Irregulars: tendr-, vendr-, podr-, querr-, dir-, har-…')}`,`Mañana hablaré con el director.`,`Tomorrow I will speak with the director.`,`Future plans, predictions, and probability about the present (<em>Estará en casa</em> = He's probably at home).`,spoken+written, ''),
+    tc('flag-kII','Condicional','Conditional',`Infinitive + ${kw('-ía/-ías/-ía/-íamos/-íais/-ían')}<br>${ex('hablar → hablaría, hablarías…')}<br>${ex('Same irregular stems as Futuro')}`,`Si tuviera dinero, viajaría por el mundo.`,`If I had money, I would travel the world.`,`Hypotheticals, polite requests (<em>¿Podría ayudarme?</em>), and reported future (<em>Dijo que vendría</em>).`,spoken+written+formal, ''),
+    tc('flag-kI','Subjuntivo Presente','Present subjunctive',`Take yo-form of Presente, drop -o, add opposite endings:<br>-AR → ${kw('-e/-es/-e/-emos/-éis/-en')}<br>-ER/-IR → ${kw('-a/-as/-a/-amos/-áis/-an')}<br>${ex('hablar: hable, hables, hable…')}`,`Quiero que hables más despacio.`,`I want you to speak more slowly.`,`Doubt, emotion, influence, wishes, hypotheticals, and set phrases like <em>ojalá, es importante que, para que</em>.`,written+subj+formal, `Key trigger words: <span class="kw">querer que, esperar que, es necesario que, aunque, para que, cuando</span> (future sense)`)
+  ].join('');
+
+  const hfVerb=(inf,en,rows,noteHtml)=>`<div class="modal-card"><div class="modal-card-header"><div class="modal-infinitive">${inf}</div><div class="modal-meaning">${en}</div></div><table class="modal-conj-table">${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</table><div class="modal-use-row"><strong>Use:</strong> ${noteHtml}</div></div>`;
+
+  const hfCards=[
+    hfVerb('ser','to be (permanent)',[['yo','soy'],['tú','eres'],['él/ella','es'],['nosotros','somos'],['vosotros','sois'],['ellos/ellas','son']],`Identity, origin, material, time, passive voice. <em>Soy inglés. Es de Madrid.</em>`),
+    hfVerb('estar','to be (temporary)',[['yo','estoy'],['tú','estás'],['él/ella','está'],['nosotros','estamos'],['vosotros','estáis'],['ellos/ellas','están']],`State, location, emotion, progressive. <em>Estoy cansado. Está en casa.</em>`),
+    hfVerb('tener','to have',[['yo','tengo'],['tú','tienes'],['él/ella','tiene'],['nosotros','tenemos'],['vosotros','tenéis'],['ellos/ellas','tienen']],`Possession and idioms: <em>tener que</em> + inf. = have to; <em>tener … años</em> = to be … years old`),
+    hfVerb('poder','can / to be able to',[['yo','puedo'],['tú','puedes'],['él/ella','puede'],['nosotros','podemos'],['vosotros','podéis'],['ellos/ellas','pueden']],`Ability or possibility. <em>¿Puedes ayudarme?</em> (Can you help me?)`),
+    hfVerb('querer','to want',[['yo','quiero'],['tú','quieres'],['él/ella','quiere'],['nosotros','queremos'],['vosotros','queréis'],['ellos/ellas','quieren']],`Desire. Also <em>querer que</em> + subjunctive: <em>Quiero que estudies.</em>`),
+    hfVerb('deber','must / ought to',[['yo','debo'],['tú','debes'],['él/ella','debe'],['nosotros','debemos'],['vosotros','debéis'],['ellos/ellas','deben']],`Obligation. <em>Debes estudiar más.</em> Also <em>deber de</em> = probability`),
+    hfVerb('ir','to go',[['yo','voy'],['tú','vas'],['él/ella','va'],['nosotros','vamos'],['vosotros','vais'],['ellos/ellas','van']],`Movement + <strong>ir a</strong> + infinitive for near future: <em>Voy a estudiar.</em>`)
+  ].join('');
+
+  m.innerHTML=`<div class="card"><h2 class="card-header">Tenses Cheatsheet</h2><div class="cs-section-label">Spanish Tenses</div><p class="cs-section-sub">A reference guide to all eight tenses — formation, examples, and when to use them.</p>${tenseCards}<div class="cs-divider">Quick Reference</div><table class="cs-ref-table"><thead><tr><th>Tense</th><th>Key formation</th><th>Key use</th><th>Signal words</th></tr></thead><tbody><tr><td>Presente</td><td class="mono">habl<b>o</b></td><td>habitual / now</td><td>ahora, siempre, todos los días</td></tr><tr><td>Indefinido</td><td class="mono">habl<b>é</b></td><td>completed past</td><td>ayer, el lunes, en 2020</td></tr><tr><td>Imperfecto</td><td class="mono">habl<b>aba</b></td><td>background / ongoing past</td><td>siempre, de niño, mientras</td></tr><tr><td>Pret. Perfecto</td><td class="mono"><b>he</b> hablado</td><td>recent past (Spain)</td><td>hoy, esta semana, ya</td></tr><tr><td>Pluscuamperfecto</td><td class="mono"><b>había</b> hablado</td><td>past-before-past</td><td>ya, todavía no, cuando</td></tr><tr><td>Futuro Simple</td><td class="mono">hablar<b>é</b></td><td>future / probability</td><td>mañana, pronto, el año que viene</td></tr><tr><td>Condicional</td><td class="mono">hablar<b>ía</b></td><td>conditional / polite</td><td>si…, me gustaría, ¿podría…?</td></tr><tr><td>Subj. Presente</td><td class="mono">habl<b>e</b></td><td>doubt / emotion / influence</td><td>quiero que, es importante que, ojalá</td></tr></tbody></table><div class="cs-note">💡 <strong>Indefinido vs. Imperfecto:</strong> Use Indefinido for a completed event (<em>Fui al cine</em>) and Imperfecto for background or repeated past (<em>Iba al cine cada semana</em>). They often appear together: <em>Leía cuando sonó el teléfono.</em></div><div class="cs-divider" style="margin-top:40px">Key Verbs &amp; Structures</div><p class="cs-section-sub" style="margin-top:-8px">High-frequency verbs including the essential <em>ser</em> vs <em>estar</em> distinction.</p><div class="modal-grid">${hfCards}</div><div class="cs-note" style="margin-top:18px">💡 <strong>Ser vs. estar:</strong> Both mean "to be". <em>Ser</em> = permanent/inherent identity (nationality, profession, material). <em>Estar</em> = temporary state, location, emotion, progressive tense. <em>Es médico</em> (He is a doctor) vs. <em>Está enfermo</em> (He is ill/feeling sick).</div><div class="cs-note" style="margin-top:10px">💡 <strong>Por vs. para:</strong> <em>Por</em> = cause/exchange/duration/agent (<em>gracias por, por dos horas</em>). <em>Para</em> = purpose/destination/deadline (<em>para mañana, para ir a…</em>).</div></div>`;
 }
 
 // ─── CHEATSHEET ──────────────────────────────────────────────────────
@@ -572,12 +827,19 @@ ${tenseCards}
 // ─── RENDER ──────────────────────────────────────────────────────────
 function render(){
   if(!dataLoaded){
-    if(loadError)document.getElementById("main-content").innerHTML=`<div class="card"><div class="info-box error"><strong>Error loading data:</strong> ${loadError}<br><br>Make sure your repository has a <code>data/</code> folder containing <code>verbs.json</code> and <code>vocab.json</code>.</div></div>`;
+    if(loadError)document.getElementById("main-content").innerHTML=`<div class="card"><div class="info-box error"><strong>Error loading data:</strong> ${loadError}<br><br>Make sure your repository has a <code>data/</code> folder containing <code>verbs.json</code> and <code>vocab.json</code> for German, and <code>data/es/</code> with <code>verbs.json</code> and <code>vocab.json</code> for Spanish.</div></div>`;
     return;
   }
-  switch(S.page){case"conjugation":renderConj();break;case"vocab":renderVocab();break;case"worksheet":renderWS();break;case"cheatsheet":renderCheatsheet();break;}
+  const es=S.lang==="es";
+  switch(S.page){
+    case"conjugation":es?renderConjES():renderConj();break;
+    case"vocab":es?renderVocabES():renderVocab();break;
+    case"worksheet":es?renderWSES():renderWS();break;
+    case"cheatsheet":es?renderCheatsheetES():renderCheatsheet();break;
+  }
 }
 
+document.body.className="lang-de";
 loadData().then(()=>{if(dataLoaded){newVerb();genWS();}render();});
 </script>
 </body>

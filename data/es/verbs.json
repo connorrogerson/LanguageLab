@@ -1,0 +1,2442 @@
+{
+  "verbs": [
+    {
+      "infinitive": "hablar",
+      "meaning": "to speak",
+      "pastParticiple": "hablado",
+      "presente": {
+        "yo": "hablo",
+        "tú": "hablas",
+        "él/ella": "habla",
+        "nosotros": "hablamos",
+        "vosotros": "habláis",
+        "ellos/ellas": "hablan"
+      },
+      "indefinido": {
+        "yo": "hablé",
+        "tú": "hablaste",
+        "él/ella": "habló",
+        "nosotros": "hablamos",
+        "vosotros": "hablasteis",
+        "ellos/ellas": "hablaron"
+      },
+      "imperfecto": {
+        "yo": "hablaba",
+        "tú": "hablabas",
+        "él/ella": "hablaba",
+        "nosotros": "hablábamos",
+        "vosotros": "hablabais",
+        "ellos/ellas": "hablaban"
+      },
+      "subjuntivoPres": {
+        "yo": "hable",
+        "tú": "hables",
+        "él/ella": "hable",
+        "nosotros": "hablemos",
+        "vosotros": "habléis",
+        "ellos/ellas": "hablen"
+      },
+      "futuro": {
+        "yo": "hablaré",
+        "tú": "hablarás",
+        "él/ella": "hablará",
+        "nosotros": "hablaremos",
+        "vosotros": "hablaréis",
+        "ellos/ellas": "hablarán"
+      },
+      "condicional": {
+        "yo": "hablaría",
+        "tú": "hablarías",
+        "él/ella": "hablaría",
+        "nosotros": "hablaríamos",
+        "vosotros": "hablaríais",
+        "ellos/ellas": "hablarían"
+      }
+    },
+    {
+      "infinitive": "trabajar",
+      "meaning": "to work",
+      "pastParticiple": "trabajado",
+      "presente": {
+        "yo": "trabajo",
+        "tú": "trabajas",
+        "él/ella": "trabaja",
+        "nosotros": "trabajamos",
+        "vosotros": "trabajáis",
+        "ellos/ellas": "trabajan"
+      },
+      "indefinido": {
+        "yo": "trabajé",
+        "tú": "trabajaste",
+        "él/ella": "trabajó",
+        "nosotros": "trabajamos",
+        "vosotros": "trabajasteis",
+        "ellos/ellas": "trabajaron"
+      },
+      "imperfecto": {
+        "yo": "trabajaba",
+        "tú": "trabajabas",
+        "él/ella": "trabajaba",
+        "nosotros": "trabajábamos",
+        "vosotros": "trabajabais",
+        "ellos/ellas": "trabajaban"
+      },
+      "subjuntivoPres": {
+        "yo": "trabaje",
+        "tú": "trabajes",
+        "él/ella": "trabaje",
+        "nosotros": "trabajemos",
+        "vosotros": "trabajéis",
+        "ellos/ellas": "trabajen"
+      },
+      "futuro": {
+        "yo": "trabajaré",
+        "tú": "trabajarás",
+        "él/ella": "trabajará",
+        "nosotros": "trabajaremos",
+        "vosotros": "trabajaréis",
+        "ellos/ellas": "trabajarán"
+      },
+      "condicional": {
+        "yo": "trabajaría",
+        "tú": "trabajarías",
+        "él/ella": "trabajaría",
+        "nosotros": "trabajaríamos",
+        "vosotros": "trabajaríais",
+        "ellos/ellas": "trabajarían"
+      }
+    },
+    {
+      "infinitive": "escuchar",
+      "meaning": "to listen",
+      "pastParticiple": "escuchado",
+      "presente": {
+        "yo": "escucho",
+        "tú": "escuchas",
+        "él/ella": "escucha",
+        "nosotros": "escuchamos",
+        "vosotros": "escucháis",
+        "ellos/ellas": "escuchan"
+      },
+      "indefinido": {
+        "yo": "escuché",
+        "tú": "escuchaste",
+        "él/ella": "escuchó",
+        "nosotros": "escuchamos",
+        "vosotros": "escuchasteis",
+        "ellos/ellas": "escucharon"
+      },
+      "imperfecto": {
+        "yo": "escuchaba",
+        "tú": "escuchabas",
+        "él/ella": "escuchaba",
+        "nosotros": "escuchábamos",
+        "vosotros": "escuchabais",
+        "ellos/ellas": "escuchaban"
+      },
+      "subjuntivoPres": {
+        "yo": "escuche",
+        "tú": "escuches",
+        "él/ella": "escuche",
+        "nosotros": "escuchemos",
+        "vosotros": "escuchéis",
+        "ellos/ellas": "escuchen"
+      },
+      "futuro": {
+        "yo": "escucharé",
+        "tú": "escucharás",
+        "él/ella": "escuchará",
+        "nosotros": "escucharemos",
+        "vosotros": "escucharéis",
+        "ellos/ellas": "escucharán"
+      },
+      "condicional": {
+        "yo": "escucharía",
+        "tú": "escucharías",
+        "él/ella": "escucharía",
+        "nosotros": "escucharíamos",
+        "vosotros": "escucharíais",
+        "ellos/ellas": "escucharían"
+      }
+    },
+    {
+      "infinitive": "estudiar",
+      "meaning": "to study",
+      "pastParticiple": "estudiado",
+      "presente": {
+        "yo": "estudio",
+        "tú": "estudias",
+        "él/ella": "estudia",
+        "nosotros": "estudiamos",
+        "vosotros": "estudiáis",
+        "ellos/ellas": "estudian"
+      },
+      "indefinido": {
+        "yo": "estudié",
+        "tú": "estudiaste",
+        "él/ella": "estudió",
+        "nosotros": "estudiamos",
+        "vosotros": "estudiasteis",
+        "ellos/ellas": "estudiaron"
+      },
+      "imperfecto": {
+        "yo": "estudiaba",
+        "tú": "estudiabas",
+        "él/ella": "estudiaba",
+        "nosotros": "estudiábamos",
+        "vosotros": "estudiabais",
+        "ellos/ellas": "estudiaban"
+      },
+      "subjuntivoPres": {
+        "yo": "estudie",
+        "tú": "estudies",
+        "él/ella": "estudie",
+        "nosotros": "estudiemos",
+        "vosotros": "estudiéis",
+        "ellos/ellas": "estudien"
+      },
+      "futuro": {
+        "yo": "estudiaré",
+        "tú": "estudiarás",
+        "él/ella": "estudiará",
+        "nosotros": "estudiaremos",
+        "vosotros": "estudiaréis",
+        "ellos/ellas": "estudiarán"
+      },
+      "condicional": {
+        "yo": "estudiaría",
+        "tú": "estudiarías",
+        "él/ella": "estudiaría",
+        "nosotros": "estudiaríamos",
+        "vosotros": "estudiaríais",
+        "ellos/ellas": "estudiarían"
+      }
+    },
+    {
+      "infinitive": "mirar",
+      "meaning": "to look, to watch",
+      "pastParticiple": "mirado",
+      "presente": {
+        "yo": "miro",
+        "tú": "miras",
+        "él/ella": "mira",
+        "nosotros": "miramos",
+        "vosotros": "miráis",
+        "ellos/ellas": "miran"
+      },
+      "indefinido": {
+        "yo": "miré",
+        "tú": "miraste",
+        "él/ella": "miró",
+        "nosotros": "miramos",
+        "vosotros": "mirasteis",
+        "ellos/ellas": "miraron"
+      },
+      "imperfecto": {
+        "yo": "miraba",
+        "tú": "mirabas",
+        "él/ella": "miraba",
+        "nosotros": "mirábamos",
+        "vosotros": "mirabais",
+        "ellos/ellas": "miraban"
+      },
+      "subjuntivoPres": {
+        "yo": "mire",
+        "tú": "mires",
+        "él/ella": "mire",
+        "nosotros": "miremos",
+        "vosotros": "miréis",
+        "ellos/ellas": "miren"
+      },
+      "futuro": {
+        "yo": "miraré",
+        "tú": "mirarás",
+        "él/ella": "mirará",
+        "nosotros": "miraremos",
+        "vosotros": "miraréis",
+        "ellos/ellas": "mirarán"
+      },
+      "condicional": {
+        "yo": "miraría",
+        "tú": "mirarías",
+        "él/ella": "miraría",
+        "nosotros": "miraríamos",
+        "vosotros": "miraríais",
+        "ellos/ellas": "mirarían"
+      }
+    },
+    {
+      "infinitive": "comprar",
+      "meaning": "to buy",
+      "pastParticiple": "comprado",
+      "presente": {
+        "yo": "compro",
+        "tú": "compras",
+        "él/ella": "compra",
+        "nosotros": "compramos",
+        "vosotros": "compráis",
+        "ellos/ellas": "compran"
+      },
+      "indefinido": {
+        "yo": "compré",
+        "tú": "compraste",
+        "él/ella": "compró",
+        "nosotros": "compramos",
+        "vosotros": "comprasteis",
+        "ellos/ellas": "compraron"
+      },
+      "imperfecto": {
+        "yo": "compraba",
+        "tú": "comprabas",
+        "él/ella": "compraba",
+        "nosotros": "comprábamos",
+        "vosotros": "comprabais",
+        "ellos/ellas": "compraban"
+      },
+      "subjuntivoPres": {
+        "yo": "compre",
+        "tú": "compres",
+        "él/ella": "compre",
+        "nosotros": "compremos",
+        "vosotros": "compréis",
+        "ellos/ellas": "compren"
+      },
+      "futuro": {
+        "yo": "compraré",
+        "tú": "comprarás",
+        "él/ella": "comprará",
+        "nosotros": "compraremos",
+        "vosotros": "compraréis",
+        "ellos/ellas": "comprarán"
+      },
+      "condicional": {
+        "yo": "compraría",
+        "tú": "comprarías",
+        "él/ella": "compraría",
+        "nosotros": "compraríamos",
+        "vosotros": "compraríais",
+        "ellos/ellas": "comprarían"
+      }
+    },
+    {
+      "infinitive": "llamar",
+      "meaning": "to call",
+      "pastParticiple": "llamado",
+      "presente": {
+        "yo": "llamo",
+        "tú": "llamas",
+        "él/ella": "llama",
+        "nosotros": "llamamos",
+        "vosotros": "llamáis",
+        "ellos/ellas": "llaman"
+      },
+      "indefinido": {
+        "yo": "llamé",
+        "tú": "llamaste",
+        "él/ella": "llamó",
+        "nosotros": "llamamos",
+        "vosotros": "llamasteis",
+        "ellos/ellas": "llamaron"
+      },
+      "imperfecto": {
+        "yo": "llamaba",
+        "tú": "llamabas",
+        "él/ella": "llamaba",
+        "nosotros": "llamábamos",
+        "vosotros": "llamabais",
+        "ellos/ellas": "llamaban"
+      },
+      "subjuntivoPres": {
+        "yo": "llame",
+        "tú": "llames",
+        "él/ella": "llame",
+        "nosotros": "llamemos",
+        "vosotros": "llaméis",
+        "ellos/ellas": "llamen"
+      },
+      "futuro": {
+        "yo": "llamaré",
+        "tú": "llamarás",
+        "él/ella": "llamará",
+        "nosotros": "llamaremos",
+        "vosotros": "llamaréis",
+        "ellos/ellas": "llamarán"
+      },
+      "condicional": {
+        "yo": "llamaría",
+        "tú": "llamarías",
+        "él/ella": "llamaría",
+        "nosotros": "llamaríamos",
+        "vosotros": "llamaríais",
+        "ellos/ellas": "llamarían"
+      }
+    },
+    {
+      "infinitive": "necesitar",
+      "meaning": "to need",
+      "pastParticiple": "necesitado",
+      "presente": {
+        "yo": "necesito",
+        "tú": "necesitas",
+        "él/ella": "necesita",
+        "nosotros": "necesitamos",
+        "vosotros": "necesitáis",
+        "ellos/ellas": "necesitan"
+      },
+      "indefinido": {
+        "yo": "necesité",
+        "tú": "necesitaste",
+        "él/ella": "necesitó",
+        "nosotros": "necesitamos",
+        "vosotros": "necesitasteis",
+        "ellos/ellas": "necesitaron"
+      },
+      "imperfecto": {
+        "yo": "necesitaba",
+        "tú": "necesitabas",
+        "él/ella": "necesitaba",
+        "nosotros": "necesitábamos",
+        "vosotros": "necesitabais",
+        "ellos/ellas": "necesitaban"
+      },
+      "subjuntivoPres": {
+        "yo": "necesite",
+        "tú": "necesites",
+        "él/ella": "necesite",
+        "nosotros": "necesitemos",
+        "vosotros": "necesitéis",
+        "ellos/ellas": "necesiten"
+      },
+      "futuro": {
+        "yo": "necesitaré",
+        "tú": "necesitarás",
+        "él/ella": "necesitará",
+        "nosotros": "necesitaremos",
+        "vosotros": "necesitaréis",
+        "ellos/ellas": "necesitarán"
+      },
+      "condicional": {
+        "yo": "necesitaría",
+        "tú": "necesitarías",
+        "él/ella": "necesitaría",
+        "nosotros": "necesitaríamos",
+        "vosotros": "necesitaríais",
+        "ellos/ellas": "necesitarían"
+      }
+    },
+    {
+      "infinitive": "ayudar",
+      "meaning": "to help",
+      "pastParticiple": "ayudado",
+      "presente": {
+        "yo": "ayudo",
+        "tú": "ayudas",
+        "él/ella": "ayuda",
+        "nosotros": "ayudamos",
+        "vosotros": "ayudáis",
+        "ellos/ellas": "ayudan"
+      },
+      "indefinido": {
+        "yo": "ayudé",
+        "tú": "ayudaste",
+        "él/ella": "ayudó",
+        "nosotros": "ayudamos",
+        "vosotros": "ayudasteis",
+        "ellos/ellas": "ayudaron"
+      },
+      "imperfecto": {
+        "yo": "ayudaba",
+        "tú": "ayudabas",
+        "él/ella": "ayudaba",
+        "nosotros": "ayudábamos",
+        "vosotros": "ayudabais",
+        "ellos/ellas": "ayudaban"
+      },
+      "subjuntivoPres": {
+        "yo": "ayude",
+        "tú": "ayudes",
+        "él/ella": "ayude",
+        "nosotros": "ayudemos",
+        "vosotros": "ayudéis",
+        "ellos/ellas": "ayuden"
+      },
+      "futuro": {
+        "yo": "ayudaré",
+        "tú": "ayudarás",
+        "él/ella": "ayudará",
+        "nosotros": "ayudaremos",
+        "vosotros": "ayudaréis",
+        "ellos/ellas": "ayudarán"
+      },
+      "condicional": {
+        "yo": "ayudaría",
+        "tú": "ayudarías",
+        "él/ella": "ayudaría",
+        "nosotros": "ayudaríamos",
+        "vosotros": "ayudaríais",
+        "ellos/ellas": "ayudarían"
+      }
+    },
+    {
+      "infinitive": "visitar",
+      "meaning": "to visit",
+      "pastParticiple": "visitado",
+      "presente": {
+        "yo": "visito",
+        "tú": "visitas",
+        "él/ella": "visita",
+        "nosotros": "visitamos",
+        "vosotros": "visitáis",
+        "ellos/ellas": "visitan"
+      },
+      "indefinido": {
+        "yo": "visité",
+        "tú": "visitaste",
+        "él/ella": "visitó",
+        "nosotros": "visitamos",
+        "vosotros": "visitasteis",
+        "ellos/ellas": "visitaron"
+      },
+      "imperfecto": {
+        "yo": "visitaba",
+        "tú": "visitabas",
+        "él/ella": "visitaba",
+        "nosotros": "visitábamos",
+        "vosotros": "visitabais",
+        "ellos/ellas": "visitaban"
+      },
+      "subjuntivoPres": {
+        "yo": "visite",
+        "tú": "visites",
+        "él/ella": "visite",
+        "nosotros": "visitemos",
+        "vosotros": "visitéis",
+        "ellos/ellas": "visiten"
+      },
+      "futuro": {
+        "yo": "visitaré",
+        "tú": "visitarás",
+        "él/ella": "visitará",
+        "nosotros": "visitaremos",
+        "vosotros": "visitaréis",
+        "ellos/ellas": "visitarán"
+      },
+      "condicional": {
+        "yo": "visitaría",
+        "tú": "visitarías",
+        "él/ella": "visitaría",
+        "nosotros": "visitaríamos",
+        "vosotros": "visitaríais",
+        "ellos/ellas": "visitarían"
+      }
+    },
+    {
+      "infinitive": "pasar",
+      "meaning": "to pass, to happen",
+      "pastParticiple": "pasado",
+      "presente": {
+        "yo": "paso",
+        "tú": "pasas",
+        "él/ella": "pasa",
+        "nosotros": "pasamos",
+        "vosotros": "pasáis",
+        "ellos/ellas": "pasan"
+      },
+      "indefinido": {
+        "yo": "pasé",
+        "tú": "pasaste",
+        "él/ella": "pasó",
+        "nosotros": "pasamos",
+        "vosotros": "pasasteis",
+        "ellos/ellas": "pasaron"
+      },
+      "imperfecto": {
+        "yo": "pasaba",
+        "tú": "pasabas",
+        "él/ella": "pasaba",
+        "nosotros": "pasábamos",
+        "vosotros": "pasabais",
+        "ellos/ellas": "pasaban"
+      },
+      "subjuntivoPres": {
+        "yo": "pase",
+        "tú": "pases",
+        "él/ella": "pase",
+        "nosotros": "pasemos",
+        "vosotros": "paséis",
+        "ellos/ellas": "pasen"
+      },
+      "futuro": {
+        "yo": "pasaré",
+        "tú": "pasarás",
+        "él/ella": "pasará",
+        "nosotros": "pasaremos",
+        "vosotros": "pasaréis",
+        "ellos/ellas": "pasarán"
+      },
+      "condicional": {
+        "yo": "pasaría",
+        "tú": "pasarías",
+        "él/ella": "pasaría",
+        "nosotros": "pasaríamos",
+        "vosotros": "pasaríais",
+        "ellos/ellas": "pasarían"
+      }
+    },
+    {
+      "infinitive": "descansar",
+      "meaning": "to rest",
+      "pastParticiple": "descansado",
+      "presente": {
+        "yo": "descanso",
+        "tú": "descansas",
+        "él/ella": "descansa",
+        "nosotros": "descansamos",
+        "vosotros": "descansáis",
+        "ellos/ellas": "descansan"
+      },
+      "indefinido": {
+        "yo": "descansé",
+        "tú": "descansaste",
+        "él/ella": "descansó",
+        "nosotros": "descansamos",
+        "vosotros": "descansasteis",
+        "ellos/ellas": "descansaron"
+      },
+      "imperfecto": {
+        "yo": "descansaba",
+        "tú": "descansabas",
+        "él/ella": "descansaba",
+        "nosotros": "descansábamos",
+        "vosotros": "descansabais",
+        "ellos/ellas": "descansaban"
+      },
+      "subjuntivoPres": {
+        "yo": "descanse",
+        "tú": "descanses",
+        "él/ella": "descanse",
+        "nosotros": "descansemos",
+        "vosotros": "descansé",
+        "ellos/ellas": "descansen"
+      },
+      "futuro": {
+        "yo": "descansaré",
+        "tú": "descansarás",
+        "él/ella": "descansará",
+        "nosotros": "descansaremos",
+        "vosotros": "descansaréis",
+        "ellos/ellas": "descansarán"
+      },
+      "condicional": {
+        "yo": "descansaría",
+        "tú": "descansarías",
+        "él/ella": "descansaría",
+        "nosotros": "descansaríamos",
+        "vosotros": "descansaríais",
+        "ellos/ellas": "descansarían"
+      }
+    },
+    {
+      "infinitive": "viajar",
+      "meaning": "to travel",
+      "pastParticiple": "viajado",
+      "presente": {
+        "yo": "viajo",
+        "tú": "viajas",
+        "él/ella": "viaja",
+        "nosotros": "viajamos",
+        "vosotros": "viajáis",
+        "ellos/ellas": "viajan"
+      },
+      "indefinido": {
+        "yo": "viajé",
+        "tú": "viajaste",
+        "él/ella": "viajó",
+        "nosotros": "viajamos",
+        "vosotros": "viajasteis",
+        "ellos/ellas": "viajaron"
+      },
+      "imperfecto": {
+        "yo": "viajaba",
+        "tú": "viajabas",
+        "él/ella": "viajaba",
+        "nosotros": "viajábamos",
+        "vosotros": "viajabais",
+        "ellos/ellas": "viajaban"
+      },
+      "subjuntivoPres": {
+        "yo": "viaje",
+        "tú": "viajes",
+        "él/ella": "viaje",
+        "nosotros": "viajemos",
+        "vosotros": "viajéis",
+        "ellos/ellas": "viajen"
+      },
+      "futuro": {
+        "yo": "viajaré",
+        "tú": "viajarás",
+        "él/ella": "viajará",
+        "nosotros": "viajaremos",
+        "vosotros": "viajaréis",
+        "ellos/ellas": "viajarán"
+      },
+      "condicional": {
+        "yo": "viajaría",
+        "tú": "viajarías",
+        "él/ella": "viajaría",
+        "nosotros": "viajaríamos",
+        "vosotros": "viajaríais",
+        "ellos/ellas": "viajarían"
+      }
+    },
+    {
+      "infinitive": "buscar",
+      "meaning": "to search, to look for",
+      "pastParticiple": "buscado",
+      "presente": {
+        "yo": "busco",
+        "tú": "buscas",
+        "él/ella": "busca",
+        "nosotros": "buscamos",
+        "vosotros": "buscáis",
+        "ellos/ellas": "buscan"
+      },
+      "indefinido": {
+        "yo": "busqué",
+        "tú": "buscaste",
+        "él/ella": "buscó",
+        "nosotros": "buscamos",
+        "vosotros": "buscasteis",
+        "ellos/ellas": "buscaron"
+      },
+      "imperfecto": {
+        "yo": "buscaba",
+        "tú": "buscabas",
+        "él/ella": "buscaba",
+        "nosotros": "buscábamos",
+        "vosotros": "buscabais",
+        "ellos/ellas": "buscaban"
+      },
+      "subjuntivoPres": {
+        "yo": "busque",
+        "tú": "busques",
+        "él/ella": "busque",
+        "nosotros": "busquemos",
+        "vosotros": "busquéis",
+        "ellos/ellas": "busquen"
+      },
+      "futuro": {
+        "yo": "buscaré",
+        "tú": "buscarás",
+        "él/ella": "buscará",
+        "nosotros": "buscaremos",
+        "vosotros": "buscaréis",
+        "ellos/ellas": "buscarán"
+      },
+      "condicional": {
+        "yo": "buscaría",
+        "tú": "buscarías",
+        "él/ella": "buscaría",
+        "nosotros": "buscaríamos",
+        "vosotros": "buscaríais",
+        "ellos/ellas": "buscarían"
+      }
+    },
+    {
+      "infinitive": "caminar",
+      "meaning": "to walk",
+      "pastParticiple": "caminado",
+      "presente": {
+        "yo": "camino",
+        "tú": "caminas",
+        "él/ella": "camina",
+        "nosotros": "caminamos",
+        "vosotros": "camináis",
+        "ellos/ellas": "caminan"
+      },
+      "indefinido": {
+        "yo": "caminé",
+        "tú": "caminaste",
+        "él/ella": "caminó",
+        "nosotros": "caminamos",
+        "vosotros": "caminasteis",
+        "ellos/ellas": "caminaron"
+      },
+      "imperfecto": {
+        "yo": "caminaba",
+        "tú": "caminabas",
+        "él/ella": "caminaba",
+        "nosotros": "caminábamos",
+        "vosotros": "caminabais",
+        "ellos/ellas": "caminaban"
+      },
+      "subjuntivoPres": {
+        "yo": "camine",
+        "tú": "camines",
+        "él/ella": "camine",
+        "nosotros": "caminemos",
+        "vosotros": "caminéis",
+        "ellos/ellas": "caminen"
+      },
+      "futuro": {
+        "yo": "caminaré",
+        "tú": "caminarás",
+        "él/ella": "caminará",
+        "nosotros": "caminaremos",
+        "vosotros": "caminaréis",
+        "ellos/ellas": "caminarán"
+      },
+      "condicional": {
+        "yo": "caminaría",
+        "tú": "caminarías",
+        "él/ella": "caminaría",
+        "nosotros": "caminaríamos",
+        "vosotros": "caminaríais",
+        "ellos/ellas": "caminarían"
+      }
+    },
+    {
+      "infinitive": "comer",
+      "meaning": "to eat",
+      "pastParticiple": "comido",
+      "presente": {
+        "yo": "como",
+        "tú": "comes",
+        "él/ella": "come",
+        "nosotros": "comemos",
+        "vosotros": "coméis",
+        "ellos/ellas": "comen"
+      },
+      "indefinido": {
+        "yo": "comí",
+        "tú": "comiste",
+        "él/ella": "comió",
+        "nosotros": "comimos",
+        "vosotros": "comisteis",
+        "ellos/ellas": "comieron"
+      },
+      "imperfecto": {
+        "yo": "comía",
+        "tú": "comías",
+        "él/ella": "comía",
+        "nosotros": "comíamos",
+        "vosotros": "comíais",
+        "ellos/ellas": "comían"
+      },
+      "subjuntivoPres": {
+        "yo": "coma",
+        "tú": "comas",
+        "él/ella": "coma",
+        "nosotros": "comamos",
+        "vosotros": "comáis",
+        "ellos/ellas": "coman"
+      },
+      "futuro": {
+        "yo": "comeré",
+        "tú": "comerás",
+        "él/ella": "comerá",
+        "nosotros": "comeremos",
+        "vosotros": "comeréis",
+        "ellos/ellas": "comerán"
+      },
+      "condicional": {
+        "yo": "comería",
+        "tú": "comerías",
+        "él/ella": "comería",
+        "nosotros": "comeríamos",
+        "vosotros": "comeríais",
+        "ellos/ellas": "comerían"
+      }
+    },
+    {
+      "infinitive": "beber",
+      "meaning": "to drink",
+      "pastParticiple": "bebido",
+      "presente": {
+        "yo": "bebo",
+        "tú": "bebes",
+        "él/ella": "bebe",
+        "nosotros": "bebemos",
+        "vosotros": "bebéis",
+        "ellos/ellas": "beben"
+      },
+      "indefinido": {
+        "yo": "bebí",
+        "tú": "bebiste",
+        "él/ella": "bebió",
+        "nosotros": "bebimos",
+        "vosotros": "bebisteis",
+        "ellos/ellas": "bebieron"
+      },
+      "imperfecto": {
+        "yo": "bebía",
+        "tú": "bebías",
+        "él/ella": "bebía",
+        "nosotros": "bebíamos",
+        "vosotros": "bebíais",
+        "ellos/ellas": "bebían"
+      },
+      "subjuntivoPres": {
+        "yo": "beba",
+        "tú": "bebas",
+        "él/ella": "beba",
+        "nosotros": "bebamos",
+        "vosotros": "bebáis",
+        "ellos/ellas": "beban"
+      },
+      "futuro": {
+        "yo": "beberé",
+        "tú": "beberás",
+        "él/ella": "beberá",
+        "nosotros": "beberemos",
+        "vosotros": "beberéis",
+        "ellos/ellas": "beberán"
+      },
+      "condicional": {
+        "yo": "bebería",
+        "tú": "beberías",
+        "él/ella": "bebería",
+        "nosotros": "beberíamos",
+        "vosotros": "beberíais",
+        "ellos/ellas": "beberían"
+      }
+    },
+    {
+      "infinitive": "leer",
+      "meaning": "to read",
+      "pastParticiple": "leído",
+      "presente": {
+        "yo": "leo",
+        "tú": "lees",
+        "él/ella": "lee",
+        "nosotros": "leemos",
+        "vosotros": "leéis",
+        "ellos/ellas": "leen"
+      },
+      "indefinido": {
+        "yo": "leí",
+        "tú": "leíste",
+        "él/ella": "leyó",
+        "nosotros": "leímos",
+        "vosotros": "leísteis",
+        "ellos/ellas": "leyeron"
+      },
+      "imperfecto": {
+        "yo": "leía",
+        "tú": "leías",
+        "él/ella": "leía",
+        "nosotros": "leíamos",
+        "vosotros": "leíais",
+        "ellos/ellas": "leían"
+      },
+      "subjuntivoPres": {
+        "yo": "lea",
+        "tú": "leas",
+        "él/ella": "lea",
+        "nosotros": "leamos",
+        "vosotros": "leáis",
+        "ellos/ellas": "lean"
+      },
+      "futuro": {
+        "yo": "leeré",
+        "tú": "leerás",
+        "él/ella": "leerá",
+        "nosotros": "leeremos",
+        "vosotros": "leeréis",
+        "ellos/ellas": "leerán"
+      },
+      "condicional": {
+        "yo": "leería",
+        "tú": "leerías",
+        "él/ella": "leería",
+        "nosotros": "leeríamos",
+        "vosotros": "leeríais",
+        "ellos/ellas": "leerían"
+      }
+    },
+    {
+      "infinitive": "aprender",
+      "meaning": "to learn",
+      "pastParticiple": "aprendido",
+      "presente": {
+        "yo": "aprendo",
+        "tú": "aprendes",
+        "él/ella": "aprende",
+        "nosotros": "aprendemos",
+        "vosotros": "aprendéis",
+        "ellos/ellas": "aprenden"
+      },
+      "indefinido": {
+        "yo": "aprendí",
+        "tú": "aprendiste",
+        "él/ella": "aprendió",
+        "nosotros": "aprendimos",
+        "vosotros": "aprendisteis",
+        "ellos/ellas": "aprendieron"
+      },
+      "imperfecto": {
+        "yo": "aprendía",
+        "tú": "aprendías",
+        "él/ella": "aprendía",
+        "nosotros": "aprendíamos",
+        "vosotros": "aprendíais",
+        "ellos/ellas": "aprendían"
+      },
+      "subjuntivoPres": {
+        "yo": "aprenda",
+        "tú": "aprendas",
+        "él/ella": "aprenda",
+        "nosotros": "aprendamos",
+        "vosotros": "aprendáis",
+        "ellos/ellas": "aprendan"
+      },
+      "futuro": {
+        "yo": "aprenderé",
+        "tú": "aprenderás",
+        "él/ella": "aprenderá",
+        "nosotros": "aprenderemos",
+        "vosotros": "aprenderéis",
+        "ellos/ellas": "aprenderán"
+      },
+      "condicional": {
+        "yo": "aprendería",
+        "tú": "aprenderías",
+        "él/ella": "aprendería",
+        "nosotros": "aprenderíamos",
+        "vosotros": "aprenderíais",
+        "ellos/ellas": "aprenderían"
+      }
+    },
+    {
+      "infinitive": "comprender",
+      "meaning": "to understand",
+      "pastParticiple": "comprendido",
+      "presente": {
+        "yo": "comprendo",
+        "tú": "comprendes",
+        "él/ella": "comprende",
+        "nosotros": "comprendemos",
+        "vosotros": "comprendéis",
+        "ellos/ellas": "comprenden"
+      },
+      "indefinido": {
+        "yo": "comprendí",
+        "tú": "comprendiste",
+        "él/ella": "comprendió",
+        "nosotros": "comprendimos",
+        "vosotros": "comprendisteis",
+        "ellos/ellas": "comprendieron"
+      },
+      "imperfecto": {
+        "yo": "comprendía",
+        "tú": "comprendías",
+        "él/ella": "comprendía",
+        "nosotros": "comprendíamos",
+        "vosotros": "comprendíais",
+        "ellos/ellas": "comprendían"
+      },
+      "subjuntivoPres": {
+        "yo": "comprenda",
+        "tú": "comprendas",
+        "él/ella": "comprenda",
+        "nosotros": "comprendamos",
+        "vosotros": "comprendáis",
+        "ellos/ellas": "comprendan"
+      },
+      "futuro": {
+        "yo": "comprenderé",
+        "tú": "comprenderás",
+        "él/ella": "comprenderá",
+        "nosotros": "comprenderemos",
+        "vosotros": "comprenderéis",
+        "ellos/ellas": "comprenderán"
+      },
+      "condicional": {
+        "yo": "comprendería",
+        "tú": "comprenderías",
+        "él/ella": "comprendería",
+        "nosotros": "comprenderíamos",
+        "vosotros": "comprenderíais",
+        "ellos/ellas": "comprenderían"
+      }
+    },
+    {
+      "infinitive": "vender",
+      "meaning": "to sell",
+      "pastParticiple": "vendido",
+      "presente": {
+        "yo": "vendo",
+        "tú": "vendes",
+        "él/ella": "vende",
+        "nosotros": "vendemos",
+        "vosotros": "vendéis",
+        "ellos/ellas": "venden"
+      },
+      "indefinido": {
+        "yo": "vendí",
+        "tú": "vendiste",
+        "él/ella": "vendió",
+        "nosotros": "vendimos",
+        "vosotros": "vendisteis",
+        "ellos/ellas": "vendieron"
+      },
+      "imperfecto": {
+        "yo": "vendía",
+        "tú": "vendías",
+        "él/ella": "vendía",
+        "nosotros": "vendíamos",
+        "vosotros": "vendíais",
+        "ellos/ellas": "vendían"
+      },
+      "subjuntivoPres": {
+        "yo": "venda",
+        "tú": "vendas",
+        "él/ella": "venda",
+        "nosotros": "vendamos",
+        "vosotros": "vendáis",
+        "ellos/ellas": "vendan"
+      },
+      "futuro": {
+        "yo": "venderé",
+        "tú": "venderás",
+        "él/ella": "venderá",
+        "nosotros": "venderemos",
+        "vosotros": "venderéis",
+        "ellos/ellas": "venderán"
+      },
+      "condicional": {
+        "yo": "vendería",
+        "tú": "venderías",
+        "él/ella": "vendería",
+        "nosotros": "venderíamos",
+        "vosotros": "venderíais",
+        "ellos/ellas": "venderían"
+      }
+    },
+    {
+      "infinitive": "correr",
+      "meaning": "to run",
+      "pastParticiple": "corrido",
+      "presente": {
+        "yo": "corro",
+        "tú": "corres",
+        "él/ella": "corre",
+        "nosotros": "corremos",
+        "vosotros": "corréis",
+        "ellos/ellas": "corren"
+      },
+      "indefinido": {
+        "yo": "corrí",
+        "tú": "corriste",
+        "él/ella": "corrió",
+        "nosotros": "corrimos",
+        "vosotros": "corristeis",
+        "ellos/ellas": "corrieron"
+      },
+      "imperfecto": {
+        "yo": "corría",
+        "tú": "corrías",
+        "él/ella": "corría",
+        "nosotros": "corríamos",
+        "vosotros": "corríais",
+        "ellos/ellas": "corrían"
+      },
+      "subjuntivoPres": {
+        "yo": "corra",
+        "tú": "corras",
+        "él/ella": "corra",
+        "nosotros": "corramos",
+        "vosotros": "corráis",
+        "ellos/ellas": "corran"
+      },
+      "futuro": {
+        "yo": "correré",
+        "tú": "correrás",
+        "él/ella": "correrá",
+        "nosotros": "correremos",
+        "vosotros": "correréis",
+        "ellos/ellas": "correrán"
+      },
+      "condicional": {
+        "yo": "correría",
+        "tú": "correrías",
+        "él/ella": "correría",
+        "nosotros": "correríamos",
+        "vosotros": "correríais",
+        "ellos/ellas": "correrían"
+      }
+    },
+    {
+      "infinitive": "vivir",
+      "meaning": "to live",
+      "pastParticiple": "vivido",
+      "presente": {
+        "yo": "vivo",
+        "tú": "vives",
+        "él/ella": "vive",
+        "nosotros": "vivimos",
+        "vosotros": "vivís",
+        "ellos/ellas": "viven"
+      },
+      "indefinido": {
+        "yo": "viví",
+        "tú": "viviste",
+        "él/ella": "vivió",
+        "nosotros": "vivimos",
+        "vosotros": "vivisteis",
+        "ellos/ellas": "vivieron"
+      },
+      "imperfecto": {
+        "yo": "vivía",
+        "tú": "vivías",
+        "él/ella": "vivía",
+        "nosotros": "vivíamos",
+        "vosotros": "vivíais",
+        "ellos/ellas": "vivían"
+      },
+      "subjuntivoPres": {
+        "yo": "viva",
+        "tú": "vivas",
+        "él/ella": "viva",
+        "nosotros": "vivamos",
+        "vosotros": "viváis",
+        "ellos/ellas": "vivan"
+      },
+      "futuro": {
+        "yo": "viviré",
+        "tú": "vivirás",
+        "él/ella": "vivirá",
+        "nosotros": "viviremos",
+        "vosotros": "viviréis",
+        "ellos/ellas": "vivirán"
+      },
+      "condicional": {
+        "yo": "viviría",
+        "tú": "vivirías",
+        "él/ella": "viviría",
+        "nosotros": "viviríamos",
+        "vosotros": "viviríais",
+        "ellos/ellas": "vivirían"
+      }
+    },
+    {
+      "infinitive": "escribir",
+      "meaning": "to write",
+      "pastParticiple": "escrito",
+      "presente": {
+        "yo": "escribo",
+        "tú": "escribes",
+        "él/ella": "escribe",
+        "nosotros": "escribimos",
+        "vosotros": "escribís",
+        "ellos/ellas": "escriben"
+      },
+      "indefinido": {
+        "yo": "escribí",
+        "tú": "escribiste",
+        "él/ella": "escribió",
+        "nosotros": "escribimos",
+        "vosotros": "escribisteis",
+        "ellos/ellas": "escribieron"
+      },
+      "imperfecto": {
+        "yo": "escribía",
+        "tú": "escribías",
+        "él/ella": "escribía",
+        "nosotros": "escribíamos",
+        "vosotros": "escribíais",
+        "ellos/ellas": "escribían"
+      },
+      "subjuntivoPres": {
+        "yo": "escriba",
+        "tú": "escribas",
+        "él/ella": "escriba",
+        "nosotros": "escribamos",
+        "vosotros": "escribáis",
+        "ellos/ellas": "escriban"
+      },
+      "futuro": {
+        "yo": "escribiré",
+        "tú": "escribirás",
+        "él/ella": "escribirá",
+        "nosotros": "escribiremos",
+        "vosotros": "escribiréis",
+        "ellos/ellas": "escribirán"
+      },
+      "condicional": {
+        "yo": "escribiría",
+        "tú": "escribirías",
+        "él/ella": "escribiría",
+        "nosotros": "escribiríamos",
+        "vosotros": "escribiríais",
+        "ellos/ellas": "escribirían"
+      }
+    },
+    {
+      "infinitive": "recibir",
+      "meaning": "to receive",
+      "pastParticiple": "recibido",
+      "presente": {
+        "yo": "recibo",
+        "tú": "recibes",
+        "él/ella": "recibe",
+        "nosotros": "recibimos",
+        "vosotros": "recibís",
+        "ellos/ellas": "reciben"
+      },
+      "indefinido": {
+        "yo": "recibí",
+        "tú": "recibiste",
+        "él/ella": "recibió",
+        "nosotros": "recibimos",
+        "vosotros": "recibisteis",
+        "ellos/ellas": "recibieron"
+      },
+      "imperfecto": {
+        "yo": "recibía",
+        "tú": "recibías",
+        "él/ella": "recibía",
+        "nosotros": "recibíamos",
+        "vosotros": "recibíais",
+        "ellos/ellas": "recibían"
+      },
+      "subjuntivoPres": {
+        "yo": "reciba",
+        "tú": "recibas",
+        "él/ella": "reciba",
+        "nosotros": "recibamos",
+        "vosotros": "recibáis",
+        "ellos/ellas": "reciban"
+      },
+      "futuro": {
+        "yo": "recibiré",
+        "tú": "recibirás",
+        "él/ella": "recibirá",
+        "nosotros": "recibiremos",
+        "vosotros": "recibiréis",
+        "ellos/ellas": "recibirán"
+      },
+      "condicional": {
+        "yo": "recibiría",
+        "tú": "recibirías",
+        "él/ella": "recibiría",
+        "nosotros": "recibiríamos",
+        "vosotros": "recibiríais",
+        "ellos/ellas": "recibirían"
+      }
+    },
+    {
+      "infinitive": "subir",
+      "meaning": "to go up, to climb",
+      "pastParticiple": "subido",
+      "presente": {
+        "yo": "subo",
+        "tú": "subes",
+        "él/ella": "sube",
+        "nosotros": "subimos",
+        "vosotros": "subís",
+        "ellos/ellas": "suben"
+      },
+      "indefinido": {
+        "yo": "subí",
+        "tú": "subiste",
+        "él/ella": "subió",
+        "nosotros": "subimos",
+        "vosotros": "subisteis",
+        "ellos/ellas": "subieron"
+      },
+      "imperfecto": {
+        "yo": "subía",
+        "tú": "subías",
+        "él/ella": "subía",
+        "nosotros": "subíamos",
+        "vosotros": "subíais",
+        "ellos/ellas": "subían"
+      },
+      "subjuntivoPres": {
+        "yo": "suba",
+        "tú": "subas",
+        "él/ella": "suba",
+        "nosotros": "subamos",
+        "vosotros": "subáis",
+        "ellos/ellas": "suban"
+      },
+      "futuro": {
+        "yo": "subiré",
+        "tú": "subirás",
+        "él/ella": "subirá",
+        "nosotros": "subiremos",
+        "vosotros": "subiréis",
+        "ellos/ellas": "subirán"
+      },
+      "condicional": {
+        "yo": "subiría",
+        "tú": "subirías",
+        "él/ella": "subiría",
+        "nosotros": "subiríamos",
+        "vosotros": "subiríais",
+        "ellos/ellas": "subirían"
+      }
+    },
+    {
+      "infinitive": "decidir",
+      "meaning": "to decide",
+      "pastParticiple": "decidido",
+      "presente": {
+        "yo": "decido",
+        "tú": "decides",
+        "él/ella": "decide",
+        "nosotros": "decidimos",
+        "vosotros": "decidís",
+        "ellos/ellas": "deciden"
+      },
+      "indefinido": {
+        "yo": "decidí",
+        "tú": "decidiste",
+        "él/ella": "decidió",
+        "nosotros": "decidimos",
+        "vosotros": "decidisteis",
+        "ellos/ellas": "decidieron"
+      },
+      "imperfecto": {
+        "yo": "decidía",
+        "tú": "decidías",
+        "él/ella": "decidía",
+        "nosotros": "decidíamos",
+        "vosotros": "decidíais",
+        "ellos/ellas": "decidían"
+      },
+      "subjuntivoPres": {
+        "yo": "decida",
+        "tú": "decidas",
+        "él/ella": "decida",
+        "nosotros": "decidamos",
+        "vosotros": "decidáis",
+        "ellos/ellas": "decidan"
+      },
+      "futuro": {
+        "yo": "decidiré",
+        "tú": "decidirás",
+        "él/ella": "decidirá",
+        "nosotros": "decidiremos",
+        "vosotros": "decidiréis",
+        "ellos/ellas": "decidirán"
+      },
+      "condicional": {
+        "yo": "decidiría",
+        "tú": "decidirías",
+        "él/ella": "decidiría",
+        "nosotros": "decidiríamos",
+        "vosotros": "decidiríais",
+        "ellos/ellas": "decidirían"
+      }
+    },
+    {
+      "infinitive": "abrir",
+      "meaning": "to open",
+      "pastParticiple": "abierto",
+      "presente": {
+        "yo": "abro",
+        "tú": "abres",
+        "él/ella": "abre",
+        "nosotros": "abrimos",
+        "vosotros": "abrís",
+        "ellos/ellas": "abren"
+      },
+      "indefinido": {
+        "yo": "abrí",
+        "tú": "abriste",
+        "él/ella": "abrió",
+        "nosotros": "abrimos",
+        "vosotros": "abristeis",
+        "ellos/ellas": "abrieron"
+      },
+      "imperfecto": {
+        "yo": "abría",
+        "tú": "abrías",
+        "él/ella": "abría",
+        "nosotros": "abríamos",
+        "vosotros": "abríais",
+        "ellos/ellas": "abrían"
+      },
+      "subjuntivoPres": {
+        "yo": "abra",
+        "tú": "abras",
+        "él/ella": "abra",
+        "nosotros": "abramos",
+        "vosotros": "abráis",
+        "ellos/ellas": "abran"
+      },
+      "futuro": {
+        "yo": "abriré",
+        "tú": "abrirás",
+        "él/ella": "abrirá",
+        "nosotros": "abriremos",
+        "vosotros": "abriréis",
+        "ellos/ellas": "abrirán"
+      },
+      "condicional": {
+        "yo": "abriría",
+        "tú": "abrirías",
+        "él/ella": "abriría",
+        "nosotros": "abriríamos",
+        "vosotros": "abriríais",
+        "ellos/ellas": "abrirían"
+      }
+    },
+    {
+      "infinitive": "ser",
+      "meaning": "to be",
+      "pastParticiple": "sido",
+      "presente": {
+        "yo": "soy",
+        "tú": "eres",
+        "él/ella": "es",
+        "nosotros": "somos",
+        "vosotros": "sois",
+        "ellos/ellas": "son"
+      },
+      "indefinido": {
+        "yo": "fui",
+        "tú": "fuiste",
+        "él/ella": "fue",
+        "nosotros": "fuimos",
+        "vosotros": "fuisteis",
+        "ellos/ellas": "fueron"
+      },
+      "imperfecto": {
+        "yo": "era",
+        "tú": "eras",
+        "él/ella": "era",
+        "nosotros": "éramos",
+        "vosotros": "erais",
+        "ellos/ellas": "eran"
+      },
+      "subjuntivoPres": {
+        "yo": "sea",
+        "tú": "seas",
+        "él/ella": "sea",
+        "nosotros": "seamos",
+        "vosotros": "seáis",
+        "ellos/ellas": "sean"
+      },
+      "futuro": {
+        "yo": "seré",
+        "tú": "serás",
+        "él/ella": "será",
+        "nosotros": "seremos",
+        "vosotros": "seréis",
+        "ellos/ellas": "serán"
+      },
+      "condicional": {
+        "yo": "sería",
+        "tú": "serías",
+        "él/ella": "sería",
+        "nosotros": "seríamos",
+        "vosotros": "seríais",
+        "ellos/ellas": "serían"
+      }
+    },
+    {
+      "infinitive": "estar",
+      "meaning": "to be (location/state)",
+      "pastParticiple": "estado",
+      "presente": {
+        "yo": "estoy",
+        "tú": "estás",
+        "él/ella": "está",
+        "nosotros": "estamos",
+        "vosotros": "estáis",
+        "ellos/ellas": "están"
+      },
+      "indefinido": {
+        "yo": "estuve",
+        "tú": "estuviste",
+        "él/ella": "estuvo",
+        "nosotros": "estuvimos",
+        "vosotros": "estuvisteis",
+        "ellos/ellas": "estuvieron"
+      },
+      "imperfecto": {
+        "yo": "estaba",
+        "tú": "estabas",
+        "él/ella": "estaba",
+        "nosotros": "estábamos",
+        "vosotros": "estabais",
+        "ellos/ellas": "estaban"
+      },
+      "subjuntivoPres": {
+        "yo": "esté",
+        "tú": "estés",
+        "él/ella": "esté",
+        "nosotros": "estemos",
+        "vosotros": "estéis",
+        "ellos/ellas": "estén"
+      },
+      "futuro": {
+        "yo": "estaré",
+        "tú": "estarás",
+        "él/ella": "estará",
+        "nosotros": "estaremos",
+        "vosotros": "estaréis",
+        "ellos/ellas": "estarán"
+      },
+      "condicional": {
+        "yo": "estaría",
+        "tú": "estarías",
+        "él/ella": "estaría",
+        "nosotros": "estaríamos",
+        "vosotros": "estaríais",
+        "ellos/ellas": "estarían"
+      }
+    },
+    {
+      "infinitive": "tener",
+      "meaning": "to have",
+      "pastParticiple": "tenido",
+      "presente": {
+        "yo": "tengo",
+        "tú": "tienes",
+        "él/ella": "tiene",
+        "nosotros": "tenemos",
+        "vosotros": "tenéis",
+        "ellos/ellas": "tienen"
+      },
+      "indefinido": {
+        "yo": "tuve",
+        "tú": "tuviste",
+        "él/ella": "tuvo",
+        "nosotros": "tuvimos",
+        "vosotros": "tuvisteis",
+        "ellos/ellas": "tuvieron"
+      },
+      "imperfecto": {
+        "yo": "tenía",
+        "tú": "tenías",
+        "él/ella": "tenía",
+        "nosotros": "teníamos",
+        "vosotros": "teníais",
+        "ellos/ellas": "tenían"
+      },
+      "subjuntivoPres": {
+        "yo": "tenga",
+        "tú": "tengas",
+        "él/ella": "tenga",
+        "nosotros": "tengamos",
+        "vosotros": "tengáis",
+        "ellos/ellas": "tengan"
+      },
+      "futuro": {
+        "yo": "tendré",
+        "tú": "tendrás",
+        "él/ella": "tendrá",
+        "nosotros": "tendremos",
+        "vosotros": "tendréis",
+        "ellos/ellas": "tendrán"
+      },
+      "condicional": {
+        "yo": "tendría",
+        "tú": "tendrías",
+        "él/ella": "tendría",
+        "nosotros": "tendríamos",
+        "vosotros": "tendríais",
+        "ellos/ellas": "tendrían"
+      }
+    },
+    {
+      "infinitive": "ir",
+      "meaning": "to go",
+      "pastParticiple": "ido",
+      "presente": {
+        "yo": "voy",
+        "tú": "vas",
+        "él/ella": "va",
+        "nosotros": "vamos",
+        "vosotros": "vais",
+        "ellos/ellas": "van"
+      },
+      "indefinido": {
+        "yo": "fui",
+        "tú": "fuiste",
+        "él/ella": "fue",
+        "nosotros": "fuimos",
+        "vosotros": "fuisteis",
+        "ellos/ellas": "fueron"
+      },
+      "imperfecto": {
+        "yo": "iba",
+        "tú": "ibas",
+        "él/ella": "iba",
+        "nosotros": "íbamos",
+        "vosotros": "ibais",
+        "ellos/ellas": "iban"
+      },
+      "subjuntivoPres": {
+        "yo": "vaya",
+        "tú": "vayas",
+        "él/ella": "vaya",
+        "nosotros": "vayamos",
+        "vosotros": "vayáis",
+        "ellos/ellas": "vayan"
+      },
+      "futuro": {
+        "yo": "iré",
+        "tú": "irás",
+        "él/ella": "irá",
+        "nosotros": "iremos",
+        "vosotros": "iréis",
+        "ellos/ellas": "irán"
+      },
+      "condicional": {
+        "yo": "iría",
+        "tú": "irías",
+        "él/ella": "iría",
+        "nosotros": "iríamos",
+        "vosotros": "iríais",
+        "ellos/ellas": "irían"
+      }
+    },
+    {
+      "infinitive": "hacer",
+      "meaning": "to do, to make",
+      "pastParticiple": "hecho",
+      "presente": {
+        "yo": "hago",
+        "tú": "haces",
+        "él/ella": "hace",
+        "nosotros": "hacemos",
+        "vosotros": "hacéis",
+        "ellos/ellas": "hacen"
+      },
+      "indefinido": {
+        "yo": "hice",
+        "tú": "hiciste",
+        "él/ella": "hizo",
+        "nosotros": "hicimos",
+        "vosotros": "hicisteis",
+        "ellos/ellas": "hicieron"
+      },
+      "imperfecto": {
+        "yo": "hacía",
+        "tú": "hacías",
+        "él/ella": "hacía",
+        "nosotros": "hacíamos",
+        "vosotros": "hacíais",
+        "ellos/ellas": "hacían"
+      },
+      "subjuntivoPres": {
+        "yo": "haga",
+        "tú": "hagas",
+        "él/ella": "haga",
+        "nosotros": "hagamos",
+        "vosotros": "hagáis",
+        "ellos/ellas": "hagan"
+      },
+      "futuro": {
+        "yo": "haré",
+        "tú": "harás",
+        "él/ella": "hará",
+        "nosotros": "haremos",
+        "vosotros": "haréis",
+        "ellos/ellas": "harán"
+      },
+      "condicional": {
+        "yo": "haría",
+        "tú": "harías",
+        "él/ella": "haría",
+        "nosotros": "haríamos",
+        "vosotros": "haríais",
+        "ellos/ellas": "harían"
+      }
+    },
+    {
+      "infinitive": "poder",
+      "meaning": "can, to be able",
+      "pastParticiple": "podido",
+      "presente": {
+        "yo": "puedo",
+        "tú": "puedes",
+        "él/ella": "puede",
+        "nosotros": "podemos",
+        "vosotros": "podéis",
+        "ellos/ellas": "pueden"
+      },
+      "indefinido": {
+        "yo": "pude",
+        "tú": "pudiste",
+        "él/ella": "pudo",
+        "nosotros": "pudimos",
+        "vosotros": "pudisteis",
+        "ellos/ellas": "pudieron"
+      },
+      "imperfecto": {
+        "yo": "podía",
+        "tú": "podías",
+        "él/ella": "podía",
+        "nosotros": "podíamos",
+        "vosotros": "podíais",
+        "ellos/ellas": "podían"
+      },
+      "subjuntivoPres": {
+        "yo": "pueda",
+        "tú": "puedas",
+        "él/ella": "pueda",
+        "nosotros": "podamos",
+        "vosotros": "podáis",
+        "ellos/ellas": "puedan"
+      },
+      "futuro": {
+        "yo": "podré",
+        "tú": "podrás",
+        "él/ella": "podrá",
+        "nosotros": "podremos",
+        "vosotros": "podréis",
+        "ellos/ellas": "podrán"
+      },
+      "condicional": {
+        "yo": "podría",
+        "tú": "podrías",
+        "él/ella": "podría",
+        "nosotros": "podríamos",
+        "vosotros": "podríais",
+        "ellos/ellas": "podrían"
+      }
+    },
+    {
+      "infinitive": "querer",
+      "meaning": "to want",
+      "pastParticiple": "querido",
+      "presente": {
+        "yo": "quiero",
+        "tú": "quieres",
+        "él/ella": "quiere",
+        "nosotros": "queremos",
+        "vosotros": "queréis",
+        "ellos/ellas": "quieren"
+      },
+      "indefinido": {
+        "yo": "quise",
+        "tú": "quisiste",
+        "él/ella": "quiso",
+        "nosotros": "quisimos",
+        "vosotros": "quisisteis",
+        "ellos/ellas": "quisieron"
+      },
+      "imperfecto": {
+        "yo": "quería",
+        "tú": "querías",
+        "él/ella": "quería",
+        "nosotros": "queríamos",
+        "vosotros": "queríais",
+        "ellos/ellas": "querían"
+      },
+      "subjuntivoPres": {
+        "yo": "quiera",
+        "tú": "quieras",
+        "él/ella": "quiera",
+        "nosotros": "queramos",
+        "vosotros": "queráis",
+        "ellos/ellas": "quieran"
+      },
+      "futuro": {
+        "yo": "querré",
+        "tú": "querrás",
+        "él/ella": "querrá",
+        "nosotros": "querremos",
+        "vosotros": "querréis",
+        "ellos/ellas": "querrán"
+      },
+      "condicional": {
+        "yo": "querría",
+        "tú": "querrías",
+        "él/ella": "querría",
+        "nosotros": "querríamos",
+        "vosotros": "querríais",
+        "ellos/ellas": "querrían"
+      }
+    },
+    {
+      "infinitive": "saber",
+      "meaning": "to know",
+      "pastParticiple": "sabido",
+      "presente": {
+        "yo": "sé",
+        "tú": "sabes",
+        "él/ella": "sabe",
+        "nosotros": "sabemos",
+        "vosotros": "sabéis",
+        "ellos/ellas": "saben"
+      },
+      "indefinido": {
+        "yo": "supe",
+        "tú": "supiste",
+        "él/ella": "supo",
+        "nosotros": "supimos",
+        "vosotros": "supisteis",
+        "ellos/ellas": "supieron"
+      },
+      "imperfecto": {
+        "yo": "sabía",
+        "tú": "sabías",
+        "él/ella": "sabía",
+        "nosotros": "sabíamos",
+        "vosotros": "sabíais",
+        "ellos/ellas": "sabían"
+      },
+      "subjuntivoPres": {
+        "yo": "sepa",
+        "tú": "sepas",
+        "él/ella": "sepa",
+        "nosotros": "sepamos",
+        "vosotros": "sepáis",
+        "ellos/ellas": "sepan"
+      },
+      "futuro": {
+        "yo": "sabré",
+        "tú": "sabrás",
+        "él/ella": "sabrá",
+        "nosotros": "sabremos",
+        "vosotros": "sabréis",
+        "ellos/ellas": "sabrán"
+      },
+      "condicional": {
+        "yo": "sabría",
+        "tú": "sabrías",
+        "él/ella": "sabría",
+        "nosotros": "sabríamos",
+        "vosotros": "sabríais",
+        "ellos/ellas": "sabrían"
+      }
+    },
+    {
+      "infinitive": "venir",
+      "meaning": "to come",
+      "pastParticiple": "venido",
+      "presente": {
+        "yo": "vengo",
+        "tú": "vienes",
+        "él/ella": "viene",
+        "nosotros": "venimos",
+        "vosotros": "venís",
+        "ellos/ellas": "vienen"
+      },
+      "indefinido": {
+        "yo": "vine",
+        "tú": "viniste",
+        "él/ella": "vino",
+        "nosotros": "vinimos",
+        "vosotros": "vinisteis",
+        "ellos/ellas": "vinieron"
+      },
+      "imperfecto": {
+        "yo": "venía",
+        "tú": "venías",
+        "él/ella": "venía",
+        "nosotros": "veníamos",
+        "vosotros": "veníais",
+        "ellos/ellas": "venían"
+      },
+      "subjuntivoPres": {
+        "yo": "venga",
+        "tú": "vengas",
+        "él/ella": "venga",
+        "nosotros": "vengamos",
+        "vosotros": "vengáis",
+        "ellos/ellas": "vengan"
+      },
+      "futuro": {
+        "yo": "vendré",
+        "tú": "vendrás",
+        "él/ella": "vendrá",
+        "nosotros": "vendremos",
+        "vosotros": "vendréis",
+        "ellos/ellas": "vendrán"
+      },
+      "condicional": {
+        "yo": "vendría",
+        "tú": "vendrías",
+        "él/ella": "vendría",
+        "nosotros": "vendríamos",
+        "vosotros": "vendríais",
+        "ellos/ellas": "vendrían"
+      }
+    },
+    {
+      "infinitive": "poner",
+      "meaning": "to put, to place",
+      "pastParticiple": "puesto",
+      "presente": {
+        "yo": "pongo",
+        "tú": "pones",
+        "él/ella": "pone",
+        "nosotros": "ponemos",
+        "vosotros": "ponéis",
+        "ellos/ellas": "ponen"
+      },
+      "indefinido": {
+        "yo": "puse",
+        "tú": "pusiste",
+        "él/ella": "puso",
+        "nosotros": "pusimos",
+        "vosotros": "pusisteis",
+        "ellos/ellas": "pusieron"
+      },
+      "imperfecto": {
+        "yo": "ponía",
+        "tú": "ponías",
+        "él/ella": "ponía",
+        "nosotros": "poníamos",
+        "vosotros": "poníais",
+        "ellos/ellas": "ponían"
+      },
+      "subjuntivoPres": {
+        "yo": "ponga",
+        "tú": "pongas",
+        "él/ella": "ponga",
+        "nosotros": "pongamos",
+        "vosotros": "pongáis",
+        "ellos/ellas": "pongan"
+      },
+      "futuro": {
+        "yo": "pondré",
+        "tú": "pondrás",
+        "él/ella": "pondrá",
+        "nosotros": "pondremos",
+        "vosotros": "pondréis",
+        "ellos/ellas": "pondrán"
+      },
+      "condicional": {
+        "yo": "pondría",
+        "tú": "pondrías",
+        "él/ella": "pondría",
+        "nosotros": "pondríamos",
+        "vosotros": "pondríais",
+        "ellos/ellas": "pondrían"
+      }
+    },
+    {
+      "infinitive": "decir",
+      "meaning": "to say, to tell",
+      "pastParticiple": "dicho",
+      "presente": {
+        "yo": "digo",
+        "tú": "dices",
+        "él/ella": "dice",
+        "nosotros": "decimos",
+        "vosotros": "decís",
+        "ellos/ellas": "dicen"
+      },
+      "indefinido": {
+        "yo": "dije",
+        "tú": "dijiste",
+        "él/ella": "dijo",
+        "nosotros": "dijimos",
+        "vosotros": "dijisteis",
+        "ellos/ellas": "dijeron"
+      },
+      "imperfecto": {
+        "yo": "decía",
+        "tú": "decías",
+        "él/ella": "decía",
+        "nosotros": "decíamos",
+        "vosotros": "decíais",
+        "ellos/ellas": "decían"
+      },
+      "subjuntivoPres": {
+        "yo": "diga",
+        "tú": "digas",
+        "él/ella": "diga",
+        "nosotros": "digamos",
+        "vosotros": "digáis",
+        "ellos/ellas": "digan"
+      },
+      "futuro": {
+        "yo": "diré",
+        "tú": "dirás",
+        "él/ella": "dirá",
+        "nosotros": "diremos",
+        "vosotros": "diréis",
+        "ellos/ellas": "dirán"
+      },
+      "condicional": {
+        "yo": "diría",
+        "tú": "dirías",
+        "él/ella": "diría",
+        "nosotros": "diríamos",
+        "vosotros": "diríais",
+        "ellos/ellas": "dirían"
+      }
+    },
+    {
+      "infinitive": "dar",
+      "meaning": "to give",
+      "pastParticiple": "dado",
+      "presente": {
+        "yo": "doy",
+        "tú": "das",
+        "él/ella": "da",
+        "nosotros": "damos",
+        "vosotros": "dais",
+        "ellos/ellas": "dan"
+      },
+      "indefinido": {
+        "yo": "di",
+        "tú": "diste",
+        "él/ella": "dio",
+        "nosotros": "dimos",
+        "vosotros": "disteis",
+        "ellos/ellas": "dieron"
+      },
+      "imperfecto": {
+        "yo": "daba",
+        "tú": "dabas",
+        "él/ella": "daba",
+        "nosotros": "dábamos",
+        "vosotros": "dabais",
+        "ellos/ellas": "daban"
+      },
+      "subjuntivoPres": {
+        "yo": "dé",
+        "tú": "des",
+        "él/ella": "dé",
+        "nosotros": "demos",
+        "vosotros": "deis",
+        "ellos/ellas": "den"
+      },
+      "futuro": {
+        "yo": "daré",
+        "tú": "darás",
+        "él/ella": "dará",
+        "nosotros": "daremos",
+        "vosotros": "daréis",
+        "ellos/ellas": "darán"
+      },
+      "condicional": {
+        "yo": "daría",
+        "tú": "darías",
+        "él/ella": "daría",
+        "nosotros": "daríamos",
+        "vosotros": "daríais",
+        "ellos/ellas": "darían"
+      }
+    },
+    {
+      "infinitive": "ver",
+      "meaning": "to see",
+      "pastParticiple": "visto",
+      "presente": {
+        "yo": "veo",
+        "tú": "ves",
+        "él/ella": "ve",
+        "nosotros": "vemos",
+        "vosotros": "veis",
+        "ellos/ellas": "ven"
+      },
+      "indefinido": {
+        "yo": "vi",
+        "tú": "viste",
+        "él/ella": "vio",
+        "nosotros": "vimos",
+        "vosotros": "visteis",
+        "ellos/ellas": "vieron"
+      },
+      "imperfecto": {
+        "yo": "veía",
+        "tú": "veías",
+        "él/ella": "veía",
+        "nosotros": "veíamos",
+        "vosotros": "veíais",
+        "ellos/ellas": "veían"
+      },
+      "subjuntivoPres": {
+        "yo": "vea",
+        "tú": "veas",
+        "él/ella": "vea",
+        "nosotros": "veamos",
+        "vosotros": "veáis",
+        "ellos/ellas": "vean"
+      },
+      "futuro": {
+        "yo": "veré",
+        "tú": "verás",
+        "él/ella": "verá",
+        "nosotros": "veremos",
+        "vosotros": "veréis",
+        "ellos/ellas": "verán"
+      },
+      "condicional": {
+        "yo": "vería",
+        "tú": "verías",
+        "él/ella": "vería",
+        "nosotros": "veríamos",
+        "vosotros": "veríais",
+        "ellos/ellas": "verían"
+      }
+    },
+    {
+      "infinitive": "salir",
+      "meaning": "to go out, to leave",
+      "pastParticiple": "salido",
+      "presente": {
+        "yo": "salgo",
+        "tú": "sales",
+        "él/ella": "sale",
+        "nosotros": "salimos",
+        "vosotros": "salís",
+        "ellos/ellas": "salen"
+      },
+      "indefinido": {
+        "yo": "salí",
+        "tú": "saliste",
+        "él/ella": "salió",
+        "nosotros": "salimos",
+        "vosotros": "salisteis",
+        "ellos/ellas": "salieron"
+      },
+      "imperfecto": {
+        "yo": "salía",
+        "tú": "salías",
+        "él/ella": "salía",
+        "nosotros": "salíamos",
+        "vosotros": "salíais",
+        "ellos/ellas": "salían"
+      },
+      "subjuntivoPres": {
+        "yo": "salga",
+        "tú": "salgas",
+        "él/ella": "salga",
+        "nosotros": "salgamos",
+        "vosotros": "salgáis",
+        "ellos/ellas": "salgan"
+      },
+      "futuro": {
+        "yo": "saldré",
+        "tú": "saldrás",
+        "él/ella": "saldrá",
+        "nosotros": "saldremos",
+        "vosotros": "saldréis",
+        "ellos/ellas": "saldrán"
+      },
+      "condicional": {
+        "yo": "saldría",
+        "tú": "saldrías",
+        "él/ella": "saldría",
+        "nosotros": "saldríamos",
+        "vosotros": "saldríais",
+        "ellos/ellas": "saldrían"
+      }
+    },
+    {
+      "infinitive": "dormir",
+      "meaning": "to sleep",
+      "pastParticiple": "dormido",
+      "presente": {
+        "yo": "duermo",
+        "tú": "duermes",
+        "él/ella": "duerme",
+        "nosotros": "dormimos",
+        "vosotros": "dormís",
+        "ellos/ellas": "duermen"
+      },
+      "indefinido": {
+        "yo": "dormí",
+        "tú": "dormiste",
+        "él/ella": "durmió",
+        "nosotros": "dormimos",
+        "vosotros": "dormisteis",
+        "ellos/ellas": "durmieron"
+      },
+      "imperfecto": {
+        "yo": "dormía",
+        "tú": "dormías",
+        "él/ella": "dormía",
+        "nosotros": "dormíamos",
+        "vosotros": "dormíais",
+        "ellos/ellas": "dormían"
+      },
+      "subjuntivoPres": {
+        "yo": "duerma",
+        "tú": "duermas",
+        "él/ella": "duerma",
+        "nosotros": "durmamos",
+        "vosotros": "durmáis",
+        "ellos/ellas": "duerman"
+      },
+      "futuro": {
+        "yo": "dormiré",
+        "tú": "dormirás",
+        "él/ella": "dormirá",
+        "nosotros": "dormiremos",
+        "vosotros": "dormiréis",
+        "ellos/ellas": "dormirán"
+      },
+      "condicional": {
+        "yo": "dormiría",
+        "tú": "dormirías",
+        "él/ella": "dormiría",
+        "nosotros": "dormiríamos",
+        "vosotros": "dormiríais",
+        "ellos/ellas": "dormirían"
+      }
+    },
+    {
+      "infinitive": "volver",
+      "meaning": "to return",
+      "pastParticiple": "vuelto",
+      "presente": {
+        "yo": "vuelvo",
+        "tú": "vuelves",
+        "él/ella": "vuelve",
+        "nosotros": "volvemos",
+        "vosotros": "volvéis",
+        "ellos/ellas": "vuelven"
+      },
+      "indefinido": {
+        "yo": "volví",
+        "tú": "volviste",
+        "él/ella": "volvió",
+        "nosotros": "volvimos",
+        "vosotros": "volvisteis",
+        "ellos/ellas": "volvieron"
+      },
+      "imperfecto": {
+        "yo": "volvía",
+        "tú": "volvías",
+        "él/ella": "volvía",
+        "nosotros": "volvíamos",
+        "vosotros": "volvíais",
+        "ellos/ellas": "volvían"
+      },
+      "subjuntivoPres": {
+        "yo": "vuelva",
+        "tú": "vuelvas",
+        "él/ella": "vuelva",
+        "nosotros": "volvamos",
+        "vosotros": "volváis",
+        "ellos/ellas": "vuelvan"
+      },
+      "futuro": {
+        "yo": "volveré",
+        "tú": "volverás",
+        "él/ella": "volverá",
+        "nosotros": "volveremos",
+        "vosotros": "volveréis",
+        "ellos/ellas": "volverán"
+      },
+      "condicional": {
+        "yo": "volvería",
+        "tú": "volverías",
+        "él/ella": "volvería",
+        "nosotros": "volveríamos",
+        "vosotros": "volveríais",
+        "ellos/ellas": "volverían"
+      }
+    },
+    {
+      "infinitive": "conocer",
+      "meaning": "to know, to meet",
+      "pastParticiple": "conocido",
+      "presente": {
+        "yo": "conozco",
+        "tú": "conoces",
+        "él/ella": "conoce",
+        "nosotros": "conocemos",
+        "vosotros": "conocéis",
+        "ellos/ellas": "conocen"
+      },
+      "indefinido": {
+        "yo": "conocí",
+        "tú": "conociste",
+        "él/ella": "conoció",
+        "nosotros": "conocimos",
+        "vosotros": "conocisteis",
+        "ellos/ellas": "conocieron"
+      },
+      "imperfecto": {
+        "yo": "conocía",
+        "tú": "conocías",
+        "él/ella": "conocía",
+        "nosotros": "conocíamos",
+        "vosotros": "conocíais",
+        "ellos/ellas": "conocían"
+      },
+      "subjuntivoPres": {
+        "yo": "conozca",
+        "tú": "conozcas",
+        "él/ella": "conozca",
+        "nosotros": "conozcamos",
+        "vosotros": "conozcáis",
+        "ellos/ellas": "conozcan"
+      },
+      "futuro": {
+        "yo": "conoceré",
+        "tú": "conocerás",
+        "él/ella": "conocerá",
+        "nosotros": "conoceremos",
+        "vosotros": "conoceréis",
+        "ellos/ellas": "conocerán"
+      },
+      "condicional": {
+        "yo": "conocería",
+        "tú": "conocerías",
+        "él/ella": "conocería",
+        "nosotros": "conoceríamos",
+        "vosotros": "conoceríais",
+        "ellos/ellas": "conocerían"
+      }
+    },
+    {
+      "infinitive": "traer",
+      "meaning": "to bring",
+      "pastParticiple": "traído",
+      "presente": {
+        "yo": "traigo",
+        "tú": "traes",
+        "él/ella": "trae",
+        "nosotros": "traemos",
+        "vosotros": "traéis",
+        "ellos/ellas": "traen"
+      },
+      "indefinido": {
+        "yo": "traje",
+        "tú": "trajiste",
+        "él/ella": "trajo",
+        "nosotros": "trajimos",
+        "vosotros": "trajisteis",
+        "ellos/ellas": "trajeron"
+      },
+      "imperfecto": {
+        "yo": "traía",
+        "tú": "traías",
+        "él/ella": "traía",
+        "nosotros": "traíamos",
+        "vosotros": "traíais",
+        "ellos/ellas": "traían"
+      },
+      "subjuntivoPres": {
+        "yo": "traiga",
+        "tú": "traigas",
+        "él/ella": "traiga",
+        "nosotros": "traigamos",
+        "vosotros": "traigáis",
+        "ellos/ellas": "traigan"
+      },
+      "futuro": {
+        "yo": "traeré",
+        "tú": "traerás",
+        "él/ella": "traerá",
+        "nosotros": "traeremos",
+        "vosotros": "traeréis",
+        "ellos/ellas": "traerán"
+      },
+      "condicional": {
+        "yo": "traería",
+        "tú": "traerías",
+        "él/ella": "traería",
+        "nosotros": "traeríamos",
+        "vosotros": "traeríais",
+        "ellos/ellas": "traerían"
+      }
+    }
+  ]
+}
