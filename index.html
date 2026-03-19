@@ -463,7 +463,7 @@ function renderCheatsheet(){
   <div class="passive-bar"><div class="passive-bar-label">Passiv</div><div class="passive-formula">${passiveHtml}</div></div>
 </div>`;
   const tag=(cls,label)=>`<span class="utag ${cls}">${label}</span>`;
-  const spoken=tag('utag-spoken','spoken'), written=tag('utag-written','written'), formal=tag('utag-formal','formal/literary'), common=tag('utag-common','very common'), modal=tag('utag-modal','modals always');
+  const spoken=tag('utag-spoken','spoken'), written=tag('utag-written','written'), formal=tag('utag-formal','formal/literary'), common=tag('utag-common','very common'), modalTag=tag('utag-modal','modals always');
   const kw=s=>`<span class="kw">${s}</span>`, ex=s=>`<span class="ex">${s}</span>`;
 
   const tenseCards=[
@@ -477,7 +477,7 @@ function renderCheatsheet(){
       `<em>Regular:</em> stem + ${kw('-te / -test / -te / -ten / -tet / -ten')}<br><em>Irregular:</em> strong verb stem change<br>${ex('gehen → <b>ging</b>, kommen → <b>kam</b>')}`,
       'Er arbeitete bis spät in die Nacht.','He worked until late into the night.',
       'Narrative and written past (novels, news). Modals and <em>sein/haben</em> always prefer Präteritum over Perfekt in speech too.',
-      written+formal+modal,
+      written+formal+modalTag,
       `${kw('wurde(n)')} + Partizip II &nbsp;→&nbsp; Das Buch ${kw('wurde')} geschrieben.`),
     tc('flag-perfekt','Perfekt','Present perfect / conversational past',
       `${kw('haben')} / ${kw('sein')} (Präsens) + Partizip II<br>${ex('ge- + stem + -(e)t &nbsp;or&nbsp; irregular ge-…-en')}<br>Motion/change verbs take ${kw('sein')}`,
